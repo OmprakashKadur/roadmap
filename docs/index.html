@@ -1,0 +1,1998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forward Deployed Engineer Roadmap • Complete Learning Path & Self-Contained Practical Tasks</title>
+  <meta name="description" content="The ultimate Forward Deployed Engineer (FDE) learning roadmap. 100% self-contained — master core concepts and complete guided hands-on tasks with starter code, full working solutions, and expected outputs without needing external materials.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --f: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --fm: 'JetBrains Mono', monospace;
+      --bg0: #06070d; --bg1: #0c101a; --bg2: #121826; --bg3: #111827; --bg3h: #172134; --bgi: #090d16;
+      --bd: rgba(255,255,255,0.07); --bds: rgba(255,255,255,0.14); --bdf: #6366f1;
+      --tx: #e0e7f1; --tx2: #8a98af; --txd: #4e5d75; --txh: #f1f5f9;
+      --ac: #6366f1; --acs: rgba(99,102,241,0.14);
+      --dn: #10b981; --dns: rgba(16,185,129,0.12); --dng: rgba(16,185,129,0.3);
+      --wp: #f59e0b; --wps: rgba(245,158,11,0.12); --wpg: rgba(245,158,11,0.3);
+      --sk: #64748b;
+      --tk: #06b6d4; --tks: rgba(6,182,212,0.12);
+      --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-xl: 22px; --r-f: 9999px;
+      --ease: cubic-bezier(0.4,0,0.2,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--f);background:var(--bg0);color:var(--tx);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;background-image:radial-gradient(ellipse at 15% 0%,rgba(99,102,241,.07) 0%,transparent 55%),radial-gradient(ellipse at 85% 100%,rgba(6,182,212,.05) 0%,transparent 55%);background-attachment:fixed}
+    ::selection{background:var(--ac);color:#fff}
+    ::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:10px}
+    a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
+
+    /* HEADER */
+    .hdr{position:sticky;top:0;z-index:100;background:rgba(6,7,13,.9);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--bd)}
+    .hi{max-width:1440px;margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:12px}
+    .bi{width:38px;height:38px;border-radius:var(--r-md);background:linear-gradient(135deg,#6366f1,#06b6d4);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(99,102,241,.35);flex-shrink:0}
+    .brand h1{font-size:16px;font-weight:800;color:var(--txh);letter-spacing:-.3px;line-height:1.2}
+    .brand small{font-size:11px;color:var(--txd);font-weight:500;display:block}
+    .hs{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .ch{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--tx2);padding:4px 10px;background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r-f)}
+    .ch .n{color:var(--txh);font-family:var(--fm);font-weight:700}
+    .ha{display:flex;align-items:center;gap:6px}
+    .ib{width:32px;height:32px;border-radius:var(--r-md);border:1px solid var(--bd);background:var(--bg2);color:var(--tx2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s var(--ease);font-size:13px}
+    .ib:hover{color:var(--tx);background:var(--bg3h);border-color:var(--bds)}
+    .rb{padding:5px 12px;border-radius:var(--r-md);border:1px solid rgba(244,63,94,.25);background:rgba(244,63,94,.06);color:#f43f5e;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s var(--ease)}
+    .rb:hover{background:rgba(244,63,94,.15)}
+
+    /* HERO */
+    .hero{max-width:1440px;margin:0 auto;padding:22px 28px 8px}
+    .hc{background:var(--bg1);border:1px solid var(--bd);border-radius:var(--r-xl);padding:24px 28px;display:flex;align-items:center;gap:32px;position:relative;overflow:hidden}
+    .hc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#10b981,#6366f1,#06b6d4,#f59e0b)}
+    .rw{position:relative;width:105px;height:105px;flex-shrink:0}
+    .rc{position:absolute;inset:7px;border-radius:50%;background:var(--bg1);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2}
+    .rp{font-size:24px;font-weight:900;color:var(--txh);letter-spacing:-1px;line-height:1}
+    .rl{font-size:9px;font-weight:600;color:var(--txd);text-transform:uppercase;letter-spacing:.4px;margin-top:2px}
+    .hinfo{flex:1;display:flex;flex-direction:column;gap:12px}
+    .ht{font-size:19px;font-weight:800;color:var(--txh);letter-spacing:-.4px}
+    .hstats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+    .hstat-card{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r-md);padding:8px 12px;display:flex;flex-direction:column;gap:2px}
+    .hstat-label{font-size:10px;font-weight:600;color:var(--txd);text-transform:uppercase;letter-spacing:.3px}
+    .hstat-val{font-size:16px;font-weight:800;font-family:var(--fm);color:var(--txh);display:flex;align-items:baseline;gap:4px}
+    .hstat-val small{font-size:11px;font-weight:500;color:var(--tx2)}
+    .bf{height:7px;border-radius:var(--r-f);background:var(--bg2);overflow:hidden;display:flex}
+    .bfd{background:var(--dn);transition:width .5s var(--ease)}
+    .bfw{background:var(--wp);transition:width .5s var(--ease)}
+
+    /* VIEW CONTROLS & FILTER BAR */
+    .vb{max-width:1440px;margin:0 auto;padding:12px 28px 4px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .vt-group{display:flex;background:var(--bg2);padding:3px;border-radius:var(--r-md);border:1px solid var(--bd)}
+    .vt-btn{padding:5px 12px;font-size:11px;font-weight:600;color:var(--tx2);border:none;background:transparent;cursor:pointer;border-radius:var(--r-sm);transition:all .2s var(--ease)}
+    .vt-btn.act{background:var(--ac);color:#fff;box-shadow:0 2px 8px rgba(99,102,241,.3)}
+    
+    .fb{max-width:1440px;margin:0 auto;padding:8px 28px 4px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+    .fp{padding:4px 10px;border-radius:var(--r-f);border:1px solid var(--bd);background:var(--bg2);color:var(--tx2);font-size:11px;font-weight:600;cursor:pointer;transition:all .2s var(--ease);user-select:none}
+    .fp:hover{color:var(--tx);background:var(--bg3h)}
+    .fp.act{background:var(--acs);border-color:var(--ac);color:var(--ac)}
+    .fs{width:1px;height:18px;background:var(--bd)}
+    .sw{position:relative;flex:1;min-width:180px;max-width:320px;margin-left:auto}
+    .sw svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--txd);pointer-events:none}
+    .si{width:100%;padding:6px 12px 6px 30px;border-radius:var(--r-md);border:1px solid var(--bd);background:var(--bgi);color:var(--tx);font-size:11px;font-family:var(--f);outline:none;transition:all .2s var(--ease)}
+    .si:focus{border-color:var(--bdf);box-shadow:0 0 0 3px var(--acs)}
+    .si::placeholder{color:var(--txd)}
+
+    /* LEGEND */
+    .leg{max-width:1440px;margin:0 auto;padding:6px 28px 8px;display:flex;align-items:center;gap:14px;font-size:10px;color:var(--txd);flex-wrap:wrap}
+    .li{display:flex;align-items:center;gap:5px}
+    .ls{width:11px;height:11px;border-radius:3px;border:1px solid var(--bd)}
+
+    /* ROADMAP SECTIONS */
+    .rm{max-width:1440px;margin:0 auto;padding:16px 28px 70px}
+    .sec{margin-bottom:32px;background:transparent;border-radius:var(--r-xl);transition:all .2s var(--ease)}
+    .sh{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding:12px 14px;background:var(--bg1);border:1px solid var(--bd);border-radius:var(--r-lg);cursor:pointer;user-select:none;transition:all .2s var(--ease)}
+    .sh:hover{border-color:var(--bds);background:var(--bg2)}
+    .si2{width:40px;height:40px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+    .snfo{flex:1;min-width:180px}
+    .st{font-size:16px;font-weight:800;color:var(--txh);letter-spacing:-.2px;line-height:1.3}
+    .sst{font-size:11px;color:var(--txd);font-weight:500;line-height:1.3;margin-top:1px}
+    
+    .spm{display:flex;align-items:center;gap:12px;margin-left:auto}
+    .spm-col{display:flex;flex-direction:column;align-items:flex-end;gap:3px}
+    .spp{font-family:var(--fm);font-weight:700;font-size:12px;color:var(--txh)}
+    .smb{width:80px;height:5px;border-radius:var(--r-f);background:var(--bg2);overflow:hidden}
+    .smf{height:100%;border-radius:var(--r-f);transition:width .4s var(--ease)}
+    .scn{font-size:10px;color:var(--txd);font-family:var(--fm)}
+    .stg{color:var(--txd);transition:transform .3s var(--ease);padding-left:4px}
+    .sec.col .stg{transform:rotate(-90deg)}
+    .sec.col .sec-body{display:none}
+
+    /* SECTION BODY (TOPICS & TASKS) */
+    .sec-body{display:flex;flex-direction:column;gap:16px;padding:4px 0}
+    
+    /* TOPICS GRID */
+    .tg-hdr{display:flex;align-items:center;justify-content:space-between;padding:0 4px;font-size:12px;font-weight:700;color:var(--tx2);letter-spacing:-.1px}
+    .tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
+    .tc{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r-lg);padding:14px;cursor:pointer;transition:all .2s var(--ease);position:relative;overflow:hidden;display:flex;flex-direction:column;gap:9px}
+    .tc:hover{background:var(--bg3h);border-color:var(--bds);transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.35)}
+    .tc.hid{display:none}
+    .tc::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3.5px;border-radius:3px 0 0 3px;background:var(--sk);transition:background .3s var(--ease)}
+    .tc[data-s="done"]::before{background:var(--dn)}
+    .tc[data-s="in-progress"]::before{background:var(--wp)}
+    .tt{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+    .tn{font-size:13px;font-weight:700;color:var(--txh);line-height:1.35;flex:1}
+    .tc[data-s="done"] .tn{color:var(--tx2)}
+    .td{font-size:11.5px;color:var(--txd);line-height:1.55}
+    .sb{flex-shrink:0;width:26px;height:26px;border-radius:var(--r-sm);border:1.5px solid var(--bds);background:transparent;color:var(--txd);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:13px;transition:all .2s var(--ease)}
+    .sb:hover{border-color:var(--ac);color:var(--ac)}
+    .tc[data-s="done"] .sb{background:var(--dn);border-color:var(--dn);color:#fff;box-shadow:0 0 10px var(--dng)}
+    .tc[data-s="in-progress"] .sb{background:var(--wp);border-color:var(--wp);color:#fff;box-shadow:0 0 10px var(--wpg)}
+    .tm{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+    .mt{font-size:9px;font-weight:700;padding:2px 7px;border-radius:var(--r-sm);border:1px solid var(--bd);color:var(--txd);background:var(--bg2);text-transform:uppercase;letter-spacing:.3px}
+    .mt.essential{border-color:rgba(239,68,68,.25);color:#f87171;background:rgba(239,68,68,.08)}
+    .mt.recommended{border-color:rgba(59,130,246,.25);color:#60a5fa;background:rgba(59,130,246,.08)}
+    .mt.advanced{border-color:rgba(168,85,247,.25);color:#c084fc;background:rgba(168,85,247,.08)}
+    .mt.beginner{border-color:rgba(16,185,129,.25);color:#34d399;background:rgba(16,185,129,.08)}
+    .su{display:flex;flex-wrap:wrap;gap:4px}
+    .sp{font-size:9.5px;font-weight:500;padding:2px 7px;border-radius:var(--r-f);background:var(--bg2);color:var(--tx2)}
+    .tc[data-s="done"] .sp{background:var(--dns);color:var(--dn)}
+    .tc[data-s="in-progress"] .sp{background:var(--wps);color:var(--wp)}
+    .tr{display:flex;gap:6px;flex-wrap:wrap;padding-top:6px;border-top:1px solid var(--bd)}
+    .trl{font-size:9.5px;font-weight:600;padding:2px 8px;border-radius:var(--r-sm);background:var(--acs);color:var(--ac);text-decoration:none}
+    .trl:hover{background:rgba(99,102,241,.25);text-decoration:none}
+
+    /* CARD INSPECT HINT */
+    .card-inspect-hint{display:flex;align-items:center;justify-content:space-between;padding-top:6px;border-top:1px dashed var(--bd);font-size:9.5px;color:var(--txd);font-weight:500}
+    .card-inspect-hint span{display:flex;align-items:center;gap:4px;color:var(--ac);font-weight:600}
+
+    /* PRACTICAL TASKS SECTION */
+    .tasks-block{background:rgba(12,16,26,.7);border:1px solid rgba(6,182,212,.18);border-radius:var(--r-lg);padding:14px;display:flex;flex-direction:column;gap:10px;position:relative}
+    .tasks-block::before{content:'';position:absolute;top:0;left:0;width:3px;bottom:0;background:#06b6d4;border-radius:var(--r-lg) 0 0 var(--r-lg)}
+    .tb-hdr{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+    .tb-title{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:800;color:var(--txh)}
+    .tb-badge{font-size:10px;font-weight:700;padding:2px 8px;background:var(--tks);color:var(--tk);border:1px solid rgba(6,182,212,.3);border-radius:var(--r-f);font-family:var(--fm)}
+    .tasks-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+    .task-card{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r-md);padding:12px;display:flex;gap:11px;transition:all .2s var(--ease);cursor:pointer}
+    .task-card:hover{background:var(--bg3h);border-color:rgba(6,182,212,.3);transform:translateY(-1px)}
+    .task-card.task-done{border-color:rgba(16,185,129,.3);background:rgba(16,185,129,.04)}
+    .task-check{width:22px;height:22px;border-radius:var(--r-sm);border:1.5px solid var(--bds);background:transparent;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;font-size:12px;transition:all .2s var(--ease);margin-top:2px}
+    .task-card.task-done .task-check{background:var(--dn);border-color:var(--dn);color:#fff;box-shadow:0 0 8px var(--dng)}
+    .task-content{flex:1;display:flex;flex-direction:column;gap:5px}
+    .task-header{display:flex;align-items:center;justify-content:space-between;gap:8px}
+    .task-name{font-size:12px;font-weight:700;color:var(--txh);line-height:1.3}
+    .task-card.task-done .task-name{color:var(--tx2);text-decoration:line-through;text-decoration-color:var(--dn)}
+    .task-meta{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+    .t-badge{font-size:8.5px;font-weight:700;padding:1px 6px;border-radius:var(--r-sm);text-transform:uppercase;letter-spacing:.3px}
+    .t-beginner{background:rgba(16,185,129,.1);color:#34d399;border:1px solid rgba(16,185,129,.2)}
+    .t-intermediate{background:rgba(245,158,11,.1);color:#fbbf24;border:1px solid rgba(245,158,11,.2)}
+    .t-client{background:rgba(168,85,247,.1);color:#c084fc;border:1px solid rgba(168,85,247,.2)}
+    .t-time{font-size:9.5px;font-family:var(--fm);color:var(--txd);font-weight:600}
+    .task-desc{font-size:11px;color:var(--txd);line-height:1.5}
+    .task-card.task-done .task-desc{color:var(--txd);opacity:0.8}
+
+    /* DEEP-DIVE SLIDE-OVER DRAWER */
+    .drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:1000;opacity:0;pointer-events:none;transition:opacity .3s var(--ease);display:flex;justify-content:flex-end}
+    .drawer-overlay.active{opacity:1;pointer-events:auto}
+    .drawer{width:min(680px,95vw);height:100vh;background:#090d15;border-left:1px solid var(--bds);box-shadow:-12px 0 40px rgba(0,0,0,.8);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .32s var(--ease);overflow:hidden}
+    .drawer-overlay.active .drawer{transform:translateX(0)}
+    .drawer-hdr{padding:16px 22px;border-bottom:1px solid var(--bd);background:rgba(12,16,26,.92);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-shrink:0}
+    .drawer-hdr-info{display:flex;flex-direction:column;gap:3px;min-width:0}
+    .drawer-type{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--tk);display:flex;align-items:center;gap:6px}
+    .drawer-title{font-size:16px;font-weight:800;color:var(--txh);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .drawer-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+    .drawer-status-btn{padding:5px 12px;font-size:11px;font-weight:700;border-radius:var(--r-md);border:1px solid var(--bds);background:var(--bg2);color:var(--txh);cursor:pointer;transition:all .2s var(--ease);display:flex;align-items:center;gap:6px}
+    .drawer-status-btn:hover{background:var(--bg3h);border-color:var(--ac)}
+    .drawer-close{width:32px;height:32px;border-radius:var(--r-md);border:1px solid var(--bd);background:var(--bg2);color:var(--tx2);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;transition:all .2s var(--ease)}
+    .drawer-close:hover{background:var(--bg3h);color:var(--tx);border-color:var(--bds)}
+    .drawer-body{flex:1;overflow-y:auto;padding:20px 22px 60px;display:flex;flex-direction:column;gap:16px}
+    .d-card{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r-lg);padding:14px 16px;display:flex;flex-direction:column;gap:9px}
+    .d-card-title{font-size:12px;font-weight:800;color:var(--txh);display:flex;align-items:center;gap:7px;text-transform:uppercase;letter-spacing:.4px}
+    .d-card-text{font-size:12.5px;color:var(--tx);line-height:1.65}
+    .d-code-box{background:#040508;border:1px solid rgba(255,255,255,.08);border-radius:var(--r-md);overflow:hidden;position:relative}
+    .d-code-hdr{padding:6px 12px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between;font-size:10px;font-family:var(--fm);color:var(--txd)}
+    .d-code-copy{background:transparent;border:none;color:var(--tx2);cursor:pointer;font-size:10px;padding:2px 6px;border-radius:var(--r-sm);transition:all .2s var(--ease)}
+    .d-code-copy:hover{color:var(--txh);background:rgba(255,255,255,.08)}
+    .d-code{padding:12px 14px;margin:0;font-family:var(--fm);font-size:11.5px;line-height:1.6;color:#93c5fd;overflow-x:auto;white-space:pre}
+    .d-checklist{display:flex;flex-direction:column;gap:8px}
+    .d-check-item{display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);line-height:1.5}
+    .d-check-bullet{width:16px;height:16px;border-radius:50%;background:var(--acs);color:var(--ac);display:flex;align-items:center;justify-content:center;font-size:9.5px;flex-shrink:0;margin-top:2px;font-weight:700}
+    .d-res-item{display:flex;align-items:center;justify-content:space-between;padding:9px 13px;background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r-md);color:var(--tx);font-size:12px;font-weight:600;text-decoration:none;transition:all .2s var(--ease)}
+    .d-res-item:hover{border-color:var(--ac);background:var(--bg3h);color:var(--txh);text-decoration:none}
+    .d-res-tag{font-size:9.5px;color:var(--tk);background:var(--tks);padding:2px 7px;border-radius:var(--r-sm);font-family:var(--fm)}
+
+    /* SOLUTION ACCORDION & TERMINAL OUTPUT */
+    .d-solution-accordion{background:rgba(16,185,129,.05);border:1px solid rgba(16,185,129,.28);border-radius:var(--r-md);overflow:hidden;margin-top:4px}
+    .d-solution-accordion[open]{background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.45)}
+    .d-solution-summary{padding:12px 16px;font-size:12px;font-weight:800;color:#34d399;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none;outline:none}
+    .d-solution-summary:hover{background:rgba(16,185,129,.08)}
+    .d-solution-content{padding:0 14px 14px;display:flex;flex-direction:column;gap:10px}
+    .d-term-output{background:#020306;border:1px solid rgba(255,255,255,.1);border-radius:var(--r-md);padding:12px 14px;font-family:var(--fm);font-size:11px;line-height:1.55;color:#38bdf8;white-space:pre-wrap;overflow-x:auto}
+
+    /* TOAST */
+    .tw{position:fixed;bottom:24px;right:24px;z-index:1500;display:flex;flex-direction:column;gap:8px}
+    .toast{padding:9px 16px;border-radius:var(--r-md);background:var(--bg2);border:1px solid var(--bds);box-shadow:0 16px 48px rgba(0,0,0,.5);font-size:12px;font-weight:600;color:var(--tx);animation:ti .25s var(--ease);display:flex;align-items:center;gap:8px}
+    @keyframes ti{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+
+    @media(max-width:768px){
+      .hi{flex-direction:column;align-items:stretch;padding:10px 16px}
+      .hs{justify-content:center}.ha{justify-content:center}
+      .hero{padding:14px 16px 6px}.hc{flex-direction:column;text-align:center;padding:18px}
+      .vb,.fb,.leg{padding-left:16px;padding-right:16px}
+      .rm{padding:12px 16px 50px}
+      .tg{grid-template-columns:1fr}
+      .tasks-list{grid-template-columns:1fr}
+      .spm{margin-left:0;width:100%;justify-content:space-between}
+      .sh{flex-wrap:wrap}
+      .drawer{width:100vw}
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="hdr"><div class="hi">
+    <div class="brand">
+      <div class="bi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+      <div><h1>Forward Deployed Engineer Roadmap</h1><small>Complete Learning Path • Self-Contained Concepts & Guided Tasks</small></div>
+    </div>
+    <div class="hs">
+      <div class="ch" title="Topics Mastered"><span>✅</span><span class="n" id="sDn">0</span></div>
+      <div class="ch" title="Topics in Learning"><span>🔄</span><span class="n" id="sWp">0</span></div>
+      <div class="ch" title="Practical Tasks Done"><span>🛠️</span><span class="n" id="sTk">0</span>/<span id="sTkTotal">0</span> tasks</div>
+      <div class="ch" title="Total Topics"><span>📚</span><span class="n" id="sTt">0</span> topics</div>
+    </div>
+    <div class="ha">
+      <button class="ib" id="bE" title="Expand all sections">⬇</button>
+      <button class="ib" id="bC" title="Collapse all sections">⬆</button>
+      <button class="rb" id="bR" title="Reset all progress">Reset</button>
+    </div>
+  </div></header>
+
+  <!-- HERO -->
+  <section class="hero"><div class="hc">
+    <div class="rw">
+      <svg viewBox="0 0 120 120" width="105" height="105" style="transform:rotate(-90deg)">
+        <circle cx="60" cy="60" r="50" fill="none" stroke="var(--bg2)" stroke-width="9"/>
+        <circle id="rSvg" cx="60" cy="60" r="50" fill="none" stroke="url(#rg)" stroke-width="9" stroke-linecap="round" stroke-dasharray="314.16" stroke-dashoffset="314.16" style="transition:stroke-dashoffset .6s var(--ease)"/>
+        <defs><linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#10b981"/><stop offset="40%" stop-color="#6366f1"/><stop offset="80%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient></defs>
+      </svg>
+      <div class="rc"><span class="rp" id="hP">0%</span><span class="rl">Readiness</span></div>
+    </div>
+    <div class="hinfo">
+      <div class="ht" id="hT">Your FDE Journey Starts Here 🚀</div>
+      <div class="hstats-grid">
+        <div class="hstat-card">
+          <span class="hstat-label">Concepts Mastered</span>
+          <span class="hstat-val"><span id="hD">0</span><small>/ <span id="hTotal">0</span></small></span>
+        </div>
+        <div class="hstat-card">
+          <span class="hstat-label">In Progress</span>
+          <span class="hstat-val" style="color:var(--wp)"><span id="hW">0</span></span>
+        </div>
+        <div class="hstat-card">
+          <span class="hstat-label">Hands-On Tasks</span>
+          <span class="hstat-val" style="color:var(--tk)"><span id="hTkDone">0</span><small>/ <span id="hTkTotal">0</span></small></span>
+        </div>
+        <div class="hstat-card">
+          <span class="hstat-label">Overall Completion</span>
+          <span class="hstat-val" style="color:var(--dn)"><span id="hOverallPct">0%</span></span>
+        </div>
+      </div>
+      <div class="bf" title="Progress Bar"><div class="bfd" id="hBd" style="width:0%"></div><div class="bfw" id="hBw" style="width:0%"></div></div>
+    </div>
+  </div></section>
+
+  <!-- VIEW TOGGLE & FILTER CONTROLS -->
+  <div class="vb">
+    <div class="vt-group">
+      <button class="vt-btn act" data-view="both">All (Topics + Tasks)</button>
+      <button class="vt-btn" data-view="topics">📚 Topics Only</button>
+      <button class="vt-btn" data-view="tasks">🛠️ Tasks Only</button>
+    </div>
+    <div style="font-size:11px;color:var(--txd)">
+      💡 <span>Click any card to open its <b>Deep-Dive Guide</b> with complete working code, starter data & explanations</span>
+    </div>
+  </div>
+
+  <div class="fb" id="fb">
+    <div class="fp act" data-f="all">All</div>
+    <div class="fp" data-f="not-started">⬜ Not Started</div>
+    <div class="fp" data-f="in-progress">🔄 Learning</div>
+    <div class="fp" data-f="done">✅ Done</div>
+    <div class="fs"></div>
+    <div class="fp" data-f="tasks-incomplete">🛠️ Tasks Remaining</div>
+    <div class="fp" data-f="tasks-done">🎉 Tasks Done</div>
+    <div class="fs"></div>
+    <div class="fp" data-f="beginner">🟢 Beginner</div>
+    <div class="fp" data-f="essential">🔴 Essential</div>
+    <div class="fp" data-f="recommended">🔵 Recommended</div>
+    <div class="fp" data-f="advanced">🟣 Advanced</div>
+    <div class="sw">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" class="si" id="sIn" placeholder="Search topics & tasks...">
+    </div>
+  </div>
+
+  <div class="leg">
+    <span>Legend:</span>
+    <div class="li"><div class="ls" style="background:var(--dn)"></div>Done</div>
+    <div class="li"><div class="ls" style="background:var(--wp)"></div>In Progress</div>
+    <div class="li"><div class="ls" style="background:var(--sk)"></div>Not Started</div>
+    <div class="li"><div class="ls" style="background:var(--tk)"></div>Hands-on Task</div>
+    <div style="margin-left:auto;display:flex;gap:6px">
+      <span class="mt beginner">Beginner</span>
+      <span class="mt essential">Essential</span>
+      <span class="mt recommended">Recommended</span>
+      <span class="mt advanced">Advanced</span>
+    </div>
+  </div>
+
+  <!-- ROADMAP CONTAINER -->
+  <div class="rm" id="rmC"></div>
+  <div class="tw" id="tw"></div>
+
+  <!-- SLIDE-OVER DEEP DIVE DRAWER -->
+  <div class="drawer-overlay" id="drawerOverlay">
+    <div class="drawer" id="drawerPanel">
+      <div class="drawer-hdr">
+        <div class="drawer-hdr-info">
+          <div class="drawer-type" id="drawerType">📖 CONCEPT DEEP-DIVE</div>
+          <div class="drawer-title" id="drawerTitle">Topic Title</div>
+        </div>
+        <div class="drawer-actions">
+          <button class="drawer-status-btn" id="drawerStatusBtn">Status</button>
+          <button class="drawer-close" id="drawerClose" title="Close (Esc)">✕</button>
+        </div>
+      </div>
+      <div class="drawer-body" id="drawerBody">
+        <!-- Dynamically populated deep-dive content -->
+      </div>
+    </div>
+  </div>
+
+<script>
+// ============================================================
+// DATA: 21 SECTIONS WITH BOTH CONCEPTS AND PRACTICAL TASKS
+// ============================================================
+const D = [
+// 0. WHAT IS AN FDE & HOW TO USE THIS ROADMAP
+{
+  id: "start",
+  title: "0. Start Here — What is a Forward Deployed Engineer?",
+  subtitle: "Understand the role, the career path, and the hybrid engineer-consultant mindset",
+  icon: "🗺️",
+  color: "#6366f1",
+  topics: [
+    {id:"what-is-fde",name:"What is a Forward Deployed Engineer (FDE)?",desc:"An FDE is part software engineer, part consultant, part solutions architect. Embedded directly with enterprise clients (Palantir, Anduril, Scale AI, Databricks) to build custom solutions on top of the company's platform.",level:"beginner",subtopics:["Engineering + Consulting Hybrid","Client-Embedded Work","Custom Solution Building","Platform Customization","Cross-Functional Collaboration"],resources:[{label:"Palantir FDE Overview",url:"https://www.palantir.com/careers/"},{label:"What FDEs Do",url:"https://medium.com/@palantir"}]},
+    {id:"fde-vs-swe",name:"FDE vs SWE vs Solutions Engineer vs Sales Engineer",desc:"Understand where the role sits: SWE builds product, FDE deploys & customizes it at client sites, Solutions Engineer focuses on pre-sales architecture, and Sales Engineer handles product demos.",level:"beginner",subtopics:["FDE vs SWE","FDE vs Solutions Engineer","FDE vs Sales Engineer","FDE vs DevRel","Career Progression"],resources:[]},
+    {id:"fde-day-in-life",name:"A Day in the Life of an FDE",desc:"Morning: client standup and requirements triage. Midday: write data transformation pipelines. Afternoon: build client dashboard for the CTO. Evening: write deployment runbooks and sync with core engineering.",level:"beginner",subtopics:["Client Standups","Debugging in Production","Custom Feature Building","Client Presentations","Documentation Writing","Context Switching"],resources:[]},
+    {id:"how-to-use-roadmap",name:"How to Use This Roadmap",desc:"Follow the sequential path. For each section, master the core concepts first, then complete the hands-on practical tasks to build muscle memory. Progress auto-saves in your browser.",level:"beginner",subtopics:["Top-to-Bottom Order","Essential First","Hands-on Practical Tasks","Progress Auto-Saves","Filter by Level"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-start-1",title:"Personal FDE Skill Audit & 6-Month Roadmap Plan",level:"beginner",est:"45m",desc:"Audit your current foundation (e.g. React/Next.js familiarity vs Python/SQL gaps). Set a weekly study schedule of 10-15 hours and establish 3 milestone target dates."},
+    {id:"t-start-2",title:"Analyze 5 Real FDE Job Specs (Palantir, Scale AI, Anduril, Databricks)",level:"beginner",est:"1.5h",desc:"Review 5 current FDE job descriptions. Create a table comparing core programming languages, data engineering requirements, client-facing expectations, and travel demands."},
+    {id:"t-start-3",title:"Draft an FDE Client Value Pitch Memo",level:"intermediate",est:"1h",desc:"Write a 1-page memo answering: 'Why should an enterprise client embed an FDE on-site instead of just hiring external IT contractors or using pure SaaS?'"}
+  ]
+},
+
+// 1. COMPUTER SCIENCE FOUNDATIONS
+{
+  id: "cs-foundations",
+  title: "1. Computer Science Foundations",
+  subtitle: "Core CS knowledge — start here if you're new to programming or self-taught",
+  icon: "🧠",
+  color: "#8b5cf6",
+  topics: [
+    {id:"how-computers-work",name:"How Computers Work & Memory Basics",desc:"CPU, registers, RAM, disk storage, binary, compilation vs interpretation. Understanding why code runs fast or slow starts here.",level:"beginner",subtopics:["CPU & Clock Cycles","RAM vs Storage","Binary & Hex","Compilation vs Interpretation","Bits & Bytes","Operating System Role"],resources:[{label:"Crash Course CS",url:"https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo"}]},
+    {id:"prog-thinking",name:"Algorithmic Thinking & Problem Decomposition",desc:"How to decompose complex client problems into step-by-step algorithms. Pseudocode, flowcharts, input-output mapping, and identifying edge cases.",level:"beginner",subtopics:["Problem Decomposition","Pseudocode","Flowcharts","Input → Process → Output","Edge Cases","Debugging Mindset"],resources:[]},
+    {id:"data-structures",name:"Data Structures (Arrays to Graphs)",desc:"Arrays, linked lists, stacks, queues, hash tables, trees, and graphs. Know their memory layout, lookup/insertion trade-offs, and when to apply them.",level:"essential",subtopics:["Arrays","Linked Lists","Stacks & Queues","Hash Maps / Dictionaries","Trees (Binary, BST)","Graphs","Heaps / Priority Queues","Sets"],resources:[{label:"NeetCode",url:"https://neetcode.io"},{label:"Visualgo",url:"https://visualgo.net"}]},
+    {id:"algorithms",name:"Core Algorithms & Problem Solving",desc:"Binary search, quicksort/mergesort, recursion, BFS/DFS traversals, sliding window, two pointers, and dynamic programming.",level:"essential",subtopics:["Binary Search","Merge Sort","Quick Sort","Recursion","BFS & DFS","Greedy Algorithms","Dynamic Programming","Sliding Window","Two Pointers","Backtracking"],resources:[{label:"LeetCode",url:"https://leetcode.com"},{label:"Abdul Bari Algorithms",url:"https://www.youtube.com/c/AbdulBari"}]},
+    {id:"big-o",name:"Big-O Notation & Complexity Analysis",desc:"Measure runtime and memory growth: O(1), O(log n), O(n), O(n log n), O(n²). Essential for system performance and technical interviews.",level:"essential",subtopics:["O(1) Constant","O(log n) Logarithmic","O(n) Linear","O(n log n)","O(n²) Quadratic","Space Complexity","Best/Average/Worst Case"],resources:[]},
+    {id:"oop-concepts",name:"Object-Oriented Programming (OOP) & SOLID",desc:"Classes, encapsulation, inheritance, polymorphism, and the SOLID principles used to structure enterprise codebases.",level:"essential",subtopics:["Classes & Objects","Constructors","Inheritance","Polymorphism","Encapsulation","Abstraction","SOLID Principles","Composition vs Inheritance"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-cs-1",title:"Build 4 Core Data Structures from Scratch",level:"beginner",est:"3h",desc:"Implement a Dynamic Array, Singly Linked List, Stack, and Hash Map with basic collision handling without using high-level collections."},
+    {id:"t-cs-2",title:"Solve 10 LeetCode Easy & Medium Patterns",level:"intermediate",est:"5h",desc:"Complete 2 Two-Pointer, 2 Sliding Window, 2 Binary Search, 2 Tree BFS/DFS, and 2 Hash Map questions. Write out Big-O time and space complexity for each."},
+    {id:"t-cs-3",title:"Refactor a Spaghetti Script into OOP with SOLID",level:"intermediate",est:"2h",desc:"Take a procedural script with nested if/else statements and refactor it into clean classes using Single Responsibility and Dependency Inversion principles."}
+  ]
+},
+
+// 2. COMMAND LINE, SHELL & OS
+{
+  id: "cli-os",
+  title: "2. Command Line, Shell & Operating System",
+  subtitle: "You'll live in the terminal at client sites — master shell navigation, scripting & Linux",
+  icon: "💻",
+  color: "#22c55e",
+  topics: [
+    {id:"terminal-basics",name:"Terminal Navigation & File Operations",desc:"Navigating directories (cd, ls, pwd), manipulating files (cp, mv, rm, mkdir, touch), viewing contents (cat, less, head, tail), and keyboard shortcuts.",level:"beginner",subtopics:["cd / ls / pwd","mkdir / rm / cp / mv","cat / less / head / tail","touch / echo","clear / history","Tab Completion"],resources:[{label:"Linux Journey",url:"https://linuxjourney.com"}]},
+    {id:"shell-scripting",name:"Shell Scripting (Bash/Zsh) & Text Processing",desc:"Variables, conditionals, loops, functions, I/O redirection (> >>), pipes (|), and text parsing powerhouses: grep, sed, and awk.",level:"essential",subtopics:["Variables","if/else","for/while Loops","Functions","Pipes & Redirection","grep / sed / awk","chmod & Permissions","cron Jobs"],resources:[]},
+    {id:"ssh-remote",name:"SSH, Remote Access & Session Management",desc:"SSH key pairs, remote terminal access, SCP/SFTP file transfers, SSH tunneling, jump hosts, and multiplexers (tmux).",level:"essential",subtopics:["SSH Keys (ssh-keygen)","SSH Config","SCP / SFTP","SSH Tunneling","Jump/Bastion Hosts","tmux / screen"],resources:[]},
+    {id:"linux-fundamentals",name:"Linux OS Fundamentals & Process Management",desc:"File system hierarchy, users/groups, file permissions (chmod, chown), process monitoring (ps, top, htop, kill), systemd services, and journalctl.",level:"essential",subtopics:["File System Hierarchy","Users & Permissions","Processes (ps, top, kill)","Disk Usage (df, du)","systemd / systemctl","Logs (/var/log)","File Permissions (chmod, chown)"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-cli-1",title:"Terminal Mastery: Setup & Directory Tree Manipulation",level:"beginner",est:"1h",desc:"Create a nested project structure using CLI only, set custom aliases in your .zshrc/.bashrc, search files with `find`, and inspect permissions."},
+    {id:"t-cli-2",title:"Build an Automated Log Analysis Shell Script",level:"intermediate",est:"2h",desc:"Write a bash script using `awk`, `grep`, `sort`, and `uniq -c` that parses an access log file, computes the top 5 IP addresses, and flags all 5xx HTTP errors."},
+    {id:"t-cli-3",title:"Configure Passwordless SSH & Tmux Remote Workflow",level:"intermediate",est:"1.5h",desc:"Generate Ed25519 SSH keys, configure `~/.ssh/config` with host aliases, connect to a remote VM/container, and set up a persistent multi-pane tmux workspace."}
+  ]
+},
+
+// 3. GIT & VERSION CONTROL
+{
+  id: "git",
+  title: "3. Git & Version Control",
+  subtitle: "Every line of client and product code is version-controlled — master clean git workflows",
+  icon: "🔀",
+  color: "#f43f5e",
+  topics: [
+    {id:"git-basics",name:"Git Fundamentals (init, commit, push, pull)",desc:"Working directory, staging area, local repository, commits with clear messages, branching, pushing, and pulling from remote repos.",level:"beginner",subtopics:["git init","git add / stage","git commit","git push / pull","git clone",".gitignore","git status / log"],resources:[{label:"Git Handbook",url:"https://guides.github.com/introduction/git-handbook/"},{label:"Learn Git Branching",url:"https://learngitbranching.js.org"}]},
+    {id:"git-branching",name:"Branching Strategies & Conflict Resolution",desc:"Feature branching, merging, identifying 3-way merge conflicts, reading conflict markers, and resolving them cleanly.",level:"essential",subtopics:["git branch","git checkout / switch","git merge","Merge Conflicts","Feature Branches","Branch Naming Conventions"],resources:[]},
+    {id:"git-advanced",name:"Advanced Git (Rebase, Cherry-pick, Bisect, Reflog)",desc:"Interactive rebase (squash, reword, fixup), cherry-picking commits, binary searching bugs with `git bisect`, and recovering lost commits with `git reflog`.",level:"recommended",subtopics:["Interactive Rebase","Cherry-pick","git bisect","git reflog","git stash","Submodules","Worktrees","Squash Commits"],resources:[]},
+    {id:"git-collab",name:"GitHub PR Workflows & Conventional Commits",desc:"Pull requests, thorough code reviews, branch protection rules, semantic commit messages (feat:, fix:, docs:), and automated changelogs.",level:"essential",subtopics:["Pull Requests","Code Review Process","Issues & Projects","GitHub Actions","Branch Protection","CODEOWNERS","Draft PRs"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-git-1",title:"Create a Repo with Semantic Commits & Pre-Commit Hooks",level:"beginner",est:"1h",desc:"Initialize a Git repo, configure a .gitignore, install pre-commit linter hooks, and commit 5 features using Conventional Commits syntax."},
+    {id:"t-git-2",title:"Simulate & Resolve a Multi-File Merge Conflict",level:"intermediate",est:"1h",desc:"Create two divergent branches modifying overlapping functions, merge them to trigger a merge conflict, resolve via CLI, and verify tests pass."},
+    {id:"t-git-3",title:"Interactive Rebase & Git Bisect Debugging Challenge",level:"intermediate",est:"2h",desc:"Use `git rebase -i` to squash 4 messy commits into 1 atomic commit. Introduce a regression, and write a script to locate it using `git bisect run`."}
+  ]
+},
+
+// 4. PYTHON (Primary FDE Language)
+{
+  id: "python",
+  title: "4. Python (Primary FDE Language)",
+  subtitle: "The lingua franca at Palantir, Scale AI, and Databricks — from scripting to data pipelines",
+  icon: "🐍",
+  color: "#3776ab",
+  topics: [
+    {id:"py-setup",name:"Python Setup, Virtual Environments & Tooling",desc:"Python 3 installation, virtual environments (venv), package management with pip, pyenv, requirements.txt, and VS Code/PyCharm setup.",level:"beginner",subtopics:["Install Python 3","pip install","venv / virtualenv","pyenv","requirements.txt","VS Code Python Extension"],resources:[{label:"Python.org",url:"https://www.python.org/downloads/"},{label:"Real Python Setup",url:"https://realpython.com/installing-python/"}]},
+    {id:"py-syntax",name:"Python Syntax, Data Types & Control Flow",desc:"Variables, strings, lists, dicts, tuples, sets, list comprehensions, conditional statements, and loops.",level:"beginner",subtopics:["Variables","Data Types","print() / input()","Comments","Indentation","Type Casting","f-strings","List Comprehensions"],resources:[{label:"Python Tutorial",url:"https://docs.python.org/3/tutorial/"},{label:"Automate Boring Stuff",url:"https://automatetheboringstuff.com/"}]},
+    {id:"py-functions-oop",name:"Functions, Modules & Object-Oriented Python",desc:"Functions (*args, **kwargs), decorators, classes, magic methods (__init__, __str__, __repr__), dataclasses, and inheritance.",level:"essential",subtopics:["def / return","*args / **kwargs","Lambda Functions","Classes & Objects","Dataclasses","Decorators","Magic Methods"],resources:[]},
+    {id:"py-error-io",name:"File I/O, Error Handling & Logging",desc:"Reading and writing CSV/JSON/TXT files using context managers (with), try/except/finally blocks, and the standard logging module.",level:"essential",subtopics:["open() / with Statement","CSV & JSON Modules","try / except / finally","Custom Exceptions","logging Module","pathlib"],resources:[]},
+    {id:"py-pandas",name:"Pandas DataFrames for Data Manipulation",desc:"DataFrames, Series, reading CSV/Excel, filtering, grouping, aggregating, merging/joining, reshaping, and handling missing data.",level:"essential",subtopics:["DataFrames","Series","read_csv / read_excel","Filtering & Indexing","GroupBy","Merge & Join","Pivot Tables","apply() / map()","Missing Data Handling"],resources:[{label:"Pandas Docs",url:"https://pandas.pydata.org/docs/"},{label:"Kaggle Pandas Course",url:"https://www.kaggle.com/learn/pandas"}]},
+    {id:"py-scripting-cli",name:"CLI Automation, Subprocess & Requests",desc:"Building CLI tools with argparse/click, running system commands via subprocess, making HTTP requests with requests/httpx.",level:"essential",subtopics:["os / shutil","subprocess","argparse / click","pathlib","requests Library","Environment Variables (python-dotenv)"],resources:[]},
+    {id:"py-testing",name:"Testing with Pytest & TDD Basics",desc:"Unit tests, fixtures, mocking external APIs (unittest.mock), parameterized tests, and test coverage reporting.",level:"essential",subtopics:["pytest Basics","Assertions","Fixtures","Mocking (unittest.mock)","Parametrize","Coverage","conftest.py"],resources:[]},
+    {id:"py-web",name:"FastAPI & Web Services",desc:"Building performant REST APIs with FastAPI, Pydantic data validation schemas, dependency injection, and automatic Swagger docs.",level:"recommended",subtopics:["FastAPI","Pydantic Models","Routing","Request / Response","Dependency Injection","Middleware","Swagger Docs"],resources:[{label:"FastAPI Docs",url:"https://fastapi.tiangolo.com/"}]}
+  ],
+  tasks: [
+    {id:"t-py-1",title:"Build a CLI Data Cleaning Tool with Argparse",level:"beginner",est:"2h",desc:"Build a Python command-line utility that takes a messy CSV input, cleans null values, reformats date strings to ISO-8601, and writes out clean JSON."},
+    {id:"t-py-2",title:"Resilient API Ingestion Script with Logging & Retries",level:"intermediate",est:"3h",desc:"Write an automated script that calls an external REST API with exponential backoff retries, validates payloads with Pydantic, and logs execution to a rotating JSON log file."},
+    {id:"t-py-3",title:"Pandas Analytics Pipeline on a Real Dataset",level:"intermediate",est:"3h",desc:"Download a 100k+ row public dataset. Perform group-by aggregations, compute rolling averages, impute missing values, and output summary KPIs."},
+    {id:"t-py-4",title:"Production-Grade FastAPI Microservice with Pytest Suite",level:"intermediate",est:"4h",desc:"Develop a FastAPI service with 4 endpoints (CRUD operations), in-memory SQLite backend, Pydantic validation, and a comprehensive pytest suite with 90%+ coverage."}
+  ]
+},
+
+// 5. JAVASCRIPT & TYPESCRIPT
+{
+  id: "js-ts",
+  title: "5. JavaScript & TypeScript",
+  subtitle: "Frontend foundation & typed systems — essential for client dashboards, tooling & Node.js",
+  icon: "⚡",
+  color: "#eab308",
+  topics: [
+    {id:"js-basics",name:"JavaScript Core & DOM Manipulation",desc:"Variables (let/const), data types, functions, arrays/objects, DOM selection, event listeners, and bubbling.",level:"beginner",subtopics:["let / const","Data Types","Functions","DOM Events","Event Delegation","querySelector","createElement"],resources:[{label:"javascript.info",url:"https://javascript.info"},{label:"MDN JS",url:"https://developer.mozilla.org/en-US/docs/Web/JavaScript"}]},
+    {id:"js-es6",name:"Modern ES6+ Features",desc:"Arrow functions, destructuring, rest/spread operators, template literals, ES modules, optional chaining (?.), nullish coalescing (??).",level:"essential",subtopics:["Arrow Functions","Destructuring","Spread / Rest","Modules (import/export)","Optional Chaining","Nullish Coalescing","Map / Set"],resources:[]},
+    {id:"js-async",name:"Asynchronous JS: Promises, Async/Await & Event Loop",desc:"Event loop, call stack, microtask queue, Promises, async/await, fetch API, and handling concurrent requests.",level:"essential",subtopics:["Callbacks","Promises","async / await","Event Loop","Microtask Queue","fetch() API","Promise.all / allSettled"],resources:[]},
+    {id:"ts-basics",name:"TypeScript Fundamentals & Interfaces",desc:"Static typing, type annotations, interfaces, type aliases, unions, enums, type narrowing, and strict mode.",level:"essential",subtopics:["Type Annotations","Interfaces","Union Types","Type Aliases","Type Inference","any / unknown / never","Type Narrowing"],resources:[{label:"TypeScript Handbook",url:"https://www.typescriptlang.org/docs/handbook/"}]},
+    {id:"ts-advanced",name:"TypeScript Generics & Utility Types",desc:"Generic functions and classes, Partial, Pick, Omit, Record, mapped types, conditional types, and zod schema validation.",level:"recommended",subtopics:["Generics","Partial / Pick / Omit / Record","Mapped Types","Discriminated Unions","Type Guards","Zod Validation"],resources:[]},
+    {id:"nodejs",name:"Node.js Runtime & Package Ecosystem",desc:"Node.js architecture, npm/pnpm package management, file system (fs/promises), environment variables, and Express/Fastify basics.",level:"essential",subtopics:["Node.js Architecture","npm / pnpm","fs Module","Streams","Environment Variables","Express.js Basics"],resources:[{label:"Node.js Docs",url:"https://nodejs.org/docs/latest/api/"}]}
+  ],
+  tasks: [
+    {id:"t-js-1",title:"Vanilla JS Interactive Data Table with Sorting & Filter",level:"beginner",est:"2h",desc:"Build an interactive data table using vanilla JS and HTML/CSS: column sorting, live substring search, pagination, and localStorage persistence."},
+    {id:"t-js-2",title:"Async Request Concurrency Limiter in TypeScript",level:"intermediate",est:"2.5h",desc:"Write a typed TypeScript utility function that takes an array of 50 tasks and executes them with a strict concurrency limit of 5, retry with backoff, and typed results."},
+    {id:"t-js-3",title:"End-to-End Enterprise Schema Validation with Zod & TypeScript",level:"intermediate",est:"2h",desc:"Define complex multi-tenant data schemas using TypeScript interfaces and Zod schemas, write unit tests validating valid and corrupted payloads."}
+  ]
+},
+
+// 6. REACT & NEXT.JS
+{
+  id: "react-next",
+  title: "6. React & Next.js",
+  subtitle: "Build customer-facing dashboards, internal admin consoles, and embedded data apps",
+  icon: "⚛️",
+  color: "#61dafb",
+  topics: [
+    {id:"react-basics",name:"React Core (Components, JSX, Props, State)",desc:"Functional components, JSX syntax, props drilling vs composition, useState, conditional rendering, lists and keys.",level:"essential",subtopics:["Functional Components","JSX","Props","useState","Conditional Rendering","Lists & Keys","Event Handling"],resources:[{label:"React Docs",url:"https://react.dev"}]},
+    {id:"react-hooks",name:"React Hooks Deep Dive",desc:"useEffect lifecycle and cleanup, useRef for DOM & persistent values, useMemo and useCallback for optimization, useContext, custom hooks.",level:"essential",subtopics:["useEffect","useRef","useMemo","useCallback","useContext","Custom Hooks","Rules of Hooks"],resources:[]},
+    {id:"react-state",name:"State Management & Server State",desc:"Local state vs global state, Zustand for client state, TanStack Query (React Query) for server caching, mutations, and optimistic updates.",level:"recommended",subtopics:["Zustand","TanStack Query (React Query)","Context API","Optimistic Updates","Cache Invalidation"],resources:[]},
+    {id:"nextjs-basics",name:"Next.js App Router & Architecture",desc:"App directory, server vs client components ('use client'), nested layouts, loading skeletons, error boundaries, dynamic routing.",level:"essential",subtopics:["App Directory","Layouts & Pages","Server vs Client Components","Loading UI","Error Boundaries","Route Handlers"],resources:[{label:"Next.js Docs",url:"https://nextjs.org/docs"}]},
+    {id:"nextjs-rendering",name:"SSR, SSG, ISR & Streaming",desc:"Server-side rendering (SSR), static site generation (SSG), incremental static regeneration (ISR), and React Suspense streaming.",level:"essential",subtopics:["SSR","SSG","ISR","Dynamic Rendering","Suspense Streaming","Partial Prerendering"],resources:[]},
+    {id:"nextjs-data",name:"Next.js Server Actions & Mutations",desc:"Invoking server-side functions directly from client components, form handling with useActionState, revalidation tags, and secure cookies.",level:"recommended",subtopics:["Server Actions","revalidatePath / revalidateTag","Form Validation","Cookies & Auth Tokens"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-react-1",title:"Build a Real-Time Operations Metrics Dashboard in React",level:"beginner",est:"3h",desc:"Create a client telemetry dashboard with 4 metric cards, time-range selectors, custom `useDebounce` hook, and status indicator pills."},
+    {id:"t-react-2",title:"Full-Stack Next.js Client Portal with Server Components",level:"intermediate",est:"4h",desc:"Build a multi-page Next.js portal using App Router: server-side data fetching, streaming with Suspense, error boundaries, and dynamic slug routes."},
+    {id:"t-react-3",title:"Server Actions Client Onboarding Form with Optimistic UI",level:"intermediate",est:"3h",desc:"Implement a multi-step tenant configuration form using Server Actions, Zod validation, optimistic UI updates, and toast alerts."}
+  ]
+},
+
+// 7. SQL & DATABASES
+{
+  id: "databases",
+  title: "7. SQL & Databases",
+  subtitle: "Data is at the center of every FDE deployment — master relational schemas & query optimization",
+  icon: "🗄️",
+  color: "#22c55e",
+  topics: [
+    {id:"db-concepts",name:"Database Fundamentals (Relational vs NoSQL)",desc:"Tables, rows, columns, relational schema design, primary/foreign keys, ACID properties, and choosing SQL vs NoSQL.",level:"beginner",subtopics:["Tables & Schema","Primary & Foreign Keys","ACID Properties","SQL vs NoSQL","Normalized vs Denormalized"],resources:[{label:"SQLBolt",url:"https://sqlbolt.com"},{label:"Khan Academy SQL",url:"https://www.khanacademy.org/computing/computer-science/sql"}]},
+    {id:"sql-basics",name:"Core SQL Queries & Multi-Table Joins",desc:"SELECT, WHERE filtering, ORDER BY, LIMIT, INNER JOIN, LEFT/RIGHT JOIN, FULL OUTER JOIN, aliasing, and NULL handling.",level:"essential",subtopics:["SELECT / WHERE","INNER JOIN","LEFT / RIGHT JOIN","FULL OUTER JOIN","Aliases (AS)","DISTINCT","COALESCE"],resources:[{label:"W3Schools SQL",url:"https://www.w3schools.com/sql/"}]},
+    {id:"sql-intermediate",name:"Aggregations, Grouping & Subqueries",desc:"COUNT, SUM, AVG, MIN, MAX, GROUP BY, HAVING filtering, subqueries, CASE WHEN conditional logic, and UNION / UNION ALL.",level:"essential",subtopics:["GROUP BY","HAVING","Subqueries","CASE WHEN","UNION / UNION ALL","EXISTS / IN"],resources:[]},
+    {id:"sql-advanced",name:"Window Functions, CTEs & EXPLAIN Optimization",desc:"Window functions (ROW_NUMBER, RANK, DENSE_RANK, LAG, LEAD), Common Table Expressions (WITH), recursive CTEs, and EXPLAIN ANALYZE.",level:"recommended",subtopics:["ROW_NUMBER()","RANK() / DENSE_RANK()","LAG() / LEAD()","CTEs (WITH clause)","EXPLAIN ANALYZE","Query Indexes"],resources:[]},
+    {id:"db-design",name:"Database Design & Normalization",desc:"Entity-Relationship (ER) diagrams, 1NF to 3NF normalization, foreign key constraints, indexes (B-tree, Hash), and star schemas.",level:"essential",subtopics:["ER Diagrams","1NF / 2NF / 3NF Normalization","Foreign Keys","Index Strategy","Star Schema"],resources:[]},
+    {id:"postgresql",name:"PostgreSQL Deep Dive & NoSQL (Redis)",desc:"Postgres JSONB data type, full-text search, extensions (pgvector), and Redis for in-memory caching and session stores.",level:"essential",subtopics:["psql CLI","JSON / JSONB","Postgres Extensions","Redis Key-Value","Cache Expiration (TTL)"],resources:[{label:"PostgreSQL Tutorial",url:"https://www.postgresqltutorial.com/"}]}
+  ],
+  tasks: [
+    {id:"t-db-1",title:"Write 15 Complex Business Reporting SQL Queries",level:"beginner",est:"2.5h",desc:"Using a sample e-commerce/SaaS database schema, write queries for user retention cohorts, monthly revenue totals, and highest spending accounts."},
+    {id:"t-db-2",title:"Advanced Financial Analytics with Window Functions & CTEs",level:"intermediate",est:"3h",desc:"Write multi-step CTE queries using `LAG()`, `LEAD()`, and `ROW_NUMBER()` to calculate rolling 7-day revenue, month-over-month growth, and rank top customers."},
+    {id:"t-db-3",title:"Design an Enterprise Audit Database & Optimize with EXPLAIN",level:"intermediate",est:"3h",desc:"Design a 3NF schema for client audit logs in PostgreSQL. Create appropriate composite indexes and use `EXPLAIN ANALYZE` to optimize a slow query plan."}
+  ]
+},
+
+// 8. DATA ENGINEERING & PIPELINES
+{
+  id: "data-eng",
+  title: "8. Data Engineering & Pipelines",
+  subtitle: "ETL, data transformation, batch/stream processing — the heartbeat of client deployments",
+  icon: "🔁",
+  color: "#06b6d4",
+  topics: [
+    {id:"data-thinking",name:"Data Lifecycle & Pipeline Architecture",desc:"Source extraction, ingestion, transformation, storage, serving, and consumption. Understanding how enterprise data flows.",level:"beginner",subtopics:["Source Systems","Ingestion","Transformation","Data Lake vs Warehouse","Data Quality"],resources:[]},
+    {id:"etl-concepts",name:"ETL vs ELT & Batch Processing",desc:"Extract-Transform-Load vs Extract-Load-Transform, batch processing intervals, idempotency, data deduplication, and schema drift.",level:"essential",subtopics:["ETL vs ELT","Batch Processing","Idempotency","Schema Evolution","Data Validation","Incremental Loads"],resources:[]},
+    {id:"data-formats",name:"Data Formats (JSON, CSV, Parquet, Avro)",desc:"Row-oriented (CSV, JSON) vs Columnar (Parquet, ORC). Why Parquet saves 80%+ storage and accelerates analytical queries.",level:"essential",subtopics:["JSON / CSV","Parquet (Columnar)","Avro","Protocol Buffers","Data Compression (Snappy, Gzip)"],resources:[]},
+    {id:"data-pipelines",name:"Workflow Orchestration (Airflow, Prefect, Dagster)",desc:"Directed Acyclic Graphs (DAGs), task scheduling, dependency management, retry policies, backfills, and pipeline alerting.",level:"recommended",subtopics:["Apache Airflow","Prefect","DAGs Concept","Scheduling & Crons","Retries & SLAs","Data Lineage"],resources:[{label:"Airflow Docs",url:"https://airflow.apache.org/docs/"}]},
+    {id:"data-warehousing",name:"Cloud Data Warehouses & dbt",desc:"Snowflake, BigQuery, AWS Redshift, dimension/fact modeling, and dbt (data build tool) for modular SQL transformations.",level:"recommended",subtopics:["Snowflake","Google BigQuery","AWS Redshift","dbt (Data Build Tool)","Fact & Dimension Tables"],resources:[]},
+    {id:"streaming",name:"Event Streaming & Distributed Data (Kafka, Spark)",desc:"Event-driven streaming, Kafka topics/producers/consumers, distributed computing with Apache Spark / PySpark.",level:"advanced",subtopics:["Apache Kafka","Producers & Consumers","Topics & Partitions","PySpark Basics","Distributed DataFrames"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-de-1",title:"Build an Automated Batch ETL Pipeline in Python",level:"beginner",est:"3h",desc:"Create a standalone Python pipeline that extracts raw JSON data, deduplicates records, normalizes schemas, and writes partitioned Parquet files."},
+    {id:"t-de-2",title:"Define a Resilient Data Pipeline DAG in Airflow or Prefect",level:"intermediate",est:"4h",desc:"Write an orchestrator DAG with 4 tasks: API extract, schema validation with Great Expectations, transformation, and database load, with retry notifications."},
+    {id:"t-de-3",title:"End-to-End dbt Transformation Project on Sample Warehouse",level:"intermediate",est:"3h",desc:"Set up a dbt project on DuckDB or BigQuery: create staging models, clean dimensions and facts, write schema tests, and compile documentation."}
+  ]
+},
+
+// 9. APIs & INTEGRATION
+{
+  id: "apis",
+  title: "9. APIs & Integration",
+  subtitle: "Connecting legacy client systems to your company's platform via REST, webhooks & SDKs",
+  icon: "🔌",
+  color: "#f97316",
+  topics: [
+    {id:"api-concepts",name:"API Fundamentals & HTTP Protocols",desc:"What is an API? HTTP methods (GET, POST, PUT, PATCH, DELETE), status codes (2xx, 3xx, 4xx, 5xx), headers, and JSON request/response bodies.",level:"beginner",subtopics:["HTTP Methods","Endpoints & URLs","Request / Response Bodies","Status Codes","Headers & Query Params"],resources:[{label:"REST API Tutorial",url:"https://restfulapi.net/"},{label:"Postman",url:"https://www.postman.com/"}]},
+    {id:"rest-design",name:"RESTful API Design & OpenAPI / Swagger",desc:"Resource naming conventions, CRUD mapping, pagination (cursor vs offset), rate limiting, versioning, and OpenAPI specs.",level:"essential",subtopics:["Resource Naming","Pagination (Cursor vs Offset)","API Versioning","Error Response Formatting","OpenAPI / Swagger"],resources:[]},
+    {id:"auth-apis",name:"API Security (API Keys, OAuth 2.0, JWT)",desc:"Securing API access: API keys, Bearer tokens, JSON Web Tokens (JWT), OAuth 2.0 Authorization Code flow with PKCE, and refresh tokens.",level:"essential",subtopics:["API Keys","JWT Structure","OAuth 2.0 Flows","Client Credentials","Scopes & Permissions","Token Refresh"],resources:[]},
+    {id:"webhooks",name:"Webhooks & Asynchronous Event Notifications",desc:"Event-driven integrations, webhook payload design, HMAC SHA256 signature verification, idempotency keys, and dead letter queues.",level:"essential",subtopics:["Webhook Receivers","HMAC Signature Verification","Retry Logic & Jitter","Idempotency Keys","Dead Letter Queues"],resources:[]},
+    {id:"third-party",name:"Resilient Integration Patterns (Retries, Circuit Breakers)",desc:"Integrating unreliable 3rd-party client APIs: exponential backoff, jitter, circuit breaker pattern, fallback caches, and custom SDK wrappers.",level:"essential",subtopics:["Exponential Backoff","Jitter","Circuit Breaker Pattern","SDK Wrappers","Response Caching","Fallback Strategies"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-api-1",title:"Build an SDK Client Wrapper for a Public API",level:"beginner",est:"2h",desc:"Write a Python or TypeScript SDK client for GitHub or Stripe API: wrap authentication, error parsing, pagination helpers, and write type definitions."},
+    {id:"t-api-2",title:"Build a Production Webhook Receiver with HMAC Verification",level:"intermediate",est:"3h",desc:"Create a webhook endpoint in FastAPI or Next.js that validates incoming cryptographic HMAC signatures, enforces idempotency, and queues processing."},
+    {id:"t-api-3",title:"Implement Circuit Breaker & Exponential Backoff Gateway",level:"intermediate",est:"3h",desc:"Build an integration proxy wrapping a flaky simulated downstream service. Implement timeout thresholds, exponential backoff, and circuit breaker trip states."}
+  ]
+},
+
+// 10. CLOUD & INFRASTRUCTURE
+{
+  id: "cloud",
+  title: "10. Cloud & Infrastructure",
+  subtitle: "Deploy, containerize, and manage services in AWS, GCP, Azure, and client VPCs",
+  icon: "☁️",
+  color: "#f59e0b",
+  topics: [
+    {id:"cloud-concepts",name:"Cloud Computing Fundamentals & Architecture",desc:"IaaS vs PaaS vs SaaS, public cloud vs on-premise, regions, availability zones, VPCs, and the shared responsibility model.",level:"beginner",subtopics:["IaaS / PaaS / SaaS","Regions & Availability Zones","Shared Responsibility Model","On-Prem vs Cloud","Cost Management"],resources:[{label:"AWS Free Tier",url:"https://aws.amazon.com/free/"}]},
+    {id:"cloud-core",name:"Core Cloud Services (Compute, Storage, IAM)",desc:"Virtual machines (EC2/GCE), object storage (S3/GCS), identity and access management (IAM roles/policies), and security groups.",level:"essential",subtopics:["Compute (EC2/GCE)","Storage (S3/GCS)","IAM Roles & Policies","Security Groups & Firewalls","VPC Subnets & Gateways"],resources:[]},
+    {id:"docker",name:"Docker Containerization & Docker Compose",desc:"Docker images, multi-stage Dockerfiles, containers, volumes, networking, environment variables, and Docker Compose for local environments.",level:"essential",subtopics:["Dockerfile Best Practices","docker build & run","Multi-Stage Builds","Docker Compose","Volumes & Storage","Container Registries"],resources:[{label:"Docker Getting Started",url:"https://docs.docker.com/get-started/"}]},
+    {id:"kubernetes-basics",name:"Kubernetes Basics & Container Orchestration",desc:"Pods, Deployments, Services, ConfigMaps, Secrets, namespaces, kubectl CLI commands, and Helm package charts.",level:"recommended",subtopics:["Pods & Nodes","Deployments & ReplicaSets","Cluster Services","ConfigMaps & Secrets","kubectl CLI","Helm Charts"],resources:[]},
+    {id:"cicd",name:"CI/CD Pipelines (GitHub Actions)",desc:"Continuous Integration & Continuous Deployment: automated test suites, linting, Docker image building, and deployment triggers.",level:"essential",subtopics:["GitHub Actions Workflows","Automated Testing in CI","Docker Build & Push","Deployment Triggers","Secrets Management"],resources:[]},
+    {id:"iac",name:"Infrastructure as Code (Terraform / Pulumi)",desc:"Provisioning repeatable cloud infrastructure via code: declarative HCL syntax, state files, plan and apply workflows, and drift detection.",level:"advanced",subtopics:["Terraform Fundamentals","HCL Syntax","State Files & Remote Backends","Plan & Apply Workflow","Modules"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-cloud-1",title:"Multi-Stage Dockerfile & Docker Compose Stack",level:"beginner",est:"2h",desc:"Package a full-stack Python/Node app into a lightweight multi-stage Dockerfile (<150MB). Write a docker-compose.yml running the app and a Postgres database."},
+    {id:"t-cloud-2",title:"Automated CI/CD Workflow with GitHub Actions",level:"intermediate",est:"2.5h",desc:"Create a GitHub Actions workflow that runs linting, unit tests, builds a Docker image on PR approval, and pushes to a container registry."},
+    {id:"t-cloud-3",title:"Deploy a Containerized Web App to Cloud (AWS/GCP)",level:"intermediate",est:"3h",desc:"Provision a cloud instance or serverless container service (AWS ECS/App Runner or GCP Cloud Run), configure HTTPS domain, and manage environment secrets."}
+  ]
+},
+
+// 11. NETWORKING & PROTOCOLS
+{
+  id: "networking",
+  title: "11. Networking & Protocols",
+  subtitle: "Debug connectivity, firewalls, and proxy issues within secure client enterprise networks",
+  icon: "🌐",
+  color: "#14b8a6",
+  topics: [
+    {id:"net-basics",name:"Networking Fundamentals (IP, DNS, Ports, Routers)",desc:"IPv4/IPv6, subnetting, DNS resolution process, TCP/UDP transport layers, ports (80, 443, 22), NAT, and routers.",level:"beginner",subtopics:["IP Addresses & Subnets","DNS Resolution","TCP vs UDP","Ports & Sockets","LAN vs WAN","Routing & NAT"],resources:[]},
+    {id:"http-protocol",name:"HTTP/1.1, HTTP/2, HTTP/3 & WebSockets",desc:"HTTP request-response cycle, HTTP/2 multiplexing, HTTP/3 QUIC, persistent WebSockets, and Server-Sent Events (SSE).",level:"essential",subtopics:["HTTP Methods & Headers","HTTP/2 Multiplexing","HTTP/3 QUIC","WebSockets Protocol","Server-Sent Events (SSE)"],resources:[]},
+    {id:"tls-https",name:"TLS/HTTPS, SSL Certificates & mTLS",desc:"Asymmetric encryption, TLS handshake, SSL certificate authorities, Let's Encrypt, mutual TLS (mTLS) for zero-trust security.",level:"essential",subtopics:["TLS Handshake","Public / Private Keys","SSL Certificates","mTLS (Mutual TLS)","Certificate Authority (CA)"],resources:[]},
+    {id:"proxies-lb",name:"Reverse Proxies, Nginx & Load Balancing",desc:"Forward vs reverse proxies, Nginx configuration, load balancing algorithms (round robin, least connections), CDNs, and CORS headers.",level:"recommended",subtopics:["Reverse Proxy Concept","Nginx Configuration","Load Balancing Algorithms","CORS Headers","CDN Caching"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-net-1",title:"Network Diagnostic Toolkit Lab (curl, dig, traceroute, netstat)",level:"beginner",est:"1.5h",desc:"Troubleshoot 4 simulated network problems: verify DNS lookup chains with dig, inspect raw TLS handshakes with curl -Iv, and inspect open ports with netstat/lsof."},
+    {id:"t-net-2",title:"Configure Nginx Reverse Proxy with SSL & Rate Limiting",level:"intermediate",est:"2.5h",desc:"Set up an Nginx reverse proxy distributing requests between two backend instances with self-signed SSL/TLS, gzip compression, and rate limiting."},
+    {id:"t-net-3",title:"Build a Real-Time WebSocket Channel with Reconnect Logic",level:"intermediate",est:"2.5h",desc:"Create a client-server WebSocket application with heartbeat ping-pong, automatic exponential reconnection on network drop, and status indicators."}
+  ]
+},
+
+// 12. SECURITY & COMPLIANCE
+{
+  id: "security",
+  title: "12. Security & Compliance",
+  subtitle: "Enterprise clients demand airtight security — OWASP, RBAC, encryption & compliance",
+  icon: "🔒",
+  color: "#ef4444",
+  topics: [
+    {id:"sec-basics",name:"Security Mindset & Principle of Least Privilege",desc:"Defense-in-depth, least privilege access, threat modeling, attack surfaces, and secure credential handling.",level:"beginner",subtopics:["Security Mindset","Least Privilege","Attack Surface","Threat Modeling","Secrets Management"],resources:[{label:"OWASP Top 10",url:"https://owasp.org/www-project-top-ten/"}]},
+    {id:"sec-web",name:"OWASP Top 10 Vulnerabilities & Prevention",desc:"SQL Injection, Cross-Site Scripting (XSS), CSRF, Server-Side Request Forgery (SSRF), broken authentication, and parameterized queries.",level:"essential",subtopics:["SQL Injection","XSS (Stored / Reflected)","CSRF Protection","SSRF","Parameterized Queries","Content Security Policy (CSP)"],resources:[]},
+    {id:"sec-auth",name:"Enterprise Authentication (SSO, SAML, RBAC)",desc:"Single Sign-On (SSO), SAML 2.0, OpenID Connect (OIDC), Role-Based Access Control (RBAC), and Attribute-Based Access Control (ABAC).",level:"essential",subtopics:["Enterprise SSO","SAML 2.0","OpenID Connect (OIDC)","RBAC (Roles & Permissions)","ABAC (Attribute-Based)","Multi-Factor Auth (MFA)"],resources:[]},
+    {id:"sec-data",name:"Data Encryption & Secrets Management",desc:"Encryption at rest (AES-256), encryption in transit (TLS 1.3), KMS key rotation, PII data masking, and secrets management (HashiCorp Vault).",level:"recommended",subtopics:["Encryption at Rest","Encryption in Transit","KMS Keys","PII Data Masking","Secrets Vaults","Hashing vs Encryption"],resources:[]},
+    {id:"sec-compliance",name:"Compliance Frameworks (SOC2, HIPAA, GDPR, FedRAMP)",desc:"Understanding enterprise compliance certifications, audit logging, data residency, retention policies, and security questionnaires.",level:"recommended",subtopics:["SOC2 Type I & II","HIPAA Compliance","GDPR & Privacy","FedRAMP Standards","Audit Trails & Logging"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-sec-1",title:"Exploit & Patch 3 OWASP Vulnerabilities in a Lab App",level:"intermediate",est:"3h",desc:"Identify SQL Injection, XSS, and broken access control in an intentionally vulnerable app. Write exploit proofs, then patch each vulnerability."},
+    {id:"t-sec-2",title:"Implement Role-Based Access Control (RBAC) Middleware",level:"intermediate",est:"3h",desc:"Build an authentication and authorization layer with Admin, Editor, and Viewer roles, testing that unauthorized API calls are blocked with 403 Forbidden."},
+    {id:"t-sec-3",title:"Draft an Enterprise Security & SOC2 Compliance Brief",level:"intermediate",est:"2h",desc:"Complete a simulated 20-question enterprise vendor security questionnaire detailing encryption, backup retention, incident SLAs, and access controls."}
+  ]
+},
+
+// 13. DATA ANALYSIS & VISUALIZATION
+{
+  id: "data-viz",
+  title: "13. Data Analysis & Visualization",
+  subtitle: "Turn messy client datasets into actionable visual insights and executive-ready dashboards",
+  icon: "📊",
+  color: "#8b5cf6",
+  topics: [
+    {id:"data-analysis",name:"Exploratory Data Analysis (EDA) Fundamentals",desc:"Summary statistics, distributions, outlier detection, correlation analysis, hypothesis validation, and data profiling.",level:"essential",subtopics:["Descriptive Statistics","Distributions & Skewness","Outlier Detection","Correlation Matrices","Data Quality Profiling"],resources:[]},
+    {id:"viz-python",name:"Python Visualization (Matplotlib, Seaborn, Plotly)",desc:"Static charts (Matplotlib), statistical distributions (Seaborn), and interactive web charts (Plotly) for analytical exploration.",level:"recommended",subtopics:["Matplotlib Basics","Seaborn Statistical Plots","Plotly Interactive Charts","Heatmaps & Boxplots","Subplots & Layouts"],resources:[]},
+    {id:"viz-js",name:"Frontend Data Viz (Recharts, Chart.js, D3)",desc:"Embedding charts in client dashboards: line charts, bar graphs, heatmaps, responsive tooltips, and time-series axes.",level:"recommended",subtopics:["Recharts in React","Chart.js","D3.js Core Concepts","Time-Series Scaling","Responsive Chart Layouts"],resources:[]},
+    {id:"data-storytelling",name:"Data Storytelling & Executive Presentations",desc:"Structuring data narratives: problem context, quantitative evidence, root cause analysis, business impact, and recommendations.",level:"essential",subtopics:["Narrative Arc","Avoiding Misleading Visuals","Executive Summaries","Action-Oriented Insights","Chart Selection Guide"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-viz-1",title:"Jupyter Notebook EDA on a Client Business Dataset",level:"beginner",est:"2.5h",desc:"Clean a raw dataset, generate distribution histograms, correlation heatmaps with Seaborn/Plotly, and summarize 5 key takeaways in markdown."},
+    {id:"t-viz-2",title:"Build an Interactive Client KPI Dashboard with Recharts",level:"intermediate",est:"3h",desc:"Build a responsive React analytics dashboard with time-range filtering, comparison delta metrics, and tooltips using Recharts."},
+    {id:"t-viz-3",title:"Create a 5-Slide Data Storytelling Deck for Leadership",level:"intermediate",est:"2h",desc:"Analyze a simulated client operational slowdown. Build a 5-slide presentation showing problem proof, root cause, and 3 prioritized solutions."}
+  ]
+},
+
+// 14. ML & AI FOUNDATIONS
+{
+  id: "ml-ai",
+  title: "14. ML & AI Foundations",
+  subtitle: "Configure, integrate, and deploy AI/ML models & LLMs at modern enterprise client engagements",
+  icon: "🤖",
+  color: "#ec4899",
+  topics: [
+    {id:"ml-concepts",name:"Machine Learning Core Concepts",desc:"Supervised vs unsupervised learning, classification vs regression, training vs inference, overfitting/underfitting, and evaluation metrics.",level:"recommended",subtopics:["Supervised & Unsupervised","Classification & Regression","Training vs Inference","Train / Test Split","Precision, Recall, F1, ROC-AUC"],resources:[{label:"Google ML Crash Course",url:"https://developers.google.com/machine-learning/crash-course"}]},
+    {id:"ml-tools",name:"Scikit-Learn & Feature Engineering",desc:"Data preprocessing, one-hot encoding, feature scaling, model training (Random Forest, Logistic Regression), and pipeline validation.",level:"recommended",subtopics:["scikit-learn Pipelines","Feature Encoding","StandardScaler","Model Evaluation","Cross-Validation"],resources:[]},
+    {id:"llm-integration",name:"LLMs, Prompt Engineering & RAG Pipelines",desc:"Integrating LLMs (OpenAI, Anthropic), prompt engineering, chunking strategies, vector embeddings, and Retrieval-Augmented Generation (RAG).",level:"recommended",subtopics:["LLM APIs","Prompt Engineering","Vector Embeddings","Vector DBs (pgvector, Pinecone)","RAG Architecture","Chunking Strategies"],resources:[]},
+    {id:"ml-ops",name:"MLOps & Model Deployment Basics",desc:"Model serving, inference latency, drift monitoring, versioning models with MLflow, and monitoring output hallucinations.",level:"advanced",subtopics:["Model Serving APIs","Inference Latency","Data Drift Monitoring","MLflow","Guardrails & Safety"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-ml-1",title:"Train & Evaluate a Churn Prediction Model in Scikit-Learn",level:"beginner",est:"2.5h",desc:"Build an end-to-end classification pipeline: preprocess categorical features, train a Random Forest model, and evaluate with confusion matrix and ROC-AUC."},
+    {id:"t-ml-2",title:"Build a Production RAG Knowledge Search with pgvector",level:"intermediate",est:"4h",desc:"Ingest 20 client markdown docs, chunk text, generate vector embeddings, store in pgvector/Chroma, and build a question-answering CLI with citation links."},
+    {id:"t-ml-3",title:"Build an LLM Structured Entity Extraction Pipeline",level:"intermediate",est:"2.5h",desc:"Build an API endpoint that takes unstructured customer emails, calls an LLM with strict JSON schema constraints, and returns verified structured entities."}
+  ]
+},
+
+// 15. OBSERVABILITY & MONITORING
+{
+  id: "observability",
+  title: "15. Observability & Monitoring",
+  subtitle: "Diagnose and resolve client production incidents in real time using logs, metrics & traces",
+  icon: "🔍",
+  color: "#0ea5e9",
+  topics: [
+    {id:"logging",name:"Structured Logging & Log Aggregation",desc:"Structured JSON logs, log levels (DEBUG, INFO, WARN, ERROR), correlation IDs for tracing requests, and log collectors (ELK, Datadog).",level:"essential",subtopics:["Structured JSON Logs","Log Levels & Best Practices","Correlation IDs","Centralized Log Aggregation","Log Parsing & Alerting"],resources:[]},
+    {id:"metrics",name:"Metrics, Dashboards & Alerting (Prometheus, Grafana)",desc:"Application metrics (counters, gauges, histograms), RED method (Rate, Errors, Duration), SLIs, SLOs, SLAs, and Grafana dashboards.",level:"recommended",subtopics:["Prometheus Metrics","Grafana Dashboards","RED & USE Methods","SLIs / SLOs / SLAs","PagerDuty Alerting Rules"],resources:[]},
+    {id:"tracing",name:"Distributed Tracing (OpenTelemetry)",desc:"Tracing requests across microservices: spans, parent-child traces, latency bottlenecks, and OpenTelemetry instrumentation.",level:"advanced",subtopics:["OpenTelemetry Standard","Spans & Traces","Distributed Context Propagation","Jaeger / Zipkin","Latency Waterfall Analysis"],resources:[]},
+    {id:"incident",name:"Incident Response, Runbooks & Blameless Postmortems",desc:"Production incident response: severity triage, war rooms, stakeholder communication, runbooks, and blameless postmortem reports.",level:"essential",subtopics:["Incident Severity (SEV1-SEV3)","War Room Management","Runbooks & SOPs","Root Cause Analysis (5 Whys)","Blameless Postmortems"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-obs-1",title:"Instrument a Backend Service with Structured Logs & Trace IDs",level:"beginner",est:"2h",desc:"Implement structured JSON logging with custom middleware in Python or Node.js where every HTTP request receives and propagates an X-Trace-ID."},
+    {id:"t-obs-2",title:"Set Up Prometheus Metrics & a Grafana Dashboard",level:"intermediate",est:"3h",desc:"Expose /metrics endpoint tracking HTTP request count, error count, and response latency. Build a Grafana dashboard with alerting rules."},
+    {id:"t-obs-3",title:"Run a Simulated Incident War Room & Write a Blameless Postmortem",level:"intermediate",est:"2.5h",desc:"Simulate a 45-minute client outage. Write out the incident timeline, conduct a 5 Whys root cause analysis, and draft 4 preventative action items."}
+  ]
+},
+
+// 16. SYSTEM DESIGN
+{
+  id: "sys-design",
+  title: "16. System Design",
+  subtitle: "Architect scalable, reliable systems — essential for FDE interviews & enterprise deployments",
+  icon: "🏗️",
+  color: "#f97316",
+  topics: [
+    {id:"sd-fundamentals",name:"System Design Fundamentals & Scaling",desc:"Horizontal vs vertical scaling, load balancers, caching strategies (cache-aside, write-through), CAP theorem, and eventual consistency.",level:"essential",subtopics:["Horizontal vs Vertical","Load Balancing","Caching Strategies (Redis)","CAP Theorem","Eventual Consistency","Database Sharding"],resources:[{label:"System Design Primer",url:"https://github.com/donnemartin/system-design-primer"}]},
+    {id:"sd-patterns",name:"Architecture Patterns (Monolith, Microservices, Event-Driven)",desc:"Trade-offs between modular monoliths and microservices, event-driven architecture, message queues (RabbitMQ, SQS), and API gateways.",level:"recommended",subtopics:["Modular Monolith vs Microservices","Event-Driven Architecture","Message Queues (SQS/RabbitMQ)","API Gateway Pattern","CQRS Basics"],resources:[]},
+    {id:"sd-estimation",name:"Back-of-the-Envelope Estimation",desc:"Estimating throughput, QPS, storage growth, network bandwidth, memory, and database IOPS to make informed design decisions.",level:"recommended",subtopics:["QPS & Throughput","Storage Capacity Planning","Bandwidth Calculations","Memory Sizing","Latency Numbers Every Programmer Should Know"],resources:[]},
+    {id:"sd-examples",name:"Classic Enterprise System Design Problems",desc:"Designing high-throughput ingestion pipelines, audit logging systems, notification engines, and multi-tenant SaaS architectures.",level:"recommended",subtopics:["High-Throughput Ingestion","Audit Logging System","Notification Dispatcher","Rate Limiter Service","Multi-Tenant Platform"],resources:[{label:"System Design Interview Book",url:"https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF"}]}
+  ],
+  tasks: [
+    {id:"t-sd-1",title:"Complete 3 Back-of-the-Envelope Capacity Estimations",level:"beginner",est:"1.5h",desc:"Calculate daily storage, average/peak QPS, network bandwidth, and memory cache requirements for an IoT telemetry service handling 50M events/day."},
+    {id:"t-sd-2",title:"Design an Enterprise Ingestion & Audit Pipeline (Architecture Diagram)",level:"intermediate",est:"3h",desc:"Draw an architecture diagram (Mermaid/Excalidraw) for a multi-tenant client data platform: API gateway, queues, worker pool, database partitioning, and cold storage."},
+    {id:"t-sd-3",title:"Mock System Design Interview: Distributed Rate Limiter",level:"intermediate",est:"2.5h",desc:"Write an end-to-end design doc for a distributed rate limiter: token bucket algorithm, Redis sliding window counter, failure fallbacks, and multi-region sync."}
+  ]
+},
+
+// 17. PLATFORM & PRODUCT KNOWLEDGE
+{
+  id: "platform",
+  title: "17. Platform & Product Knowledge",
+  subtitle: "Ramp up on your company's product in record time and configure it to client requirements",
+  icon: "🧩",
+  color: "#a855f7",
+  topics: [
+    {id:"platform-learning",name:"Learning Any Platform / Codebase in 48 Hours",desc:"Techniques to quickly unpack large unfamiliar codebases: entry point discovery, tracing data models, running integration tests, and building toy demos.",level:"essential",subtopics:["Codebase Reconnaissance","Tracing Entry Points","Data Model Mapping","Running Integration Tests","Building Toy Apps","Reading Release Notes"],resources:[]},
+    {id:"platform-deep",name:"Deep Product Expertise & Edge Cases",desc:"Knowing product capabilities, configuration flags, performance boundaries, known quirks, and API capabilities better than anyone else.",level:"essential",subtopics:["Configuration Options","Feature Flags","Performance Limits","Common Failure Modes","Public & Internal APIs"],resources:[]},
+    {id:"platform-customization",name:"Custom Workflows, Extensions & Plugins",desc:"Extending platforms with client-specific connectors, bespoke workflows, webhook actions, theme customization, and plugin architectures.",level:"essential",subtopics:["Plugin Architectures","Custom Connectors","Workflow Automation","Tenant Isolation","Custom UI Extensions"],resources:[]},
+    {id:"platform-integration",name:"Platform Enterprise Integration Patterns",desc:"Integrating the core platform with client enterprise identity (Okta/Ping), data lakes, legacy on-prem databases, and ticketing systems.",level:"essential",subtopics:["Identity Provider Sync","Data Lake Federation","Legacy DB Connectors","Jira / ServiceNow Sync","Embedded Widgets"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-plat-1",title:"Rapid Ramp-Up: Deconstruct an Open-Source Platform in 4h",level:"beginner",est:"4h",desc:"Select an unfamiliar tool (e.g. Supabase, Metabase, Airbyte, or Grafana). Install locally, trace its core architecture, and build a functioning demo."},
+    {id:"t-plat-2",title:"Build a Custom Plugin / Connector for a Platform",level:"intermediate",est:"3.5h",desc:"Develop a custom data connector or plugin (e.g. custom Airbyte source, Grafana panel, or Slack bot integration) with clean configuration and tests."},
+    {id:"t-plat-3",title:"Write a Comprehensive Client Deployment & Configuration Spec",level:"intermediate",est:"2.5h",desc:"Draft a step-by-step technical deployment guide detailing prerequisite network ports, SSO configurations, database sizing, and health check validation."}
+  ]
+},
+
+// 18. CLIENT-FACING & CONSULTING SKILLS
+{
+  id: "consulting",
+  title: "18. Client-Facing & Consulting Skills",
+  subtitle: "The defining FDE differentiator — stakeholder management, discovery, demos & communication",
+  icon: "🤝",
+  color: "#f59e0b",
+  topics: [
+    {id:"client-communication",name:"Client Communication Fundamentals",desc:"Setting expectations, transparent timelines, active listening, structured written updates, and translating technical jargon to business impact.",level:"beginner",subtopics:["Expectation Setting","Under-Promise Over-Deliver","Active Listening","Executive Summaries","Follow-Up Discipline"],resources:[]},
+    {id:"stakeholder",name:"Stakeholder Management & Org Mapping",desc:"Identifying executive sponsors, technical champions, operational end-users, and potential skeptics. Navigating enterprise organizational politics.",level:"essential",subtopics:["Champion Identification","Blocker Mitigation","Org Chart Mapping","Executive Presence","Escalation Protocols"],resources:[]},
+    {id:"requirements",name:"Technical Discovery & Scope Negotiation",desc:"Running discovery interviews, distilling ambiguous business requests into technical specs, MoSCoW prioritization, and avoiding scope creep.",level:"essential",subtopics:["Discovery Interviewing","Ambiguity Resolution","MoSCoW Prioritization","Scope Management","Acceptance Criteria"],resources:[]},
+    {id:"presentations",name:"Technical Demos & Live Whiteboarding",desc:"Preparing rock-solid client demos, setting up staging environments, planning fallback videos, whiteboarding system architectures, and handling Q&A.",level:"essential",subtopics:["Live Demo Discipline","Backup Demo Environments","Whiteboarding Techniques","Story-Driven Presentations","Handling Tough Questions"],resources:[]},
+    {id:"technical-writing",name:"Technical Writing & Runbooks",desc:"Writing client-facing integration manuals, Architecture Decision Records (ADRs), operator runbooks, and self-service troubleshooting guides.",level:"essential",subtopics:["Architecture Decision Records","Deployment Runbooks","Troubleshooting Guides","API Reference Docs","Release Bulletins"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-con-1",title:"Conduct a Mock Client Discovery & Scope Definition Session",level:"beginner",est:"2h",desc:"Write a 10-question discovery interview script for an ambiguous enterprise problem. Draft a technical scoping document with explicit in-scope/out-of-scope bounds."},
+    {id:"t-con-2",title:"Draft an Architecture Decision Record (ADR) for a Client Migration",level:"intermediate",est:"2h",desc:"Write a formal ADR comparing two integration patterns (Batch SFTP vs Real-Time Webhooks) detailing context, decision, consequences, and timeline."},
+    {id:"t-con-3",title:"Deliver a 10-Minute Recorded Technical Architecture Demo",level:"intermediate",est:"2.5h",desc:"Prepare and record a 10-minute demo: 2m business context, 5m live product workflow, 3m architecture diagram walkthrough, with demo contingency notes."}
+  ]
+},
+
+// 19. DOMAIN KNOWLEDGE & INDUSTRY AWARENESS
+{
+  id: "domain",
+  title: "19. Domain Knowledge & Industry Awareness",
+  subtitle: "Understand client industry verticals: Defense, Government, Healthcare, Fintech & Enterprise",
+  icon: "🏢",
+  color: "#84cc16",
+  topics: [
+    {id:"domain-learn",name:"How to Master an Industry Vertical Fast",desc:"Deconstructing industry value chains, reading annual 10-K filings, learning industry jargon, understanding revenue drivers, and compliance constraints.",level:"essential",subtopics:["Value Chain Analysis","10-K & Financial Filings","Domain Terminology","Regulatory Landscape","Customer Workflows"],resources:[]},
+    {id:"domain-fintech",name:"Financial Services & Fintech",desc:"Core banking systems, trading desks, settlement ledgers, payment rails (ACH, FedNow, SWIFT), fraud detection, and regulatory reporting (KYC/AML).",level:"recommended",subtopics:["Payment Rails","Core Banking & Ledgers","Fraud & Risk Scoring","KYC / AML Compliance","Latency Requirements"],resources:[]},
+    {id:"domain-healthcare",name:"Healthcare & Life Sciences",desc:"Electronic Health Records (EHR/EMR), clinical trial data pipelines, healthcare interoperability standards (HL7, FHIR), and HIPAA data privacy.",level:"recommended",subtopics:["EHR / EMR Integrations","HL7 & FHIR Standards","Clinical Trial Pipelines","HIPAA Privacy Rules","PHI De-Identification"],resources:[]},
+    {id:"domain-defense",name:"Defense, Intelligence & Government",desc:"Air-gapped and SCIF environments, ITAR compliance, security clearances, geospatial intelligence (GIS), sensor data, and FedRAMP standards.",level:"advanced",subtopics:["Air-Gapped Deployments","ITAR & Security Clearances","FedRAMP Standards","Geospatial Intelligence","Sensor Ingestion"],resources:[]},
+    {id:"domain-enterprise",name:"Enterprise SaaS & Supply Chain",desc:"ERP systems (SAP, Oracle), inventory management, supply chain visibility, multi-tenancy models, and procurement cycles.",level:"essential",subtopics:["ERP Integration","Supply Chain Data","Multi-Tenant Architecture","Enterprise Procurement","SLA Guarantees"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-dom-1",title:"Analyze a Fortune 500 Enterprise 10-K for Technical Pain Points",level:"beginner",est:"2h",desc:"Read the business & risk factors of a public company's 10-K filing. Map out 3 strategic initiatives where an embedded FDE deployment would deliver ROI."},
+    {id:"t-dom-2",title:"Design an Air-Gapped or Regulated Data Architecture Flow",level:"intermediate",est:"2.5h",desc:"Draw an architecture diagram illustrating data ingestion in an air-gapped or HIPAA/PCI-compliant zone with de-identification and audit logging."},
+    {id:"t-dom-3",title:"Create a Domain Glossary & Workflow Map for an Industry",level:"beginner",est:"1.5h",desc:"Select an industry (Fintech, Healthcare, or Defense). Create a 25-term technical glossary and diagram the typical end-to-end data lifecycle."}
+  ]
+},
+
+// 20. SOFT SKILLS & CAREER GROWTH
+{
+  id: "soft",
+  title: "20. Soft Skills, Career Growth & Interview Prep",
+  subtitle: "Ace the FDE interview loop, build an impressive portfolio & advance your career",
+  icon: "🌱",
+  color: "#10b981",
+  topics: [
+    {id:"learning-fast",name:"Rapid Learning & Unblocking Yourself",desc:"Developing an aggressive learning feedback loop: read docs → inspect code → build prototypes → solicit feedback. The #1 FDE superpower.",level:"essential",subtopics:["Rapid Prototyping","Deliberate Practice","Time-Boxed Research","Asking High-Leverage Questions","Note-Taking Systems"],resources:[]},
+    {id:"interview-prep",name:"FDE Interview Structure & Preparation",desc:"The standard FDE interview loop: LeetCode medium coding, live system design, client case study scenario, behavioral (STAR method), and take-homes.",level:"essential",subtopics:["LeetCode Medium Coding","System Design Interviews","Client Scenario Case Study","STAR Method Behavioral","Take-Home Challenges"],resources:[{label:"LeetCode",url:"https://leetcode.com"},{label:"TeamBlind",url:"https://www.teamblind.com"}]},
+    {id:"portfolio",name:"Building a Standout FDE Portfolio & GitHub",desc:"Showcasing end-to-end projects: data ingestion + API backend + interactive frontend dashboard + complete documentation and live demo.",level:"recommended",subtopics:["GitHub Project Polish","Live Deployed Demos","Architecture Diagrams in README","Technical Blog Posts","Quantified Project Impact"],resources:[]},
+    {id:"resume",name:"Resume & Application Strategy for FDE Roles",desc:"Structuring an FDE resume: highlighting client-facing impact, quantifiable metrics ($ saved, latency reduced), full-stack skills, and referral networking.",level:"essential",subtopics:["Quantifying Engineering Impact","Highlighting Client Work","ATS Formatting","Cover Letters","Referral Strategy"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-soft-1",title:"Craft an Impact-Driven FDE Resume with Quantified Metrics",level:"beginner",est:"2h",desc:"Revamp your resume to emphasize FDE competencies: quantify technical and client outcomes (e.g. 'Reduced ETL latency by 45%, unlocking $1.2M contract expansion')."},
+    {id:"t-soft-2",title:"Prepare 6 STAR Method Stories for Behavioral & Client Scenarios",level:"beginner",est:"2h",desc:"Draft 6 structured STAR stories covering: resolving a production outage under client pressure, handling conflicting requirements, and mastering unfamiliar tech."},
+    {id:"t-soft-3",title:"Complete a 48-Hour Full-Stack FDE Take-Home Capstone",level:"intermediate",est:"6h",desc:"Build an end-to-end capstone: data ingestion script, typed API service, responsive React dashboard, Dockerfile, architecture diagram, and client-facing README."}
+  ]
+}
+];
+
+// ============================================================
+// STATE & STORAGE
+// ============================================================
+const SK_TOPICS = "fde_roadmap_v5_topics";
+const SK_TASKS = "fde_roadmap_v5_tasks";
+
+const PRE_TOPICS = {
+  "react-basics": "done",
+  "react-hooks": "done",
+  "react-patterns": "in-progress",
+  "nextjs-basics": "in-progress",
+  "nextjs-rendering": "in-progress",
+  "js-basics": "done",
+  "js-es6": "done",
+  "js-async": "done"
+};
+
+function loadStored(key, fallback) {
+  try {
+    const s = localStorage.getItem(key);
+    if (s) return JSON.parse(s);
+  } catch (e) {}
+  return fallback;
+}
+
+function saveStored(key, data) {
+  localStorage.setItem(key, JSON.stringify(data));
+}
+
+let P_TOPICS = loadStored(SK_TOPICS, {...PRE_TOPICS});
+let P_TASKS = loadStored(SK_TASKS, {});
+let VIEW_MODE = "both";
+let FILTER = "all";
+let QUERY = "";
+let CURRENT_DRAWER_ITEM = null;
+
+const STATUS_CYCLE = ["not-started", "in-progress", "done"];
+const STATUS_ICONS = {"not-started": "", "in-progress": "◐", "done": "✓"};
+
+function getTopicStatus(id) {
+  return P_TOPICS[id] || "not-started";
+}
+
+function cycleTopic(id) {
+  const curr = getTopicStatus(id);
+  const nextIdx = (STATUS_CYCLE.indexOf(curr) + 1) % 3;
+  const next = STATUS_CYCLE[nextIdx];
+  if (next === "not-started") delete P_TOPICS[id];
+  else P_TOPICS[id] = next;
+  saveStored(SK_TOPICS, P_TOPICS);
+  updateUI();
+  if (CURRENT_DRAWER_ITEM && CURRENT_DRAWER_ITEM.id === id) {
+    updateDrawerStatusButton();
+  }
+  toast(next === "done" ? "✅ Mastered!" : next === "in-progress" ? "🔄 In Progress" : "⬜ Reset");
+}
+
+function isTaskDone(id) {
+  return !!P_TASKS[id];
+}
+
+function toggleTask(id) {
+  if (P_TASKS[id]) {
+    delete P_TASKS[id];
+    toast("⬜ Task unchecked");
+  } else {
+    P_TASKS[id] = true;
+    toast("🎉 Task completed!");
+  }
+  saveStored(SK_TASKS, P_TASKS);
+  updateUI();
+  if (CURRENT_DRAWER_ITEM && CURRENT_DRAWER_ITEM.id === id) {
+    updateDrawerStatusButton();
+  }
+}
+
+function toast(msg) {
+  const w = document.getElementById("tw");
+  const t = document.createElement("div");
+  t.className = "toast";
+  t.textContent = msg;
+  w.appendChild(t);
+  setTimeout(() => {
+    t.style.transition = "opacity .3s, transform .3s";
+    t.style.opacity = "0";
+    t.style.transform = "translateX(20px)";
+    setTimeout(() => t.remove(), 300);
+  }, 1600);
+}
+
+// ============================================================
+// STATS CALCULATIONS
+// ============================================================
+function getAllTopicIds() {
+  const ids = [];
+  D.forEach(s => s.topics.forEach(t => ids.push(t.id)));
+  return ids;
+}
+
+function getAllTaskIds() {
+  const ids = [];
+  D.forEach(s => (s.tasks || []).forEach(t => ids.push(t.id)));
+  return ids;
+}
+
+function computeStats() {
+  const topicIds = getAllTopicIds();
+  const taskIds = getAllTaskIds();
+
+  let tDone = 0, tWip = 0, tTodo = 0;
+  topicIds.forEach(id => {
+    const s = getTopicStatus(id);
+    if (s === "done") tDone++;
+    else if (s === "in-progress") tWip++;
+    else tTodo++;
+  });
+
+  let tasksDone = 0;
+  taskIds.forEach(id => {
+    if (isTaskDone(id)) tasksDone++;
+  });
+
+  const totalPoints = topicIds.length + taskIds.length;
+  const earnedPoints = tDone + tasksDone;
+  const overallPct = totalPoints ? Math.round((earnedPoints / totalPoints) * 100) : 0;
+
+  return {
+    tDone,
+    tWip,
+    tTodo,
+    totalTopics: topicIds.length,
+    tasksDone,
+    totalTasks: taskIds.length,
+    overallPct
+  };
+}
+
+function computeSectionStats(sec) {
+  let topicsDone = 0;
+  sec.topics.forEach(t => {
+    if (getTopicStatus(t.id) === "done") topicsDone++;
+  });
+  
+  let tasksDone = 0;
+  const secTasks = sec.tasks || [];
+  secTasks.forEach(t => {
+    if (isTaskDone(t.id)) tasksDone++;
+  });
+
+  const totalItems = sec.topics.length + secTasks.length;
+  const doneItems = topicsDone + tasksDone;
+  const pct = totalItems ? Math.round((doneItems / totalItems) * 100) : 0;
+
+  return {
+    topicsDone,
+    totalTopics: sec.topics.length,
+    tasksDone,
+    totalTasks: secTasks.length,
+    pct
+  };
+}
+
+// ============================================================
+// FILTERING LOGIC
+// ============================================================
+function isTopicVisible(topic, status) {
+  if (VIEW_MODE === "tasks") return false;
+
+  if (QUERY) {
+    const q = QUERY.toLowerCase();
+    const matchName = topic.name.toLowerCase().includes(q);
+    const matchDesc = topic.desc.toLowerCase().includes(q);
+    const matchSubs = (topic.subtopics || []).some(s => s.toLowerCase().includes(q));
+    if (!matchName && !matchDesc && !matchSubs) return false;
+  }
+
+  if (FILTER === "all") return true;
+  if (FILTER === status) return true;
+  if (["essential", "recommended", "advanced", "beginner"].includes(FILTER) && topic.level === FILTER) return true;
+  if (FILTER === "tasks-incomplete" || FILTER === "tasks-done") return false;
+
+  return false;
+}
+
+function isTaskVisible(task) {
+  if (VIEW_MODE === "topics") return false;
+
+  const done = isTaskDone(task.id);
+  if (QUERY) {
+    const q = QUERY.toLowerCase();
+    const matchTitle = task.title.toLowerCase().includes(q);
+    const matchDesc = task.desc.toLowerCase().includes(q);
+    if (!matchTitle && !matchDesc) return false;
+  }
+
+  if (FILTER === "all") return true;
+  if (FILTER === "tasks-done" && done) return true;
+  if (FILTER === "tasks-incomplete" && !done) return true;
+  if (FILTER === task.level) return true;
+
+  return false;
+}
+
+// ============================================================
+// RICH KNOWLEDGE BASE & SELF-CONTAINED GUIDES
+// ============================================================
+const TOPIC_DETAILS = {
+  "what-is-fde": {
+    plainEnglish: "An FDE (Forward Deployed Engineer) is a hybrid software engineer who sits directly inside a client's company (banks, hospitals, defense agencies) to deploy, customize, and extend a software platform. You bridge product engineering, data pipelines, client consulting, and executive demos.",
+    whyFde: "Palantir, Anduril, Scale AI, and Databricks rely on FDEs because enterprise clients have complex legacy infrastructure that off-the-shelf software cannot solve alone. FDEs ensure the software generates business value immediately.",
+    snippetTitle: "FDE Daily Operating Cadence",
+    code: "# An FDE's core mental loop:\n1. Triage client business pain point with executives\n2. Inspect client's messy raw databases or APIs\n3. Write robust data transformation & ingestion scripts\n4. Build client-facing UI dashboards or tools\n5. Deliver live demo and write operational runbook",
+    pitfalls: "Over-indexing on code perfection while ignoring client workflow reality. An elegant algorithm that solves the wrong client problem is a failure.",
+    interview: "Q: How do you balance client-specific custom requests with our platform's core product roadmap?\nA: Build solutions using modular platform extension points (plugins, webhooks, connectors). Never fork the core codebase for a single client.",
+    resources: [
+      {label: "Palantir Engineering Overview", url: "https://medium.com/@palantir", type: "Blog"},
+      {label: "What Forward Deployed Engineers Do", url: "https://www.palantir.com/careers/", type: "Career Guide"}
+    ]
+  },
+  "terminal-basics": {
+    plainEnglish: "The terminal is your direct communication channel with the operating system. On remote client servers, there are no graphics or mouse pointers. You control files, processes, and networks strictly through typed commands.",
+    whyFde: "When SSH'd into secure client Linux servers, the terminal is your only tool to inspect logs, debug pipelines, and start services.",
+    snippetTitle: "Essential Terminal Cheatsheet",
+    code: "# Navigating & Inspecting\npwd                     # Show current directory\nls -la                  # List all files with sizes and permissions\ncd /var/log/app         # Change directory\n\n# Reading & Searching Files\ntail -n 50 -f app.log   # Stream newest 50 lines in real time\ngrep -rn \"ERROR\" .      # Recursively search current directory for ERROR\nless -N report.txt      # Paginated reader (press q to exit)\n\n# System Resources\ndf -h                   # Check free disk space\nfree -m                 # Check free RAM in megabytes\nps aux | grep python    # Check running Python processes",
+    pitfalls: "Running destructive commands like `rm -rf` without checking `pwd` first. Forgetting that file permissions can block your scripts from executing.",
+    interview: "Q: How do you identify which process is consuming port 8080 on a Linux server and kill it?\nA: `lsof -i :8080` (or `netstat -tulnp | grep 8080`) to find the PID, then `kill -15 <PID>` (or `kill -9 <PID>` if unresponsive).",
+    resources: [
+      {label: "Linux Journey Interactive Tutorials", url: "https://linuxjourney.com", type: "Course"},
+      {label: "ExplainShell Command Visualizer", url: "https://explainshell.com", type: "Tool"}
+    ]
+  },
+  "py-pandas": {
+    plainEnglish: "Pandas provides in-memory 2D tables called DataFrames. It allows you to clean messy CSVs, filter millions of rows, compute group aggregations, and join multiple datasets in milliseconds.",
+    whyFde: "Client data is always dirty: missing values, mixed date formats, and duplicate records. Pandas is the fastest tool for exploratory data cleaning and pipeline prototyping.",
+    snippetTitle: "Core Pandas Cleaning & Aggregation",
+    code: "import pandas as pd\n\n# Load messy data\ndf = pd.read_csv('client_sales.csv')\n\n# Clean missing values and format dates\ndf['amount'] = pd.to_numeric(df['amount'], errors='coerce').fillna(0.0)\ndf['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce')\n\n# Deduplicate records based on transaction ID\ndf = df.drop_duplicates(subset=['tx_id'])\n\n# Group by customer and compute KPIs\nkpis = df.groupby('customer_id').agg(\n    total_spend=('amount', 'sum'),\n    tx_count=('amount', 'count'),\n    latest_tx=('timestamp', 'max')\n).reset_index()\n\n# Save optimized binary columnar file\nkpis.to_parquet('clean_kpis.parquet', compression='snappy')",
+    pitfalls: "Iterating through rows using slow Python loops `for row in df.iterrows()`. Always use vectorized Pandas methods which execute in optimized C.",
+    interview: "Q: Why save analytical data to Parquet instead of CSV?\nA: Parquet is a columnar binary format with compression. It reduces storage size by up to 80% and allows queries to read only the columns they need.",
+    resources: [
+      {label: "Pandas Official 10-Minute Tutorial", url: "https://pandas.pydata.org/docs/user_guide/10min.html", type: "Docs"},
+      {label: "Kaggle Pandas Interactive Course", url: "https://www.kaggle.com/learn/pandas", type: "Interactive"}
+    ]
+  },
+  "sql-advanced": {
+    plainEnglish: "Standard SQL collapses rows when aggregating (GROUP BY). Window functions calculate running totals, rankings, and moving averages across rows WHILE keeping every individual row intact.",
+    whyFde: "Enterprise executives constantly ask for complex cohort analytics: 'Show customer month-over-month growth' or 'Find the top 3 purchases per user'. Window functions solve these in single SQL queries.",
+    snippetTitle: "Window Functions: CTEs, LAG & ROW_NUMBER",
+    code: "WITH monthly_revenue AS (\n  SELECT \n    client_id,\n    DATE_TRUNC('month', created_at) AS tx_month,\n    SUM(amount) AS revenue\n  FROM transactions\n  GROUP BY client_id, DATE_TRUNC('month', created_at)\n)\nSELECT \n  client_id,\n  tx_month,\n  revenue,\n  -- Previous month's revenue for this client\n  LAG(revenue, 1) OVER (PARTITION BY client_id ORDER BY tx_month) AS prev_rev,\n  -- Month-over-month growth %\n  ROUND(\n    (revenue - LAG(revenue, 1) OVER (PARTITION BY client_id ORDER BY tx_month)) \n    / NULLIF(LAG(revenue, 1) OVER (PARTITION BY client_id ORDER BY tx_month), 0) * 100, 2\n  ) AS mom_growth_pct,\n  -- Rank of revenue within this client's history\n  DENSE_RANK() OVER (PARTITION BY client_id ORDER BY revenue DESC) AS revenue_rank\nFROM monthly_revenue\nORDER BY client_id, tx_month;",
+    pitfalls: "Dividing by zero when calculating percentage changes without using `NULLIF(denominator, 0)`.",
+    interview: "Q: What is the difference between RANK() and DENSE_RANK()?\nA: `RANK()` leaves gaps after ties (1, 2, 2, 4), while `DENSE_RANK()` does not leave gaps (1, 2, 2, 3).",
+    resources: [
+      {label: "PostgreSQL Window Functions Tutorial", url: "https://www.postgresqltutorial.com/postgresql-window-function/", type: "Tutorial"},
+      {label: "Mode Analytics Advanced SQL Guide", url: "https://mode.com/sql-tutorial/sql-window-functions/", type: "Guide"}
+    ]
+  },
+  "docker": {
+    plainEnglish: "Docker packages your code, runtime, system packages, and environment into an isolated container image. If it runs in a Docker container on your laptop, it will run identically on client servers without dependency conflicts.",
+    whyFde: "Client IT departments have locked-down operating systems. Delivering your application as a Docker container ensures rapid deployment without arguing over Python versions or installed libraries.",
+    snippetTitle: "Multi-Stage Lightweight Dockerfile",
+    code: "# Stage 1: Build dependencies\nFROM python:3.11-slim AS builder\nWORKDIR /app\nRUN apt-get update && apt-get install -y --no-install-recommends gcc\nCOPY requirements.txt .\nRUN pip install --no-cache-dir --user -r requirements.txt\n\n# Stage 2: Final Minimal Runtime (<100MB)\nFROM python:3.11-slim\nWORKDIR /app\nRUN useradd -m -u 1001 appuser\nCOPY --from=builder /root/.local /home/appuser/.local\nCOPY . .\nENV PATH=/home/appuser/.local/bin:$PATH\nUSER appuser\nEXPOSE 8000\nCMD [\"uvicorn\", \"main:app\", \"--host\", \"0.0.0.0\", \"--port\", \"8000\"]",
+    pitfalls: "Running containers as root in enterprise production environments (a security violation), or forgetting `.dockerignore` which copies local `.env` secrets into the image.",
+    interview: "Q: What is the purpose of Docker multi-stage builds?\nA: To separate the compiler/build tools from the final production runtime image, resulting in a much smaller image (<100MB vs >800MB) with zero unnecessary build dependencies.",
+    resources: [
+      {label: "Docker Getting Started Guide", url: "https://docs.docker.com/get-started/", type: "Docs"},
+      {label: "Dockerfile Best Practices", url: "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/", type: "Best Practices"}
+    ]
+  }
+};
+
+function getTopicGuide(topic, section) {
+  if (TOPIC_DETAILS[topic.id]) {
+    return TOPIC_DETAILS[topic.id];
+  }
+
+  const subList = (topic.subtopics || []).slice(0, 5).join(", ");
+  return {
+    plainEnglish: `${topic.name} is a fundamental pillar of ${section.title.split("—")[0].trim()}. It centers on ${topic.desc.toLowerCase()} Understanding how this operates in production enables you to build scalable software and diagnose system failures with confidence.`,
+    whyFde: `In client engagements, you will encounter production systems utilizing this technology. Mastering ${topic.name} allows you to configure integrations, evaluate tradeoffs, and communicate clearly with both engineers and executive stakeholders.`,
+    snippetTitle: `${topic.name} Reference Architecture`,
+    code: `// Core Technical Patterns for ${topic.name}\n// Key skills: ${subList}\n\n1. Validate Schemas: Enforce strict boundary checks on all inputs\n2. Maintain Modularity: Separate business logic from integration code\n3. Implement Logging: Capture structured correlation IDs and timings\n4. Graceful Degradation: Build fallbacks for downstream service outages`,
+    pitfalls: `Common beginner mistakes include skipping edge-case validation, neglecting error handling, and assuming external systems will always respond without latency.`,
+    interview: `Q: How would you explain the value and tradeoffs of ${topic.name} to a client CTO?\nA: Focus on quantifiable business outcomes: operational uptime, security compliance, maintenance velocity, and total cost of ownership.`,
+    resources: (topic.resources && topic.resources.length) ? topic.resources : [
+      {label: `Documentation & Guides for ${topic.name}`, url: "https://developer.mozilla.org", type: "Reference"}
+    ]
+  };
+}
+
+// ============================================================
+// SELF-CONTAINED TASK REPOSITORY WITH CODE & SOLUTIONS
+// ============================================================
+const TASK_DETAILS = {
+  "t-cli-2": {
+    conceptPrimer: "Log analysis is all about parsing structured text streams. In Unix, commands communicate through pipes (`|`). \n- `awk '{print $1}'`: Extracts the 1st column (IP address).\n- `sort | uniq -c`: Deduplicates lines and counts occurrences.\n- `sort -nr | head -n 5`: Sorts numbers in reverse and prints top 5.\n- `grep ' 5[0-9][0-9] '`: Filters lines matching 5xx HTTP server error codes.",
+    scenario: "Client Scenario: The client's production web server experienced an unexpected spike in latency. You need to analyze the Apache/Nginx web server access logs to immediately identify the top 5 traffic sources and any 5xx server errors.",
+    starterSnippet: `#!/usr/bin/env bash
+# Step 1: Create a mock access log to practice locally
+cat << 'EOF' > access.log
+192.168.1.10 - - [12/Oct/2026:10:00:01] "GET /api/v1/users HTTP/1.1" 200 1204
+10.0.0.5 - - [12/Oct/2026:10:00:02] "POST /api/v1/orders HTTP/1.1" 500 240
+192.168.1.10 - - [12/Oct/2026:10:00:03] "GET /api/v1/products HTTP/1.1" 200 4520
+172.16.0.2 - - [12/Oct/2026:10:00:04] "GET /api/v1/reports HTTP/1.1" 502 180
+192.168.1.10 - - [12/Oct/2026:10:00:05] "GET /api/v1/users HTTP/1.1" 200 1204
+10.0.0.5 - - [12/Oct/2026:10:00:06] "POST /api/v1/orders HTTP/1.1" 500 240
+10.0.0.8 - - [12/Oct/2026:10:00:07] "GET /api/v1/health HTTP/1.1" 200 45
+EOF
+
+# TODO: Write bash commands using awk, sort, uniq, and grep to inspect access.log
+echo "Log file created: access.log"`,
+    steps: [
+      "1. Save the starter script as `analyze.sh` and run `bash analyze.sh` to generate the mock access.log file.",
+      "2. Use `awk '{print $1}' access.log | sort | uniq -c | sort -nr | head -n 5` to compute top client IPs.",
+      "3. Use `grep ' \"5[0-9][0-9] ' access.log` to filter server errors.",
+      "4. Package both into an automated shell script that accepts the log filename as an argument."
+    ],
+    solutionSnippet: `#!/usr/bin/env bash
+# Production Log Analyzer Script
+set -euo pipefail
+
+LOG_FILE="\${1:-access.log}"
+
+if [[ ! -f "$LOG_FILE" ]]; then
+  echo "Error: File '$LOG_FILE' not found."
+  exit 1
+fi
+
+echo "=========================================="
+echo "LOG ANALYSIS REPORT FOR: $LOG_FILE"
+echo "=========================================="
+
+echo -e "\n[1] TOP 5 IP ADDRESSES BY REQUEST COUNT:"
+awk '{print $1}' "$LOG_FILE" | sort | uniq -c | sort -nr | head -n 5
+
+echo -e "\n[2] 5XX HTTP SERVER ERRORS DETECTED:"
+grep ' "5[0-9][0-9] ' "$LOG_FILE" | awk '{print "Status: " $9, "Endpoint: " $7, "IP: " $1}' | sort | uniq -c | sort -nr || echo "No 5xx errors found."
+
+echo -e "\nAnalysis complete."`,
+    solutionExplanation: "The script uses `set -euo pipefail` for strict error handling, reads the log file via argument `$1` with a default fallback, extracts IP addresses via `awk`, and filters HTTP 5xx responses cleanly using regex grep.",
+    expectedOutput: `==========================================
+LOG ANALYSIS REPORT FOR: access.log
+==========================================
+
+[1] TOP 5 IP ADDRESSES BY REQUEST COUNT:
+      3 192.168.1.10
+      2 10.0.0.5
+      1 172.16.0.2
+      1 10.0.0.8
+
+[2] 5XX HTTP SERVER ERRORS DETECTED:
+      2 Status: 500 Endpoint: /api/v1/orders IP: 10.0.0.5
+      1 Status: 502 Endpoint: /api/v1/reports IP: 172.16.0.2
+
+Analysis complete.`,
+    checklist: [
+      "Script executes cleanly without syntax errors",
+      "Correctly extracts and ranks the top client IP addresses",
+      "Correctly isolates 500 and 502 HTTP errors",
+      "Handles missing file gracefully with an error message"
+    ]
+  },
+  "t-py-1": {
+    conceptPrimer: "A CLI tool transforms raw command line inputs into structured data processing. \n- `argparse`: Standard library module to define flags like `--input` and `--output`.\n- `csv.DictReader`: Reads rows as dictionaries mapping column headers to values.\n- `datetime.strptime / strftime`: Converts mixed date strings into standardized ISO-8601 strings (`YYYY-MM-DD`).",
+    scenario: "Client Scenario: A client sends weekly CSV exports containing corrupted timestamps, missing amounts, and trailing whitespaces. Build an automated Python CLI tool that cleans the records and outputs structured JSON.",
+    starterSnippet: `import argparse
+import csv
+import json
+from datetime import datetime
+
+# Sample messy data string for testing
+SAMPLE_CSV = """id,client,amount,date
+1, Acme Corp , 1450.50 , 10/12/2026
+2, Beta LLC , NULL , 2026-10-14
+3, Gamma Inc , 890.00 , Oct 15 2026
+4, Acme Corp , -50.00 , 10/16/2026
+"""
+
+def clean_data(input_file, output_file):
+    # TODO: Read CSV, clean whitespace, parse amounts, reformat dates, save JSON
+    pass
+
+if __name__ == "__main__":
+    # TODO: Add argparse flags: --input and --output
+    pass`,
+    steps: [
+      "1. Configure `argparse.ArgumentParser` to accept `--input` (input CSV path) and `--output` (output JSON path).",
+      "2. Strip whitespace from all string fields with `.strip()`.",
+      "3. Parse amounts: convert strings to float, replace nulls or negative values with `0.0`.",
+      "4. Standardize dates using multiple format try/except blocks to output ISO `YYYY-MM-DD`.",
+      "5. Write the list of cleaned records to the output JSON file with indentation."
+    ],
+    solutionSnippet: `#!/usr/bin/env python3
+import argparse
+import csv
+import json
+import os
+import sys
+from datetime import datetime
+
+DATE_FORMATS = ["%m/%d/%Y", "%Y-%m-%d", "%b %d %Y"]
+
+def parse_date(date_str):
+    clean_str = date_str.strip()
+    for fmt in DATE_FORMATS:
+        try:
+            return datetime.strptime(clean_str, fmt).strftime("%Y-%m-%d")
+        except ValueError:
+            continue
+    return None
+
+def parse_amount(val_str):
+    try:
+        val = float(val_str.strip())
+        return max(0.0, val) # Prevent negative corruptions
+    except (ValueError, TypeError):
+        return 0.0
+
+def process_csv(input_path, output_path):
+    cleaned_records = []
+    with open(input_path, mode="r", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            cleaned_row = {
+                "id": int(row["id"].strip()),
+                "client": row["client"].strip(),
+                "amount": parse_amount(row["amount"]),
+                "date": parse_date(row["date"])
+            }
+            cleaned_records.append(cleaned_row)
+            
+    with open(output_path, mode="w", encoding="utf-8") as f:
+        json.dump(cleaned_records, f, indent=2)
+        
+    print(f"Successfully processed {len(cleaned_records)} records -> {output_path}")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Clean messy client CSVs to structured JSON.")
+    parser.add_argument("--input", required=True, help="Path to input CSV file")
+    parser.add_argument("--output", required=True, help="Path to output JSON file")
+    args = parser.parse_args()
+    
+    process_csv(args.input, args.output)`,
+    solutionExplanation: "The solution uses `csv.DictReader` to safely access columns by name, loops through standard date formats to handle inconsistent client dates, sanitizes invalid amounts to 0.0, and serializes clean JSON with `json.dump`.",
+    expectedOutput: `[
+  {
+    "id": 1,
+    "client": "Acme Corp",
+    "amount": 1450.5,
+    "date": "2026-10-12"
+  },
+  {
+    "id": 2,
+    "client": "Beta LLC",
+    "amount": 0.0,
+    "date": "2026-10-14"
+  },
+  {
+    "id": 3,
+    "client": "Gamma Inc",
+    "amount": 890.0,
+    "date": "2026-10-15"
+  },
+  {
+    "id": 4,
+    "client": "Acme Corp",
+    "amount": 0.0,
+    "date": "2026-10-16"
+  }
+]`,
+    checklist: [
+      "Accepts `--input` and `--output` CLI flags correctly",
+      "Handles missing or 'NULL' amounts without raising exceptions",
+      "Parses multi-format dates into consistent 'YYYY-MM-DD' strings",
+      "Outputs valid formatted JSON"
+    ]
+  },
+  "t-db-2": {
+    conceptPrimer: "Financial cohorts require comparing current values with preceding intervals. \n- `WITH monthly_rev AS (...)`: Common Table Expression (CTE) to pre-aggregate transactions into months.\n- `LAG(revenue, 1) OVER (PARTITION BY client_id ORDER BY tx_month)`: Fetches the revenue from the preceding month for the same client.\n- `ROW_NUMBER() OVER (PARTITION BY client_id ORDER BY revenue DESC)`: Assigns a rank to each month based on highest earnings.",
+    scenario: "Client Scenario: The CFO of a SaaS client wants an automated SQL report that computes month-over-month revenue growth for every client account and flags their highest-earning month.",
+    starterSnippet: `-- Mock Database Schema & Seed Data (PostgreSQL / SQLite)
+CREATE TABLE transactions (
+  id INT PRIMARY KEY,
+  client_id INT,
+  amount DECIMAL(10,2),
+  transaction_date DATE
+);
+
+INSERT INTO transactions VALUES
+(1, 101, 5000.00, '2026-01-15'),
+(2, 101, 7500.00, '2026-02-10'),
+(3, 101, 6000.00, '2026-03-05'),
+(4, 102, 12000.00, '2026-01-20'),
+(5, 102, 18000.00, '2026-02-18');
+
+-- TODO: Write CTE with LAG() and ROW_NUMBER()`,
+    steps: [
+      "1. Group transactions by `client_id` and truncated month using a `WITH monthly_rev AS (...)` CTE.",
+      "2. Apply `LAG(revenue, 1) OVER (PARTITION BY client_id ORDER BY month)` to retrieve the prior month's earnings.",
+      "3. Compute percentage growth: `(revenue - prev_revenue) / prev_revenue * 100`.",
+      "4. Apply `ROW_NUMBER() OVER (PARTITION BY client_id ORDER BY revenue DESC)` to rank months by revenue."
+    ],
+    solutionSnippet: `WITH monthly_rev AS (
+  SELECT 
+    client_id,
+    DATE_TRUNC('month', transaction_date) AS tx_month,
+    SUM(amount) AS current_revenue
+  FROM transactions
+  GROUP BY client_id, DATE_TRUNC('month', transaction_date)
+)
+SELECT 
+  client_id,
+  TO_CHAR(tx_month, 'YYYY-MM') AS month_label,
+  current_revenue,
+  LAG(current_revenue, 1) OVER (
+    PARTITION BY client_id ORDER BY tx_month
+  ) AS prev_month_revenue,
+  ROUND(
+    (current_revenue - LAG(current_revenue, 1) OVER (PARTITION BY client_id ORDER BY tx_month)) 
+    / NULLIF(LAG(current_revenue, 1) OVER (PARTITION BY client_id ORDER BY tx_month), 0) * 100, 2
+  ) AS mom_growth_percent,
+  ROW_NUMBER() OVER (
+    PARTITION BY client_id ORDER BY current_revenue DESC
+  ) AS client_revenue_rank
+FROM monthly_rev
+ORDER BY client_id, tx_month;`,
+    solutionExplanation: "The query aggregates raw transactions into calendar months within a CTE. The outer query uses `LAG()` partitioned by client to inspect prior performance, uses `NULLIF` to guard against division-by-zero on the first month, and ranks highest revenue months using `ROW_NUMBER()`.",
+    expectedOutput: `client_id | month_label | current_revenue | prev_month_revenue | mom_growth_percent | client_revenue_rank
+----------+-------------+-----------------+--------------------+--------------------+--------------------
+101       | 2026-01     | 5000.00         | NULL               | NULL               | 3
+101       | 2026-02     | 7500.00         | 5000.00            | 50.00              | 1
+101       | 2026-03     | 6000.00         | 7500.00            | -20.00             | 2
+102       | 2026-01     | 12000.00        | NULL               | NULL               | 2
+102       | 2026-02     | 18000.00        | 12000.00           | 50.00              | 1`,
+    checklist: [
+      "Correctly partitions by client_id so calculations do not bleed between accounts",
+      "Handles the first month with a safe NULL rather than a divide-by-zero crash",
+      "Correctly computes negative growth (-20.00%) when revenue drops",
+      "Calculates rank 1 for each client's highest-earning month"
+    ]
+  }
+};
+
+function getTaskGuide(task, section) {
+  if (TASK_DETAILS[task.id]) {
+    return TASK_DETAILS[task.id];
+  }
+
+  // Dynamic self-contained synthesizer for any task
+  return {
+    conceptPrimer: `To complete this task, you need a clear mental model of ${task.title}. \n- Modularity: Isolate inputs, business transformation, and outputs into distinct functions.\n- Defensive Programming: Validate input schemas, handle null values, and log execution timing.\n- Verification: Always assert that the actual output matches the client's expected contract.`,
+    scenario: `Enterprise Client Engagement: The client operations team requires a robust, self-contained implementation of "${task.title}". The deliverable must execute with clear outputs and zero unhandled exceptions within an estimated ${task.est}.`,
+    starterSnippet: `# Starter Scaffold for: ${task.title}
+# Run locally with: python3 script.py
+
+import json
+import sys
+import time
+
+# Sample Mock Input Data for this task
+MOCK_INPUT = {
+    "task_id": "${task.id}",
+    "client": "Enterprise Partner A",
+    "status": "pending",
+    "records": [
+        {"id": 1, "value": 100, "valid": True},
+        {"id": 2, "value": 250, "valid": True},
+        {"id": 3, "value": -10, "valid": False}
+    ]
+}
+
+def execute_pipeline(data):
+    print(f"Processing task: ${task.title}...")
+    # Step 1: Validate input
+    # Step 2: Transform valid records
+    # Step 3: Compute summary
+    return {"status": "success", "processed_count": 0}
+
+if __name__ == "__main__":
+    result = execute_pipeline(MOCK_INPUT)
+    print("Result:", json.dumps(result, indent=2))`,
+    steps: [
+      `1. Setup: Copy the starter scaffold into your IDE or editor and run it to verify execution.`,
+      `2. Data Validation: Filter out corrupted or invalid records using strict conditionals.`,
+      `3. Core Logic: Implement the business logic for ${task.title} with clean separation of concerns.`,
+      `4. Output & Verification: Format the output and compare your console logs with the expected terminal output below.`
+    ],
+    solutionSnippet: `# Production Implementation: ${task.title}
+import json
+import sys
+import time
+
+def process_records(input_data):
+    start_time = time.time()
+    
+    if not isinstance(input_data, dict) or "records" not in input_data:
+        raise ValueError("Invalid schema: 'records' field is required.")
+        
+    valid_items = []
+    total_val = 0
+    
+    for item in input_data["records"]:
+        # Defensive validation
+        if item.get("valid") is True and item.get("value", 0) > 0:
+            valid_items.append(item)
+            total_val += item["value"]
+            
+    execution_ms = round((time.time() - start_time) * 1000, 2)
+    
+    return {
+        "task_name": "${task.title}",
+        "status": "completed",
+        "total_records": len(input_data["records"]),
+        "valid_records_count": len(valid_items),
+        "aggregated_sum": total_val,
+        "execution_time_ms": execution_ms
+    }
+
+if __name__ == "__main__":
+    mock_data = {
+        "client": "Enterprise Partner A",
+        "records": [
+            {"id": 1, "value": 100, "valid": True},
+            {"id": 2, "value": 250, "valid": True},
+            {"id": 3, "value": -10, "valid": False}
+        ]
+    }
+    output = process_records(mock_data)
+    print("=== PIPELINE EXECUTION SUCCESSFUL ===")
+    print(json.dumps(output, indent=2))`,
+    solutionExplanation: `This solution establishes defensive schema validation, filters invalid entries, aggregates metrics, tracks execution timing in milliseconds, and prints a structured JSON response.`,
+    expectedOutput: `=== PIPELINE EXECUTION SUCCESSFUL ===
+{
+  "task_name": "${task.title}",
+  "status": "completed",
+  "total_records": 3,
+  "valid_records_count": 2,
+  "aggregated_sum": 350,
+  "execution_time_ms": 0.12
+}`,
+    checklist: [
+      "Runs locally with zero external package dependencies",
+      "Correctly filters out invalid records (valid == False or value <= 0)",
+      "Computes the aggregated sum accurately (350)",
+      "Outputs formatted JSON with execution timing metrics"
+    ]
+  };
+}
+
+// ============================================================
+// DRAWER DISPLAY LOGIC
+// ============================================================
+function openTopicDrawer(topicId) {
+  let foundTopic = null;
+  let parentSec = null;
+  for (const s of D) {
+    for (const t of s.topics) {
+      if (t.id === topicId) {
+        foundTopic = t;
+        parentSec = s;
+        break;
+      }
+    }
+    if (foundTopic) break;
+  }
+  if (!foundTopic) return;
+
+  CURRENT_DRAWER_ITEM = {type: "topic", id: topicId};
+  const guide = getTopicGuide(foundTopic, parentSec);
+
+  document.getElementById("drawerType").innerHTML = `<span>${parentSec.icon}</span> <span>${parentSec.title.split("—")[0].trim()} • CONCEPT GUIDE</span>`;
+  document.getElementById("drawerTitle").textContent = foundTopic.name;
+  updateDrawerStatusButton();
+
+  const body = document.getElementById("drawerBody");
+  body.innerHTML = `
+    <!-- PLAIN ENGLISH -->
+    <div class="d-card">
+      <div class="d-card-title"><span>💡</span> In Plain English (Core Mental Model)</div>
+      <div class="d-card-text">${guide.plainEnglish}</div>
+    </div>
+
+    <!-- WHY AN FDE NEEDS THIS -->
+    <div class="d-card" style="border-color:rgba(99,102,241,.25)">
+      <div class="d-card-title" style="color:var(--ac)"><span>🏢</span> Why an FDE Needs This (Client Context)</div>
+      <div class="d-card-text">${guide.whyFde}</div>
+    </div>
+
+    <!-- CODE SNIPPET / CHEATSHEET -->
+    <div class="d-card">
+      <div class="d-card-title"><span>💻</span> ${guide.snippetTitle}</div>
+      <div class="d-code-box">
+        <div class="d-code-hdr">
+          <span>ESSENTIAL SYNTAX & PATTERNS</span>
+          <button class="d-code-copy" onclick="copyCode(this)">📋 Copy</button>
+        </div>
+        <pre class="d-code">${escapeHtml(guide.code)}</pre>
+      </div>
+    </div>
+
+    <!-- COMMON PITFALLS -->
+    <div class="d-card" style="border-color:rgba(239,68,68,.2)">
+      <div class="d-card-title" style="color:#f87171"><span>⚠️</span> Common Pitfalls & Traps to Avoid</div>
+      <div class="d-card-text">${guide.pitfalls}</div>
+    </div>
+
+    <!-- INTERVIEW QUESTION -->
+    <div class="d-card" style="border-color:rgba(245,158,11,.25)">
+      <div class="d-card-title" style="color:var(--wp)"><span>🎯</span> Real FDE Interview Scenario & Answer</div>
+      <div class="d-card-text" style="white-space:pre-line">${guide.interview}</div>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="d-card">
+      <div class="d-card-title"><span>📚</span> Curated Free Learning Resources</div>
+      <div class="d-checklist">
+        ${guide.resources.map(r => `
+          <a href="${r.url}" target="_blank" rel="noopener" class="d-res-item">
+            <span>${r.label} ↗</span>
+            <span class="d-res-tag">${r.type || "Link"}</span>
+          </a>
+        `).join("")}
+      </div>
+    </div>
+  `;
+
+  document.getElementById("drawerOverlay").classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function openTaskDrawer(taskId) {
+  let foundTask = null;
+  let parentSec = null;
+  for (const s of D) {
+    for (const t of (s.tasks || [])) {
+      if (t.id === taskId) {
+        foundTask = t;
+        parentSec = s;
+        break;
+      }
+    }
+    if (foundTask) break;
+  }
+  if (!foundTask) return;
+
+  CURRENT_DRAWER_ITEM = {type: "task", id: taskId};
+  const guide = getTaskGuide(foundTask, parentSec);
+
+  document.getElementById("drawerType").innerHTML = `<span>🛠️</span> <span>${parentSec.title.split("—")[0].trim()} • GUIDED TASK</span>`;
+  document.getElementById("drawerTitle").textContent = foundTask.title;
+  updateDrawerStatusButton();
+
+  const body = document.getElementById("drawerBody");
+  body.innerHTML = `
+    <!-- SCENARIO & OBJECTIVE -->
+    <div class="d-card" style="border-color:rgba(6,182,212,.25)">
+      <div class="d-card-title" style="color:var(--tk)"><span>🎯</span> Client Scenario & Objective</div>
+      <div class="d-card-text">${guide.scenario}</div>
+      <div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap">
+        <span class="t-badge t-${foundTask.level}">${foundTask.level}</span>
+        <span class="t-time">⏱️ Estimated: ${foundTask.est}</span>
+        <span class="t-time" style="color:var(--dn)">📦 Zero Setup: Runnable Standalone</span>
+      </div>
+    </div>
+
+    <!-- CONCEPT CRASH COURSE -->
+    <div class="d-card" style="border-color:rgba(99,102,241,.25)">
+      <div class="d-card-title" style="color:var(--ac)"><span>🧠</span> What You Need to Know (Concept Crash Course)</div>
+      <div class="d-card-text" style="white-space:pre-line">${guide.conceptPrimer}</div>
+    </div>
+
+    <!-- STARTER SCAFFOLD & SAMPLE INPUT -->
+    <div class="d-card">
+      <div class="d-card-title"><span>📥</span> Starter Scaffold & Sample Data</div>
+      <div class="d-card-text" style="font-size:11.5px;color:var(--txd)">Copy this into your code editor to start working immediately with mock input data:</div>
+      <div class="d-code-box">
+        <div class="d-code-hdr">
+          <span>STARTER TEMPLATE</span>
+          <button class="d-code-copy" onclick="copyCode(this)">📋 Copy</button>
+        </div>
+        <pre class="d-code">${escapeHtml(guide.starterSnippet)}</pre>
+      </div>
+    </div>
+
+    <!-- STEP-BY-STEP GUIDED WALKTHROUGH -->
+    <div class="d-card">
+      <div class="d-card-title"><span>🛠️</span> Step-by-Step Guided Implementation</div>
+      <div class="d-checklist">
+        ${guide.steps.map(s => `
+          <div class="d-check-item">
+            <span class="d-check-bullet">▶</span>
+            <span>${s}</span>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+
+    <!-- EXPANDABLE FULL WORKING SOLUTION -->
+    <div class="d-card" style="border-color:rgba(16,185,129,.3);background:rgba(16,185,129,.02)">
+      <div class="d-card-title" style="color:var(--dn)"><span>💡</span> Complete Working Solution & Explanation</div>
+      <div class="d-card-text" style="font-size:11.5px;color:var(--txd)">Stuck or want to check your approach? Expand to see the fully commented production solution:</div>
+      <details class="d-solution-accordion">
+        <summary class="d-solution-summary">
+          <span>👁️ Click to Reveal Complete Working Solution Code</span>
+          <span style="font-size:10px;font-family:var(--fm)">[SHOW / HIDE]</span>
+        </summary>
+        <div class="d-solution-content">
+          <div class="d-code-box">
+            <div class="d-code-hdr">
+              <span>PRODUCTION SOLUTION CODE</span>
+              <button class="d-code-copy" onclick="copyCode(this)">📋 Copy Solution</button>
+            </div>
+            <pre class="d-code" style="color:#a7f3d0">${escapeHtml(guide.solutionSnippet)}</pre>
+          </div>
+          <div style="font-size:11.5px;color:var(--tx2);line-height:1.5;margin-top:4px">
+            <b>Why this works:</b> ${guide.solutionExplanation}
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- EXPECTED OUTPUT & VERIFICATION -->
+    <div class="d-card">
+      <div class="d-card-title"><span>🖥️</span> Expected Terminal / Console Output</div>
+      <div class="d-term-output">${escapeHtml(guide.expectedOutput)}</div>
+    </div>
+
+    <!-- ACCEPTANCE CRITERIA -->
+    <div class="d-card" style="border-color:rgba(16,185,129,.2)">
+      <div class="d-card-title" style="color:var(--dn)"><span>✅</span> Acceptance Criteria Checklist</div>
+      <div class="d-checklist">
+        ${guide.checklist.map(c => `
+          <div class="d-check-item">
+            <span class="d-check-bullet" style="background:var(--dns);color:var(--dn)">✓</span>
+            <span>${c}</span>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+  `;
+
+  document.getElementById("drawerOverlay").classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function updateDrawerStatusButton() {
+  const btn = document.getElementById("drawerStatusBtn");
+  if (!CURRENT_DRAWER_ITEM) return;
+
+  if (CURRENT_DRAWER_ITEM.type === "topic") {
+    const s = getTopicStatus(CURRENT_DRAWER_ITEM.id);
+    if (s === "done") {
+      btn.innerHTML = "✅ Mastered (Click to Reset)";
+      btn.style.color = "var(--dn)";
+      btn.style.borderColor = "var(--dn)";
+    } else if (s === "in-progress") {
+      btn.innerHTML = "🔄 In Progress (Click to Complete)";
+      btn.style.color = "var(--wp)";
+      btn.style.borderColor = "var(--wp)";
+    } else {
+      btn.innerHTML = "⬜ Not Started (Click to Start)";
+      btn.style.color = "var(--tx2)";
+      btn.style.borderColor = "var(--bd)";
+    }
+  } else {
+    const done = isTaskDone(CURRENT_DRAWER_ITEM.id);
+    if (done) {
+      btn.innerHTML = "✅ Task Done (Click to Undo)";
+      btn.style.color = "var(--dn)";
+      btn.style.borderColor = "var(--dn)";
+    } else {
+      btn.innerHTML = "⬜ Mark Complete";
+      btn.style.color = "var(--txh)";
+      btn.style.borderColor = "var(--tk)";
+    }
+  }
+}
+
+function closeDrawer() {
+  document.getElementById("drawerOverlay").classList.remove("active");
+  document.body.style.overflow = "";
+  CURRENT_DRAWER_ITEM = null;
+}
+
+function copyCode(btn) {
+  const pre = btn.closest(".d-code-box").querySelector("pre");
+  navigator.clipboard.writeText(pre.textContent).then(() => {
+    btn.textContent = "✓ Copied!";
+    setTimeout(() => btn.textContent = "📋 Copy", 1600);
+  });
+}
+
+function escapeHtml(str) {
+  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+// ============================================================
+// RENDER FUNCTION
+// ============================================================
+function render() {
+  const container = document.getElementById("rmC");
+  container.innerHTML = "";
+
+  D.forEach(sec => {
+    const ss = computeSectionStats(sec);
+    const secEl = document.createElement("div");
+    secEl.className = "sec";
+    secEl.id = `sec-${sec.id}`;
+
+    // Section Header
+    secEl.innerHTML = `
+      <div class="sh" data-sec="${sec.id}">
+        <div class="si2" style="background:${sec.color}15;color:${sec.color}">${sec.icon}</div>
+        <div class="snfo">
+          <div class="st">${sec.title}</div>
+          <div class="sst">${sec.subtitle}</div>
+        </div>
+        <div class="spm">
+          <div class="spm-col">
+            <span class="spp">${ss.pct}% readiness</span>
+            <div class="smb"><div class="smf" style="width:${ss.pct}%;background:${sec.color}"></div></div>
+          </div>
+          <div class="spm-col" style="align-items:flex-end">
+            <span class="scn">📚 ${ss.topicsDone}/${ss.totalTopics}</span>
+            <span class="scn" style="color:var(--tk)">🛠️ ${ss.tasksDone}/${ss.totalTasks}</span>
+          </div>
+        </div>
+        <div class="stg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </div>
+      <div class="sec-body" id="body-${sec.id}"></div>
+    `;
+
+    const secBody = secEl.querySelector(".sec-body");
+    let hasVisibleContent = false;
+
+    // 1. TOPICS GRID
+    const visibleTopics = sec.topics.filter(t => isTopicVisible(t, getTopicStatus(t.id)));
+    if (visibleTopics.length > 0 && VIEW_MODE !== "tasks") {
+      hasVisibleContent = true;
+      const tgWrap = document.createElement("div");
+      tgWrap.innerHTML = `
+        <div class="tg-hdr">
+          <span>📚 Core Concepts & Knowledge Topics (${visibleTopics.length})</span>
+        </div>
+        <div class="tg" style="margin-top:8px"></div>
+      `;
+      const grid = tgWrap.querySelector(".tg");
+
+      visibleTopics.forEach(topic => {
+        const st = getTopicStatus(topic.id);
+        const card = document.createElement("div");
+        card.className = "tc";
+        card.setAttribute("data-s", st);
+        card.setAttribute("data-id", topic.id);
+
+        let subsH = topic.subtopics?.length
+          ? `<div class="su">${topic.subtopics.map(s => `<span class="sp">${s}</span>`).join("")}</div>`
+          : "";
+        let resH = topic.resources?.length
+          ? `<div class="tr">${topic.resources.map(r => `<a href="${r.url}" target="_blank" rel="noopener" class="trl" onclick="event.stopPropagation()">${r.label} ↗</a>`).join("")}</div>`
+          : "";
+
+        card.innerHTML = `
+          <div class="tt">
+            <div class="tn">${topic.name}</div>
+            <button class="sb" data-t="${topic.id}" title="Cycle: Not Started → In Progress → Done">${STATUS_ICONS[st]}</button>
+          </div>
+          <div class="td">${topic.desc}</div>
+          <div class="tm"><span class="mt ${topic.level}">${topic.level}</span></div>
+          ${subsH}
+          ${resH}
+          <div class="card-inspect-hint">
+            <span>📖 Deep-Dive Guide</span>
+            <span>Click to inspect ↗</span>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      secBody.appendChild(tgWrap);
+    }
+
+    // 2. PRACTICAL TASKS BLOCK
+    const secTasks = sec.tasks || [];
+    const visibleTasks = secTasks.filter(t => isTaskVisible(t));
+    if (visibleTasks.length > 0 && VIEW_MODE !== "topics") {
+      hasVisibleContent = true;
+      const tb = document.createElement("div");
+      tb.className = "tasks-block";
+      tb.innerHTML = `
+        <div class="tb-hdr">
+          <div class="tb-title">
+            <span>🛠️ Practical Tasks & Hands-On Projects</span>
+            <span class="tb-badge">${ss.tasksDone}/${ss.totalTasks} Completed</span>
+          </div>
+          <span style="font-size:11px;color:var(--txd)">Click any task for starter code & full solution</span>
+        </div>
+        <div class="tasks-list"></div>
+      `;
+      const tList = tb.querySelector(".tasks-list");
+
+      visibleTasks.forEach(task => {
+        const done = isTaskDone(task.id);
+        const tCard = document.createElement("div");
+        tCard.className = `task-card${done ? " task-done" : ""}`;
+        tCard.setAttribute("data-task-id", task.id);
+
+        tCard.innerHTML = `
+          <div class="task-check" title="Toggle Task Done">${done ? "✓" : ""}</div>
+          <div class="task-content">
+            <div class="task-header">
+              <span class="task-name">${task.title}</span>
+            </div>
+            <div class="task-meta">
+              <span class="t-badge t-${task.level}">${task.level}</span>
+              <span class="t-time">⏱️ ${task.est}</span>
+            </div>
+            <div class="task-desc">${task.desc}</div>
+            <div class="card-inspect-hint" style="border-top-color:rgba(6,182,212,.18)">
+              <span style="color:var(--tk)">📋 Starter Code & Full Solution</span>
+              <span style="color:var(--tk)">View guide ↗</span>
+            </div>
+          </div>
+        `;
+        tList.appendChild(tCard);
+      });
+
+      secBody.appendChild(tb);
+    }
+
+    // Hide entire section if no contents match current filter/search
+    if (!hasVisibleContent && (QUERY || FILTER !== "all" || VIEW_MODE !== "both")) {
+      secEl.style.display = "none";
+    }
+
+    container.appendChild(secEl);
+  });
+
+  attachEvents();
+}
+
+function attachEvents() {
+  // Section accordion toggle
+  document.querySelectorAll(".sh").forEach(h => {
+    h.addEventListener("click", e => {
+      if (e.target.closest(".sb") || e.target.closest(".task-check")) return;
+      h.closest(".sec").classList.toggle("col");
+    });
+  });
+
+  // Topic checkbox cycling only
+  document.querySelectorAll(".sb").forEach(b => {
+    b.addEventListener("click", e => {
+      e.stopPropagation();
+      cycleTopic(b.getAttribute("data-t"));
+    });
+  });
+
+  // Topic card click opens Deep-Dive Drawer
+  document.querySelectorAll(".tc").forEach(card => {
+    card.addEventListener("click", e => {
+      if (e.target.closest("a") || e.target.closest(".sb")) return;
+      openTopicDrawer(card.getAttribute("data-id"));
+    });
+  });
+
+  // Task check box toggle only
+  document.querySelectorAll(".task-check").forEach(c => {
+    c.addEventListener("click", e => {
+      e.stopPropagation();
+      toggleTask(c.closest(".task-card").getAttribute("data-task-id"));
+    });
+  });
+
+  // Task card click opens Task Drawer
+  document.querySelectorAll(".task-card").forEach(tCard => {
+    tCard.addEventListener("click", e => {
+      if (e.target.closest(".task-check")) return;
+      openTaskDrawer(tCard.getAttribute("data-task-id"));
+    });
+  });
+}
+
+function updateStats() {
+  const s = computeStats();
+
+  document.getElementById("sDn").textContent = s.tDone;
+  document.getElementById("sWp").textContent = s.tWip;
+  document.getElementById("sTk").textContent = s.tasksDone;
+  document.getElementById("sTkTotal").textContent = s.totalTasks;
+  document.getElementById("sTt").textContent = s.totalTopics;
+
+  document.getElementById("hD").textContent = s.tDone;
+  document.getElementById("hTotal").textContent = s.totalTopics;
+  document.getElementById("hW").textContent = s.tWip;
+  document.getElementById("hTkDone").textContent = s.tasksDone;
+  document.getElementById("hTkTotal").textContent = s.totalTasks;
+  document.getElementById("hOverallPct").textContent = s.overallPct + "%";
+  document.getElementById("hP").textContent = s.overallPct + "%";
+
+  const circ = 2 * Math.PI * 50;
+  const offset = circ - (s.overallPct / 100) * circ;
+  document.getElementById("rSvg").setAttribute("stroke-dashoffset", offset);
+
+  const pctDone = s.totalTopics ? (s.tDone / s.totalTopics) * 100 : 0;
+  const pctWip = s.totalTopics ? (s.tWip / s.totalTopics) * 100 : 0;
+  document.getElementById("hBd").style.width = pctDone + "%";
+  document.getElementById("hBw").style.width = pctWip + "%";
+
+  const titles = [
+    [0, "Your FDE Journey Starts Here 🚀"],
+    [5, "Taking the First Steps 🧱"],
+    [15, "Building Core Foundations 💪"],
+    [30, "Gaining Real Momentum 🔥"],
+    [45, "Solid Engineer Territory ⚡"],
+    [60, "Advanced Problem Solver 🎯"],
+    [75, "Senior-Level FDE Skills 🏆"],
+    [90, "Almost Production-Ready! 🎖️"],
+    [100, "Complete FDE Mastered — Go Get Hired! 🎉"]
+  ];
+  let title = titles[0][1];
+  for (const [p, t] of titles) {
+    if (s.overallPct >= p) title = t;
+  }
+  document.getElementById("hT").textContent = title;
+}
+
+function updateUI() {
+  render();
+  updateStats();
+}
+
+// ============================================================
+// EVENT LISTENERS: CONTROLS & DRAWER
+// ============================================================
+document.querySelectorAll(".vt-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".vt-btn").forEach(b => b.classList.remove("act"));
+    btn.classList.add("act");
+    VIEW_MODE = btn.getAttribute("data-view");
+    updateUI();
+  });
+});
+
+document.querySelectorAll(".fp").forEach(pill => {
+  pill.addEventListener("click", () => {
+    document.querySelectorAll(".fp").forEach(p => p.classList.remove("act"));
+    pill.classList.add("act");
+    FILTER = pill.getAttribute("data-f");
+    updateUI();
+  });
+});
+
+document.getElementById("sIn").addEventListener("input", e => {
+  QUERY = e.target.value.trim();
+  updateUI();
+});
+
+document.getElementById("bE").addEventListener("click", () => {
+  document.querySelectorAll(".sec").forEach(s => s.classList.remove("col"));
+});
+document.getElementById("bC").addEventListener("click", () => {
+  document.querySelectorAll(".sec").forEach(s => s.classList.add("col"));
+});
+
+document.getElementById("bR").addEventListener("click", () => {
+  if (confirm("Reset ALL concept and task progress? This cannot be undone.")) {
+    P_TOPICS = {};
+    P_TASKS = {};
+    saveStored(SK_TOPICS, P_TOPICS);
+    saveStored(SK_TASKS, P_TASKS);
+    updateUI();
+    toast("All progress reset");
+  }
+});
+
+// Drawer events
+document.getElementById("drawerClose").addEventListener("click", closeDrawer);
+document.getElementById("drawerOverlay").addEventListener("click", e => {
+  if (e.target === document.getElementById("drawerOverlay")) closeDrawer();
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && document.getElementById("drawerOverlay").classList.contains("active")) {
+    closeDrawer();
+  }
+});
+document.getElementById("drawerStatusBtn").addEventListener("click", () => {
+  if (!CURRENT_DRAWER_ITEM) return;
+  if (CURRENT_DRAWER_ITEM.type === "topic") {
+    cycleTopic(CURRENT_DRAWER_ITEM.id);
+  } else {
+    toggleTask(CURRENT_DRAWER_ITEM.id);
+  }
+});
+
+// Initial boot
+updateUI();
+</script>
+</body>
+</html>
