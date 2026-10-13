@@ -1,0 +1,161 @@
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum CourseTier {
+  FREE
+  PAID
+  HYBRID
+}
+
+enum OrderStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}
+
+model Profile {
+  id         String   @id // matches auth.users id
+  email      String   @unique
+  fullName   String?  @map("full_name")
+  avatarUrl  String?  @map("avatar_url")
+  role       Role     @default(USER)
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  orders         Order[]
+  courseAccess   UserCourseAccess[]
+  lessonProgress LessonProgress[]
+  taskProgress   TaskProgress[]
+
+  @@map("profiles")
+}
+
+model Course {
+  id               String     @id @default(uuid())
+  slug             String     @unique
+  title            String
+  description      String     @db.Text
+  thumbnailUrl     String?    @map("thumbnail_url")
+  tier             CourseTier @default(FREE)
+  priceInInr       Int        @default(0) @map("price_in_inr") // in rupees
+  roadmapSectionId String?    @map("roadmap_section_id") // links to e.g. "react-next"
+  level            String     @default("intermediate") // beginner, intermediate, advanced
+  estimatedHours   Float      @default(3.0) @map("estimated_hours")
+  isPublished      Boolean    @default(true) @map("is_published")
+  createdAt        DateTime   @default(now()) @map("created_at")
+  updatedAt        DateTime   @updatedAt @map("updated_at")
+
+  modules      Module[]
+  orders       Order[]
+  courseAccess UserCourseAccess[]
+
+  @@map("courses")
+}
+
+model Module {
+  id         String   @id @default(uuid())
+  courseId   String   @map("course_id")
+  title      String
+  orderIndex Int      @map("order_index")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  course  Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  lessons Lesson[]
+
+  @@map("modules")
+}
+
+model Lesson {
+  id              String   @id @default(uuid())
+  moduleId        String   @map("module_id")
+  slug            String
+  title           String
+  orderIndex      Int      @map("order_index")
+  isFree          Boolean  @default(false) @map("is_free")
+  videoUrl        String?  @map("video_url")
+  durationSeconds Int      @default(0) @map("duration_seconds")
+  markdownContent String   @db.Text @map("markdown_content")
+  starterCode     String?  @db.Text @map("starter_code")
+  solutionCode    String?  @db.Text @map("solution_code")
+  expectedOutput  String?  @db.Text @map("expected_output")
+  taskId          String?  @map("task_id") // links to e.g. "t-react-1"
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  module   Module           @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  progress LessonProgress[]
+
+  @@unique([moduleId, slug])
+  @@map("lessons")
+}
+
+model UserCourseAccess {
+  id                String   @id @default(uuid())
+  userId            String   @map("user_id")
+  courseId          String   @map("course_id")
+  razorpayPaymentId String?  @map("razorpay_payment_id")
+  grantedAt         DateTime @default(now()) @map("granted_at")
+
+  user   Profile @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course Course  @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, courseId])
+  @@map("user_course_access")
+}
+
+model Order {
+  id                String      @id @default(uuid())
+  userId            String      @map("user_id")
+  courseId          String      @map("course_id")
+  razorpayOrderId   String      @unique @map("razorpay_order_id")
+  razorpayPaymentId String?     @map("razorpay_payment_id")
+  amountInInr       Int         @map("amount_in_inr")
+  currency          String      @default("INR")
+  status            OrderStatus @default(PENDING)
+  createdAt         DateTime    @default(now()) @map("created_at")
+  updatedAt         DateTime    @updatedAt @map("updated_at")
+
+  user   Profile @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course Course  @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@map("orders")
+}
+
+model LessonProgress {
+  id                  String   @id @default(uuid())
+  userId              String   @map("user_id")
+  lessonId            String   @map("lesson_id")
+  completed           Boolean  @default(false)
+  lastPositionSeconds Int      @default(0) @map("last_position_seconds")
+  updatedAt           DateTime @updatedAt @map("updated_at")
+
+  user   Profile @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson Lesson  @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+  @@map("lesson_progress")
+}
+
+model TaskProgress {
+  id          String    @id @default(uuid())
+  userId      String    @map("user_id")
+  taskId      String    @map("task_id") // e.g. "t-cs-1", "t-react-1"
+  status      String    @default("done") // "done" | "in-progress"
+  completedAt DateTime? @map("completed_at")
+
+  user Profile @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, taskId])
+  @@map("task_progress")
+}

